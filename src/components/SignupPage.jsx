@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-
 export default function LoginPage() {
 
   const history = useNavigate();
@@ -24,8 +23,7 @@ export default function LoginPage() {
         phoneNumber: Yup.number().typeError("Enter valid Phone number").required("Required"),
         password: Yup.string().min(8, "Minimum characters should be 8").required('Required')
     })
-    const onSubmita = (values, props) => {
-
+    const onSubmit = (values, props) => {
         alert(JSON.stringify(values), null, 2)
         console.log(values)
         props.resetForm()
@@ -86,7 +84,7 @@ export default function LoginPage() {
               <span className="w-2/12 text-gray-500">OR</span>
               <hr className="mt-3 w-5/12 mb-6 border-t" />
           </div> 
-          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmita} >
+          <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit} >
             {(props) => (
                 <form method="POST" onSubmit={registerSubmit}>
                 <div className="relative mb-6 md:flex md:justify-between">
