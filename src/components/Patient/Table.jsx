@@ -3,7 +3,7 @@ import data from './appointments.json'
 import presc from './prescription.json'
 import {AiOutlinePrinter,AiOutlineEye} from 'react-icons/ai'
 
-const Table = ({n1,n2,n3,n4,n5,d}) => {
+const Table = ({d}) => {
     const [details,setDetails] = useState(data);
     const [dd,setDd] = useState(d);
     useEffect(() => {
@@ -22,30 +22,16 @@ const Table = ({n1,n2,n3,n4,n5,d}) => {
                     <table class="min-w-full leading-normal text-center">
                     <thead>
                             <tr>
+                                {details.title.map((n) => (
                                 <th
                                     class="px-5 py-3 border-b-2  border-gray-200 w-3/12 text-center text-sm  text-gray-700 uppercase tracking-wider">
-                                    {n1}
+                                    {n}
                                 </th>
-                                <th
-                                    class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700uppercase tracking-wider">
-                                    {n2}
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700uppercase tracking-wider">
-                                    {n3}
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700uppercase tracking-wider">
-                                    {n4}
-                                </th>
-                                <th
-                                    class="px-5 py-3 border-b-2  border-gray-200 w-3/12  text-center text-sm  text-gray-700uppercase tracking-wider">
-                                    {n5}
-                                </th>
+                                ))}
                             </tr>
                         </thead>
                         <tbody>
-                            {details.map((detail) => (
+                            {details.data.map((detail) => (
                                 <tr>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <div class="flex justify-center">

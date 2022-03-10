@@ -33,10 +33,10 @@ function Tabs({name1,name2}) {
       {/* Below will be the dashboard table  */}
       <div className="">
         <div className={toggleState === 1 ? "content  active-content" : "content"}>
-            <Table n1="Doctor" n2="Appt date" n3="booking Date" n4="Follow Up" n5="Invoice" d={toggleState}/>
+            <Table d={toggleState}/>
         </div>
         <div className={toggleState === 2 ? "content  active-content" : "content"}>
-          <Table n1="Created by" n2="Alloted date" n3="Presciption name" n4="Deadline" n5="Prescription" d={toggleState}/>
+          <Table  d={toggleState}/>
         </div>
       </div>
     </div>
