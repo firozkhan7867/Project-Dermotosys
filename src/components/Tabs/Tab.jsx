@@ -17,7 +17,7 @@ const Tabs = () => {
             className={toggleState === 1 ? "tabs active-tabs " : "tabs"}
             onClick={() => toggleTab(1)}
             >
-            Tab 1
+            Upcoming
             </button>    
         </div>
         
@@ -26,7 +26,7 @@ const Tabs = () => {
             className={toggleState === 2 ? "tabs active-tabs" : "tabs"}
             onClick={() => toggleTab(2)}
             >
-            Tab 2
+            Today
             </button>
         </div>
       </div>

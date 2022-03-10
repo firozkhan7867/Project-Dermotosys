@@ -3,6 +3,7 @@ import patient from '../img/patient.jpg';
 import doctor from '../img/doctor-thumb-02.jpg';
 import Tabs from '../Tabs/Tab';
 
+
 const Dashboard = () => {
   return (
     <div className="">
