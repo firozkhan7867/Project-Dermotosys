@@ -1,7 +1,8 @@
 import React,{useState} from 'react'
 import {Navigate} from 'react-router-dom'
 import {connect} from "react-redux";
-import { login } from '../actions/auth'
+import { login } from '../actions/auth';
+import main from "./img/c1.png";
 import { Formik} from 'formik';
 import * as Yup from 'yup';
 
@@ -30,17 +31,18 @@ const LoginPage = ({login,isAuthenticated}) => {
     }
 
   return (
-    <div className="flex justify-center md:my-12 lg:my-12">
-      <div className="flex w-full xl:w-7/12 lg:w-7/12 bg-teal-200 h-[576px] shadow-lg">
+    <div className=" flex justify-center md:my-12 lg:my-12">
+      <div className="flex w-full xl:w-8/12 lg:w-8/12 bg-teal-200  mt-10 h-[586px] shadow-lg">
+        <img src={main} alt="" width="35%" height="35%"  className='absolute z-5 lg:right-[50px] lg:left-[460px] lg:top-[230px] lg:bottom-[40px]'/>
         <div className="hidden lg:block lg:w-2/6 ">
         </div>
-        <div className="w-full lg:w-4/6 bg-white  lg:rounded-tl-[50px] lg:rounded-bl-[50px] border-2	">
+        <div className="w-full lg:w-4/6 bg-gray-100  lg:rounded-tl-[50px] lg:rounded-bl-[50px] border-2	">
           <div className="text-right text-zinc-500	mr-4 mt-3">
             English (UK)
           </div>
-          <div className="mx-6 lg:mx-16">
+          <div className=" lg:ml-36 lg:w-8/12">
           <h3 className="ml-2 mt-4 text-1xl md:text-3xl font-semibold md:text-left text-center">Login Form</h3>
-          <div className="lg:flex">
+          <div className="lg:flex justify-center">
               <button role="button" className="border border-gray-300 w-3/4 lg:w-full mt-6 rounded-[15px]">
                 <div className="flex mx-2 my-2 justify-center">
                 < img className=" h-5 cursor-pointer " src="https://i.imgur.com/arC60SB.png" alt="" />
