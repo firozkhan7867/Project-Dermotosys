@@ -14,17 +14,17 @@ const LoginPage = ({login,isAuthenticated}) => {
     const onChange = (e) => setFormData({ ...formData,[e.target.name]: e.target.value   })
 
     if(isAuthenticated){
-        return <Navigate to='/dashboard' />
+        return <Navigate to='/patientdashboard' />
     }
     const initialValues = {
         email: '',
-        password: '',
-        remember: false
+        password: ''
     }
     const validationSchema = Yup.object().shape({
-        email: Yup.string().email('Please enter valid email').required("Required"),
-        password: Yup.string().required("Required")
-    })
+      email: Yup.string().email('Please enter valid email').required("Required"),
+      password: Yup.string().required("Required")
+  })
+
     const onSubmit = (e) => {
         login(email, password);
     }
@@ -62,16 +62,16 @@ const LoginPage = ({login,isAuthenticated}) => {
           </div> 
           <Formik initialValues={initialValues} onSubmit={onSubmit} >
                     {(props) => (
-                        <form action="">
+                        <form>
                         <div className="relative mb-6 md:flex md:justify-between">
-                            <input id="email" type="email" placeholder="Email Address" value={email} onChange={e => onChange(e)} required
+                            <input name="email" type="text" placeholder="Email Address" value={email} onChange={e => onChange(e)} required
                             className="border-b-2 peer rounded text-sm py-3 px-2 w-full placeholder-transparent  outline-none" />
-                            <label htmlFor="email" className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
+                            <label className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Email Address</label>
                         </div>
                         <div className="relative mb-5 md:flex md:justify-between">
-                            <input id="password" type="password" placeholder="Password" value={password} onChange={e => onChange(e)} required
+                            <input name="password" type="password" placeholder="Password" value={password} onChange={e => onChange(e)} required
                             className="border-b-2 peer rounded text-sm py-3 px-2 w-full placeholder-transparent outline-none" />
-                            <label htmlFor="password" className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
+                            <label className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">Password</label>
                         </div>  
                         <div className="justify-end text-right pr-3 text-gray-500">
                             <a href="#" className="text-teal-400">Forgot Password?</a>
@@ -89,7 +89,6 @@ const LoginPage = ({login,isAuthenticated}) => {
                 </Formik>
             
           </div>
-          
         </div>
       </div>
     </div>

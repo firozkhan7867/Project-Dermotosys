@@ -18,7 +18,7 @@ export const login = (email, password) => async dispatch => {
     };
 
     const body = JSON.stringify({ email, password });
-    // console.log(body);
+    console.log(body);
 
     // const body = {email:'sample@miniproject.com',password:'Sample@1234'};
 
