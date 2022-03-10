@@ -1,22 +1,24 @@
 import React from "react";
 import "./App.css";
-// import Login from "./components/Consult/login";
-// import Signup from "./components/Consult/signup";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Dashboard from "../src/components/doctor/Dashboard/Dashboard";
-// import Appointmentform from "./components/Dashboard/Appointmentform";
-// import Homepage from "./components/Home/Homepage";
-import Login from "../src/components/doctor/LoginPage";
-import Home from "../src/components/doctor/home";
-import Signup from "../src/components/doctor/SignupPage";
-import Navbar from "../src/components/doctor/Navbar/index";
-import PatientsList from "./components/doctor/PatientsList";
-import PatientDashboard from "./components/doctor/Patient/PatientDashboard";
-import Schedule from "./components/doctor/Dashboard/DoctorSchedule";
-import ChatBody from "./components/doctor/Chat/components/chatBody/ChatBody";
+import Dashboard from "./components/Dashboard/Dashboard";
+import Login from "./components/LoginPage";
+import Home from "./components/home";
+import Signup from "./components/SignupPage";
+import Navbar from "./components/Navbar/index";
+import PatientsList from "./components/PatientsList";
+import PatientDashboard from "./components/Patient/PatientDashboard";
+import Schedule from "./components/Dashboard/DoctorSchedule";
+import ChatBody from "./components/Chat/components/chatBody/ChatBody";
+import { Provider } from 'react-redux';
+import store from './store';
+import axios from 'axios';
+
+
 function App() {
   return (
     <div className="App">
+      <Provider store={store}>
       <BrowserRouter>
         <Navbar />
         <Routes>
@@ -28,10 +30,10 @@ function App() {
           <Route path="/patientdashboard" element={<PatientDashboard />} />
           <Route path="/doctorSchedule" element={<Schedule />} />
           <Route path="/chat" element={<ChatBody />} />
-          
-          
         </Routes>
       </BrowserRouter>
+      </Provider>
+      
     </div>
   );
 }
