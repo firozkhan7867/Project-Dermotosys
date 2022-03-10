@@ -59,14 +59,19 @@ const Table = ({d}) => {
                                         </p>
                                     </td>
                                     <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                        <p class="text-gray-900 bg-green-300 rounded-sm whitespace-no-wrap">
+                                        {detail.status}
+                                        </p>
+                                    </td>
+                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                         <p class="text-gray-900 whitespace-no-wrap">
                                             {detail.followup}
                                         </p>
                                     </td>
                                     <td>
-                                    <div className="flex border-b px-5 py-5 mr-0 border-gray-200 bg-white text-sm justify-center">
+                                    <div className="flex border-b px-2 py-5 mr-0 border-gray-200 bg-white text-sm justify-center">
                                         <div className="flex">
-                                        <button type="button" class="flex bg-slate-100 text-slate-800 font-small rounded-lg text-sm px-2 py-2.5 text-center mr-2 mb-2 place-items-center hover:bg-slate-200">
+                                        <button type="button" class="flex bg-slate-100 text-slate-800 font-small rounded-lg text-sm px-2 py-2.5 text-center mb-2 place-items-center hover:bg-slate-200">
                                             <AiOutlinePrinter className="mr-2" />Print</button>
                                         <button type="button" class="flex bg-green-100 ml-4 text-green-800 font-small rounded-lg text-sm px-2 py-2.5 text-center mr-2 mb-2 place-items-center hover:bg-green-200">
                                             <AiOutlineEye className="mr-2" />View</button>
@@ -79,23 +84,6 @@ const Table = ({d}) => {
                             
                         </tbody>
                     </table>
-                    {/* <div
-                        class="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between          ">
-                        <span class="text-xs xs:text-sm text-gray-900">
-                            Showing 1 to 5 of 50 Entries
-                        </span>
-                        <div class="inline-flex mt-2 xs:mt-0">
-                            <button
-                                class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-l">
-                                Prev
-                            </button>
-                            &nbsp; &nbsp;
-                            <button
-                                class="text-sm text-indigo-50 transition duration-150 hover:bg-indigo-500 bg-indigo-600 font-semibold py-2 px-4 rounded-r">
-                                Next
-                            </button>
-                        </div>
-                    </div> */}
                 </div>
             </div>
         </div>

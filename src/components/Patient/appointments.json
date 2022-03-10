@@ -1,5 +1,5 @@
 {
-  "title":["Doctor", "Appt date", "booking Date", "Follow Up", "Invoice"],
+  "title":["Doctor", "Appt date", "booking Date","Status", "Follow Up", "Invoice"],
   "data":[
     
     {
@@ -8,6 +8,7 @@
       "id":"DT0016",
       "apptdate": "14 NOV 2019",
       "bookingdate": "12 NOV 2019",
+      "status" : "Success",
       "followup": "16 NOV 2019"
     },
     {
@@ -16,6 +17,7 @@
         "id":"DT0017",
         "apptdate": "14 NOV 2019",
         "bookingdate": "12 NOV 2019",
+        "status" : "Cancelled",
         "followup": "16 NOV 2019"
       },{
         "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80",
@@ -23,6 +25,7 @@
         "id":"DT0018",
         "apptdate": "14 NOV 2019",
         "bookingdate": "12 NOV 2019",
+        "status" : "Success",
         "followup": "16 NOV 2019"
       },{
         "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80",
@@ -30,6 +33,7 @@
         "id":"DT0019",
         "apptdate": "14 NOV 2019",
         "bookingdate": "12 NOV 2019",
+        "status" : "Pending",
         "followup": "16 NOV 2019"
       },{
         "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80",
@@ -37,6 +41,7 @@
         "id":"DT0020",
         "apptdate": "14 NOV 2019",
         "bookingdate": "12 NOV 2019",
+        "status" : "Success",
         "followup": "16 NOV 2019"
       },{
         "url": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2.2&w=160&h=160&q=80",
@@ -44,6 +49,7 @@
         "id":"DT0020",
         "apptdate": "14 NOV 2019",
         "bookingdate": "12 NOV 2019",
+        "status" : "Pending",
         "followup": "16 NOV 2019"
       }
   ]

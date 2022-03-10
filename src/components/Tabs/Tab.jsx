@@ -48,23 +48,23 @@ const Tabs = () => {
                                 <thead>
                                     <tr>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12 text-center text-sm  text-gray-700 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12 text-center text-sm   uppercase tracking-wider">
                                             Patient Name
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Appt Date
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Purpose
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Type
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12  text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12  text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Status
                                         </th>
                                     </tr>
@@ -240,23 +240,23 @@ const Tabs = () => {
                                 <thead>
                                     <tr>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12 text-center text-sm  text-gray-700 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12 text-center text-sm   uppercase tracking-wider">
                                             Patient Name
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Appt Date
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Purpose
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-2/12 text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Type
                                         </th>
                                         <th
-                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12  text-center text-sm  text-gray-700 text-gray-600 uppercase tracking-wider">
+                                            class="px-5 py-3 border-b-2  border-gray-200 w-3/12  text-center text-sm   text-gray-600 uppercase tracking-wider">
                                             Status
                                         </th>
                                     </tr>
