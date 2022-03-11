@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div className="container-fluid">
         <div className="lg:flex">
-            <img src={banner} alt="" />
+            <img src={banner} height="100%" width="100%" alt="" />
         </div>
         <div className="">
             <div className="">
