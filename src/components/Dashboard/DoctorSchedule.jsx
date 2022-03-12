@@ -133,32 +133,32 @@ const Schedule = () => {
                     </select>
                     <div className="mt-8 mx-3">
                         <div className="border rounded gray-700 p-3 sm:flex sm:flex-col flex-col flex lg:grid lg:grid-cols-7 gap-4 ">
-                            <div className={toggleState === 1 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
-                            : "px-5 py-2 border gray-500 text-center"}
+                            <div className={toggleState === 1 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            : "px-5 py-2 border text-center"}
                                 onClick={() => toggleTab(1)}
                             > SUNDAY</div>
-                            <div className={toggleState === 2 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
-                            : "px-5 py-2 border cursor-pointer gray-500 text-center"}
+                            <div className={toggleState === 2 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            : "px-5 py-2 border cursor-pointer text-center"}
                                 onClick={() => toggleTab(2)}
                             > MONDAY</div>
-                            <div className={toggleState === 3 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
-                            : "px-5 py-2 border cursor-pointer gray-500 text-center"}
+                            <div className={toggleState === 3 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            : "px-5 py-2 border cursor-pointer text-center"}
                                 onClick={() => toggleTab(3)}
                             > TUESDAY</div>
-                            <div className={toggleState === 4 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
-                            : "px-5 py-2 border cursor-pointer gray-500 text-center"}
+                            <div className={toggleState === 4 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            : "px-5 py-2 border cursor-pointer text-center"}
                                 onClick={() => toggleTab(4)}
                             > WEDNESDAY</div>
-                            <div className={toggleState === 5 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
-                            : "px-5 py-2 border cursor-pointer gray-500 text-center"}
+                            <div className={toggleState === 5 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            : "px-5 py-2 border cursor-pointer text-center"}
                                 onClick={() => toggleTab(5)}
                             > THURSDAY</div>
-                            <div className={toggleState === 6 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
-                            : "px-5 py-2 border cursor-pointer gray-500 text-center"}
+                            <div className={toggleState === 6 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            : "px-5 py-2 border cursor-pointer text-center"}
                                 onClick={() => toggleTab(6)}
                             > FRIDAY</div>
-                            <div className={toggleState === 7 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
-                            : "px-5 py-2 border cursor-pointer gray-500 text-center"}
+                            <div className={toggleState === 7 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            : "px-5 py-2 border cursor-pointer text-center"}
                                 onClick={() => toggleTab(7)}
                             > SATURDAY</div>
                         </div>

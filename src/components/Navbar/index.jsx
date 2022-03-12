@@ -54,7 +54,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
                 </div>
 
                 :
-                <div className="lg:flex">   
+                <div className="flex">   
                     <NavLink to={"/login"}>
                         Login
                     </NavLink>
