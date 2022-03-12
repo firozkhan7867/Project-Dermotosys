@@ -154,7 +154,7 @@ const Schedule = () => {
                     </select>
                     <div className="mt-8 mx-3">
                         <div className="border rounded gray-700 p-3 sm:flex sm:flex-col flex-col flex lg:grid lg:grid-cols-7 gap-4 ">
-                            <div className={toggleState === 1 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
+                            <div className={toggleState === 1 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#f14772] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border gray-500 text-center"}
                                 onClick={() => toggleTab(1)}
                             > SUNDAY</div>
