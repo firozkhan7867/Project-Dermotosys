@@ -163,16 +163,25 @@ const Schedule = () => {
                             > SATURDAY</div>
                         </div>
                         <div className="border rounded p-3 gray-700">
-                            <div className="text-xl text-gray-700 font-semibold">
-                                Time Slots
+                            <div className="flex justify-between text-xl text-gray-700 font-semibold">
+                                <div className="">Time Slots</div>
+                                { details.length > 0 ?
+                                 <div className="">Add Slot</div> :
+                                 <div className="">Edit Slot</div>
+                                }
                             </div>
                             <div className= "disp mt-5 ml-3 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-6 gap-4" >
                             {/* : " no mt-5 ml-3 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-6 gap-4"}>  */}
-                            {details.map((detail) => (
-                                <div className=" px-3 py-2 bg-red-400">
-                                    {detail}    
-                                </div>
-                            ))}
+                            { details.length > 0 ?
+                                details.map((detail) => (
+                                    <div className=" px-3 py-2 bg-red-400">
+                                        {detail}    
+                                    </div>
+                                )) :
+                                <p className=" px-3 py-2 text-black">
+                                        Not Available   
+                                </p>
+                             }
                             </div>
                         </div>
                     </div>

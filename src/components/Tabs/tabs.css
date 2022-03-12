@@ -19,7 +19,7 @@ border-bottom: 1px solid transparent;
   
   .active-tabs  {
     background: #20c0f3;
-    padding: 10px 30px;
+    padding: 10px 10px;
     border-radius: 50px;
     color: white;
     font-weight: bold;

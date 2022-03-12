@@ -4,7 +4,7 @@
     "day2":["10:00 AM to 11:00 AM","03:00 PM to 03:30 PM"],
     "day3":["08:00 AM to 09:00 AM"],
     "day4":["08:00 AM to 09:00 AM","10:00 AM to 11:00 AM","03:00 PM to 03:30 PM"],
-    "day5":["08:00 AM to 09:00 AM","03:00 PM to 03:30 PM"],
+    "day5":[],
     "day6":["08:00 AM to 09:00 AM","03:00 PM to 03:30 PM"],
     "day7":["08:00 AM to 09:00 AM","10:00 AM to 11:00 AM","03:00 PM to 03:30 PM"]
 }
