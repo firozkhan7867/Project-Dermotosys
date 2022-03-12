@@ -16,8 +16,12 @@ const Schedule = () => {
     const [details,setDetails] = useState(slots[`day1`]);
     const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
-    const deleteItem = () => {
-      console.log("click");
+    const deleteItem = (id) => {
+      setDetails((old) =>{
+        return old.filter((arr,index) => {
+          return index !== id;
+        });
+      });
     }
 
     const toggleTab = (index) => {
@@ -230,8 +234,8 @@ const Schedule = () => {
               {/*body*/}
               <div className="relative p-6 flex-auto w-[500px]">
               { details.length > 0 ?
-                  details.map((detail) => (
-                          <ScheduleItems start={detail.start} end={detail.end} details={details} onSelect={deleteItem}/>    
+                  details.map((detail, index) => (
+                          <ScheduleItems start={detail.start} end={detail.end} id={index} onSelect={deleteItem}/>    
                   )) :
                   <p className=" px-3 py-2 text-black">
                           Not Available   
