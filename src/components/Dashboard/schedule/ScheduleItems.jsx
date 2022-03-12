@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { RiDeleteBin6Fill} from "react-icons/ri";
 
-const ScheduleItems = ({start,end, details,onSelect}) => {
+const ScheduleItems = ({start,end, id,onSelect}) => {
   const [startval ,setStartVal] = useState(start);
   const [endval ,setEndVal] = useState(end);
   
@@ -29,7 +29,9 @@ const ScheduleItems = ({start,end, details,onSelect}) => {
               </select>
             </div>
             <div className="w-4/12 text-center flex flex-col justify-center place-items-center">
-                <div className=" bg-red-200 rounded-lg hover:cursor-pointer px-4 py-2 text-red-600" onClick={onSelect}>
+                <div className=" bg-red-200 rounded-lg hover:cursor-pointer px-4 py-2 text-red-600" onClick={() => {
+                  onSelect(id)
+                }}>
                 <RiDeleteBin6Fill  className='w-full h-[30px] '/>
                 </div>
             </div>
