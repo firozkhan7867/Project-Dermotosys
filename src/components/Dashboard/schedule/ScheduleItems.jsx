@@ -11,6 +11,7 @@ const ScheduleItems = ({start,end, id,onSelect}) => {
             <div className="w-full">
               <h1 className='p-3'>Start Time</h1>
               <select name="start" id="start" className='px-4 py-2 rounded-md text-md w-10/12 border-2 ' value={startval} onChange={e => setStartVal(e.target.value)}>
+                  <option className='px-2 py-2'>-</option>
                   <option className='px-2 py-2'>08:00 AM</option>
                   <option className='px-2 py-2'>09:00 AM</option>
                   <option className='px-2 py-2'>10:00 AM</option>
@@ -21,6 +22,7 @@ const ScheduleItems = ({start,end, id,onSelect}) => {
             <div className="w-full">
               <h1 className='p-3'>End Time</h1>
               <select name="end" id="end" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 ' value={endval} onChange={e => setEndVal(e.target.value)}>
+                  <option className='px-2 py-2'>-</option>
                   <option className='px-2 py-2'>08:00 AM</option>
                   <option className='px-2 py-2'>09:00 AM</option>
                   <option className='px-2 py-2'>10:00 AM</option>
