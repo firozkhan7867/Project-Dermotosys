@@ -41,31 +41,31 @@ const HomePage = () => {
                 
             </div>
 
-            <div className="flex flex-col pb-20 justify-center text-white items-center" style={{background:'#10a1ad'}}>
+            <div className="flex flex-col lg:pb-20 xl:pb-20 md:pb-20 pb-14 justify-center text-white items-center" style={{background:'#10a1ad'}}>
                     <h2 className='lg:text-3xl text-xl mt-20 font-bold'> In an Emergency ?  Need Help Now?</h2>
-                    <p className='text-wrap lg:w-8/12 w-10/12 lg:mt-10 md:mt-5 mt-4 lg:text-lg md:text-md sm:text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo et beatae, odit nihil ducimus, 
+                    <p className='text-center lg:w-8/12 w-10/12 lg:mt-10 md:mt-5 mt-4 lg:text-lg md:text-md sm:text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo et beatae, odit nihil ducimus, 
                         natus quos itaque hic porro obcaecati explicabo laudantium impedit soluta eius officia sunt tenetur placeat quia.</p>
                     <Link to={""} className="border text-center hover:bg-white hover:text-gray-800 hover:border-gray-700 rounded-full border-white mt-10 lg:text-2xl md:text-xl text-lg font-bold md:px-3 lg:px-5 md:py-2 lg:py-3 px-3 py-2 lg:w-4/12">
                         Make Appointment
                     </Link>
             </div>  
-            <div className="flex flex-col lg:py-24 md:py-20 py-20  justify-center text-white items-center" >
-                    <h2 className='lg:text-2xl text-xl  font-bold'> Find the right care, doctor,hospital <br />
+            <div className="flex flex-col lg:py-24 md:py-20 py-20 text-center  justify-center text-white items-center" >
+                    <h2 className='lg:text-2xl text-xl w-10/12 text-black font-bold'> Find the right care, doctor,hospital <br />
                     right at your finger tips</h2>
                     <p className='text-wrap text-center lg:w-8/12 w-10/12 lg:mt-8 md:mt-3 mt-3 lg:text-md md:text-md sm:text-sm text-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo et beatae, odit nihil ducimus:</p>
                     
             </div>   
-            <div className="mx-5 bg-gray-100 mb-5">
-                <div className="py-6 px-8 grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 justify-items-center">
-                    <div className="w-11/12 pb-14 shadow-lg bg-white rounded-lg ">
+            <div className="mx-2 xl:mx-5 lg:mx-5 md:mx-5 sm:mx-2  bg-gray-100 mb-5 border-b ">
+                <div className="py-6 px-6 xl:px-8 lg:px-8 md:px-8 grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4 justify-items-center">
+                    <div className="w-full lg:w-11/12 xl:w-11/12 md:w-11/12  pb-14 shadow-lg bg-white rounded-lg ">
                         <div className="h-1  w-full rounded-t-lg" style={{background:'#10a1ad'}}></div>
                         <div className=" w-full  flex flex-col justify-center place-items-center">
-                            <p className="my-8 font-semibold text-center text-3xl">Choose</p>
-                            <img src={choose} alt="" width="250" className=" my-6" />
-                            <p className=" text-center text-1xl text-wrap w-8/12 mb-4">Find Doctors and hospitals based on the factors that matter most to you.</p>
+                            <p className="lg:my-8 xl:my-8 my-2 mt-4   font-semibold text-center text-3xl">Choose</p>
+                            <img src={choose} alt="" width="250" className=" xl:my-6 lg:my-6 md:my-6 sm:my-2 my-2" />
+                            <p className=" text-center text-1xl text-wrap w-8/12 xl:mb-4 lg:mb-4 sm:mb-2 md:mb-4 mb-2">Find Doctors and hospitals based on the factors that matter most to you.</p>
                         </div>
                     </div>
-                    <div className="w-11/12 pb-14 shadow-lg bg-white rounded-lg">
+                    <div className="w-full lg:w-11/12 xl:w-11/12 md:w-11/12 pb-14 shadow-lg bg-white rounded-lg">
                         <div className="h-1  w-full rounded-t-lg" style={{background:'#10a1ad'}}></div>
                         <div className=" w-full  flex flex-col justify-center place-items-center">
                             <p className="my-8 font-semibold text-center text-3xl">Connect</p>
@@ -73,7 +73,7 @@ const HomePage = () => {
                             <p className=" text-center text-1xl text-wrap w-8/12 mb-4">Conveniently shedule your appointment by phone or online when available.</p>
                         </div>
                     </div>
-                    <div className="w-11/12 pb-14 shadow-lg bg-white rounded-lg">
+                    <div className="w-full lg:w-11/12 xl:w-11/12 md:w-11/12 pb-14 shadow-lg bg-white rounded-lg">
                         <div className="h-1  w-full rounded-t-lg" style={{background:'#10a1ad'}}></div>
                         <div className="w-full  flex flex-col justify-center place-items-center">
                             <p className="my-12 font-semibold text-center text-3xl">Prepare</p>
@@ -83,13 +83,13 @@ const HomePage = () => {
                     </div>
                 </div>
             </div> 
-            <div className="py-10 flex flex-col text-center justify-center items-center">  
+            <div className="py-10 flex flex-col text-center justify-center items-center border-b lg:border-none xl:border-none  ">  
                 <h1 className='text-gray-600 font-bold text-3xl mb-4'>About Us</h1>
                 <p className='w-10/12 mt-4 text-gray-500'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magni eum perferendis odit mollitia amet iste aspernatur vero dolores natus,
                      provident consectetur quis perspiciatis pr aesentium dolore similique adipisci soluta aliquid.</p>       
-            </div>
-            <div className="lg:mx-12  mb-10">
-                <div className="py-4 px-16 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center">
+            </div> 
+            <div className="lg:mx-12  mx-2 mb-10">
+                <div className="py-4 lg:px-16 xl:px-16 md:px-14 px-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center">
                     <div className="w-full  flex flex-col m-3 bg-gray-300 justify-center place-items-center">
                         
                     </div>
@@ -112,41 +112,61 @@ const HomePage = () => {
                     </div>
                 </div>
             </div> 
-            <div className="w-full p-10 text-center flex flex-col items-center" style={{background:"#f4f8f9"}}>
+            <div className="w-full lg:px-10 xl:p-10 md:p-10 px-4 mb-5 text-center flex flex-col items-center" style={{background:"#f4f8f9"}}>
+                <div className="mb-5">
                 <h1 className='text-3xl font-bold text-gray-700 mt-5'>SERVICES</h1>
-                <p className='w-10/12 text-center mt-5 font-bold text-md text-gray-600 mb-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, quisquam 
+                <p className='lg:w-10/12 xl:w-10/12  text-center mt-5 font-bold text-md text-gray-600 mb-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, quisquam 
                     velit possimus voluptate illo nostrum quas eum ipsum nobis at repellat, 
                     reiciendis aliquid dolor? Nemo non cum ullam illum in.</p>
-                <div className="shadow-xl bg-white rounded-md p-5 pp w-full h-[600px] grid grid-cols-3 gap-2 items-center justify-center">
-                    <div className="flex flex-col  justify-center items-center">
-                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
-                        <RiHeartPulseFill className='w-full h-[90px] ' style={{color:"#3fbbc0"}} />
+                </div>
+                <div className="shadow-xl bg-white rounded-md lg:p-5 xl:p-5 md:p-5 px-2 py-4 pp w-full  grid xl:grid-cols-3 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 grid-cols-1 gap-2 items-center justify-center">
+                    <div className="flex flex-col  justify-center mb-4 items-center">
+                        <div className="h-[130px] w-[130px] pt-8 rounded-full border shadow-lg  justify-center items-center">
+                        <RiHeartPulseFill className='w-full h-[70px] ' style={{color:"#3fbbc0"}} />
                         </div>
+                        <h1 className='mt-4 text-xl font-bold text-gray-500'>Lorem Ipsum</h1>
+                        <div className="border-b-4 h-4 w-1/12" style={{borderColor:"#3fbbc0"}}></div>
+                        <div className="text-center w-8/12 text-sm mt-4 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi</div>
                     </div>
-                    <div className="flex flex-col  justify-center items-center">
-                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
-                        <GiMedicines className='w-full h-[90px] ' style={{color:"#3fbbc0"}} />
+                    <div className="flex flex-col  justify-center mb-4 items-center">
+                        <div className="h-[130px] w-[130px] pt-8 rounded-full border shadow-lg  justify-center items-center">
+                        <GiMedicines className='w-full h-[70px] ' style={{color:"#3fbbc0"}} />
                         </div>
+                        <h1 className='mt-4 text-xl font-bold text-gray-500'>Dolar Sitema</h1>
+                        <div className="border-b-4 h-4 w-1/12" style={{borderColor:"#3fbbc0"}}></div>
+                        <div className="text-center w-8/12 text-sm mt-4 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi</div>
                     </div>
-                    <div className="flex flex-col  justify-center items-center">
-                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
-                        <FaHospitalUser className='w-full h-[70px] ' style={{color:"#3fbbc0"}} />
+                    <div className="flex flex-col  justify-center mb-4 items-center">
+                        <div className="h-[130px] w-[130px] pt-8 rounded-full border shadow-lg  justify-center items-center">
+                        <FaHospitalUser className='w-full h-[60px] ' style={{color:"#3fbbc0"}} />
                         </div>
+                        <h1 className='mt-4 text-xl font-bold text-gray-500'>Sed ut prenciple</h1>
+                        <div className="border-b-4 h-4 w-1/12" style={{borderColor:"#3fbbc0"}}></div>
+                        <div className="text-center w-8/12 text-sm mt-4 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi</div>
                     </div>
-                    <div className="flex flex-col  justify-center items-center">
-                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
-                        <RiHotelBedFill className='w-full h-[90px] ' style={{color:"#3fbbc0"}} />
+                    <div className="flex flex-col  justify-center mb-4 items-center">
+                        <div className="h-[130px] w-[130px] pt-8 rounded-full border shadow-lg  justify-center items-center">
+                        <RiHotelBedFill className='w-full h-[70px] ' style={{color:"#3fbbc0"}} />
                         </div>
+                        <h1 className='mt-4 text-xl font-bold text-gray-500'>Magni Dolares</h1>
+                        <div className="border-b-4 h-4 w-1/12" style={{borderColor:"#3fbbc0"}}></div>
+                        <div className="text-center w-8/12 text-sm mt-4 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi</div>
                     </div>
-                    <div className="flex flex-col  justify-center items-center">
-                        <div className="h-[150px] w-[150px] pt-6 rounded-full shadow-xl  justify-center items-center">
-                        <FaWheelchair className='w-full h-[80px] ' style={{color:"#3fbbc0"}} />
+                    <div className="flex flex-col  justify-center mb-4 items-center">
+                        <div className="h-[130px] w-[130px] pt-6 rounded-full border shadow-lg  justify-center items-center">
+                        <FaWheelchair className='w-full h-[60px] ' style={{color:"#3fbbc0"}} />
                         </div>
+                        <h1 className='mt-4 text-xl font-bold text-gray-500'>Nemo Erim</h1>
+                        <div className="border-b-4 h-4 w-1/12" style={{borderColor:"#3fbbc0"}}></div>
+                        <div className="text-center w-8/12 text-sm mt-4 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi</div>
                     </div>
-                    <div className="flex flex-col  justify-center items-center">
-                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
-                        <BsClipboardPlus className='w-full h-[70px] ' style={{color:"#3fbbc0"}} />
+                    <div className="flex flex-col  justify-center mb-4 items-center">
+                        <div className="h-[130px] w-[130px] pt-8 rounded-full border shadow-lg  justify-center items-center">
+                        <BsClipboardPlus className='w-full h-[60px] ' style={{color:"#3fbbc0"}} />
                         </div>
+                        <h1 className='mt-4 text-xl font-bold text-gray-500'>Elusmod Tempor</h1>
+                        <div className="border-b-4 h-4 w-1/12" style={{borderColor:"#3fbbc0"}}></div>
+                        <div className="text-center w-8/12 text-sm mt-4 text-gray-600">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sequi</div>
                     </div>
                 </div>
             </div>
