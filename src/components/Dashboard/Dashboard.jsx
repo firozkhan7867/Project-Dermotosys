@@ -44,10 +44,12 @@ const Dashboard = () => {
               Newyork, United States
             </p>
           </div>
-          <div className="flex text-left	px-4 text-md capitalize text-gray-600 place-items-center hover:text-sky-400">
-                <MdOutlineSpaceDashboard className="mr-2" />
-                <Link to="/patientdashboard" className="ml-2">Dashboard</Link>
-              </div>
+          <div className="container-fluid border-1 border-slate-100 py-4">
+            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+              <RiCalendarCheckFill className="mr-2" />
+              Appointments
+            </p>
+          </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <RiCalendarCheckFill className="mr-2" />

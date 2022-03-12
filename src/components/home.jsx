@@ -42,7 +42,7 @@ const HomePage = () => {
                         Make Appointment
                     </Link>
             </div>  
-            <div className="flex flex-col lg:py-24 md:py-20 py-20 text-gray-700 justify-center text-white items-center" >
+            <div className="flex flex-col lg:py-24 md:py-20 py-20  justify-center text-white items-center" >
                     <h2 className='lg:text-2xl text-xl  font-bold'> Find the right care, doctor,hospital <br />
                     right at your finger tips</h2>
                     <p className='text-wrap text-center lg:w-8/12 w-10/12 lg:mt-8 md:mt-3 mt-3 lg:text-md md:text-md sm:text-sm text-black'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo et beatae, odit nihil ducimus:</p>
@@ -106,7 +106,6 @@ const HomePage = () => {
                 </div>
             </div> 
             <div className="w-full">
-                        
                 <Footer />    
             </div>
             
