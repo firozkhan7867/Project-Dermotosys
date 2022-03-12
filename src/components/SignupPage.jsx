@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Formik } from "formik";
-import * as Yup from "yup";
+import { Formik,Form } from "formik";
 import main from "./img/c1.png";
-import axios from "axios";
-import { useNavigate,Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { signup } from "../actions/auth";
+import { Link , Navigate } from "react-router-dom";
 
-export default function LoginPage() {
-  const history = useNavigate();
+const SignupPage = ({signup, isAuthenticated}) => {
   const initialValues = {
     name: "",
     email: "",
@@ -17,48 +16,31 @@ export default function LoginPage() {
     email: "",
     password: "",
   });
-  const validationSchema = Yup.object().shape({
-    name: Yup.string().min(3, "It's too short").required("Required"),
-    email: Yup.string().email("Enter valid email").required("Required"),
-    phoneNumber: Yup.number()
-      .typeError("Enter valid Phone number")
-      .required("Required"),
-    password: Yup.string()
-      .min(8, "Minimum characters should be 8")
-      .required("Required"),
-  });
-  const onSubmit = (values, props) => {
-    alert(JSON.stringify(values), null, 2);
-    console.log(values);
-    props.resetForm();
-  };
-  const handleInput = (e) => {
-    e.persist();
-    setRegister({ ...registerInput, [e.target.name]: e.target.value });
-  };
-  const registerSubmit = (e) => {
-    e.preventDefault();
-    const data = {
-      name: registerInput.name,
-      email: registerInput.email,
-      password: registerInput.password,
-    };
-    console.log(data);
-    axios
-      .post("http://127.0.0.1:8000/api/register", data)
-      .then((res) => {
-        history.push("/login");
-        console.log("s")
-        if (res.data.status === "success") {
-            console.log("success")
-          localStorage.setItem("auth_token", res.data.token);
-          localStorage.setItem("auth_name", res.data.account);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  const [accountCreated, setAccountCreated] = useState(false);
+    const [formData, setFormData] = useState({
+        name:'',
+        email:'',
+        password:'',
+    });
+
+    const {name,email, password} = formData;
+    
+    const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value});
+
+
+    const onSubmit = (e) => {
+          // e.preventDefault();
+            const v = signup( name,email, password);
+              setAccountCreated(true);
+            
+    }
+
+    if (isAuthenticated){
+        return <Navigate to="/patientdashboard" />
+    }
+    if (accountCreated){
+        return <Navigate to="/login" />
+    }
 
   return (
     <div className="flex justify-center my-12 md:my-6 lg:my-6">
@@ -117,19 +99,18 @@ export default function LoginPage() {
             </div>
             <Formik
               initialValues={initialValues}
-              validationSchema={validationSchema}
               onSubmit={onSubmit}
             >
               {(props) => (
-                <form method="POST" onSubmit={registerSubmit}>
+                <Form method="POST">
                   <div className="relative mb-6 md:flex md:justify-between">
                     <input
                       name="name"
                       id="fullname"
                       type="text"
                       placeholder="Full Name"
-                      onChange={handleInput}
-                      value={registerInput.name}
+                      onChange={(e) => onChange(e)}
+                      value={name}
                       className="border-b-2 peer rounded text-sm py-3 px-2 w-full placeholder-transparent  outline-none"
                     />
                     <label className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
@@ -142,8 +123,8 @@ export default function LoginPage() {
                       id="email"
                       type="email"
                       placeholder="Email Address"
-                      onChange={handleInput}
-                      value={registerInput.email}
+                      onChange={(e) => onChange(e)}
+                      value={email}
                       className="border-b-2 peer rounded  text-sm py-3 px-2 w-full placeholder-transparent  outline-none"
                     />
                     <label className="absolute left-2 -top-3.5 text-gray-800 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
@@ -156,8 +137,8 @@ export default function LoginPage() {
                       id="password"
                       type="password"
                       placeholder="Password"
-                      onChange={handleInput}
-                      value={registerInput.password}
+                      onChange={(e) => onChange(e)}
+                      value={password}
                       className="border-b-2 peer rounded  text-sm py-3 px-2 w-full placeholder-transparent outline-none"
                     />
                     <label className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
@@ -180,7 +161,7 @@ export default function LoginPage() {
                       Login
                     </Link>
                   </div>
-                </form>
+                </Form>
               )}
             </Formik>
           </div>
@@ -189,3 +170,11 @@ export default function LoginPage() {
     </div>
   );
 }
+
+const mapStateToProps = state => ({
+  isAuthenticated: state.auth.isAuthenticated
+});
+
+
+
+export default connect(mapStateToProps, {signup})(SignupPage);

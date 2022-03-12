@@ -1,6 +1,8 @@
 import {
     LOGIN_SUCCESS,
     LOGIN_FAIL,
+    SIGNUP_SUCCESS,
+    SIGNUP_FAIL,
     USER_LOADED_SUCCESS,
     USER_LOADED_FAIL,
     AUTHENTICATED_SUCCESS,
@@ -50,6 +52,15 @@ export default function(state = initialState, action) {
                 ...state,
                 user: null
             }
+        
+        case SIGNUP_SUCCESS:
+            localStorage.setItem("auth_token", payload.token);
+            localStorage.setItem("auth_name", payload.account);
+            return{
+                ...state,
+                isAuthenticated: false
+            }
+        case SIGNUP_FAIL:
         case LOGIN_FAIL:
         case LOGOUT:
             // localStorage.removeItem('access');
