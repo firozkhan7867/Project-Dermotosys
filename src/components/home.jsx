@@ -6,6 +6,13 @@ import connect from './img/connect.jpg';
 import prepare from './img/prepare.jpg';
 import { CheckIcon } from './Navbar/NavbarElements';
 import Footer from  "./Footer/Footer"  ;
+import "./home.css";
+import {RiHeartPulseFill } from "react-icons/ri";
+import {FaHospitalUser ,FaWheelchair} from "react-icons/fa";
+import {GiMedicines } from "react-icons/gi";
+import {RiHotelBedFill } from "react-icons/ri";
+import {BsClipboardPlus } from "react-icons/bs";
+
 
 const HomePage = () => {
   return (
@@ -90,7 +97,7 @@ const HomePage = () => {
                         <h2 className='text-left font-bold text-lg p-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia tenetur enim, hic at ad minus</h2>
                         <h3 className='text-sm text-left text-gray-800 p-3'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque ea ipsum repudiandae debitis consequuntur. Inventore, recusandae </h3>
                         <div className="">
-                        <p className='flex items-center p-3'><CheckIcon cl /> <p className='ml-6 text-gray-500 font-bold text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam</p> </p>
+                        <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-gray-500 font-bold text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam</p> </p>
                         <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-gray-500 font-bold text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam</p> </p>
                         <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-left text-gray-500 w-11/12 font-bold text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam 
                                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam
@@ -105,6 +112,44 @@ const HomePage = () => {
                     </div>
                 </div>
             </div> 
+            <div className="w-full p-10 text-center flex flex-col items-center" style={{background:"#f4f8f9"}}>
+                <h1 className='text-3xl font-bold text-gray-700 mt-5'>SERVICES</h1>
+                <p className='w-10/12 text-center mt-5 font-bold text-md text-gray-600 mb-5'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sit, quisquam 
+                    velit possimus voluptate illo nostrum quas eum ipsum nobis at repellat, 
+                    reiciendis aliquid dolor? Nemo non cum ullam illum in.</p>
+                <div className="shadow-xl bg-white rounded-md p-5 pp w-full h-[600px] grid grid-cols-3 gap-2 items-center justify-center">
+                    <div className="flex flex-col  justify-center items-center">
+                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
+                        <RiHeartPulseFill className='w-full h-[90px] ' style={{color:"#3fbbc0"}} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col  justify-center items-center">
+                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
+                        <GiMedicines className='w-full h-[90px] ' style={{color:"#3fbbc0"}} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col  justify-center items-center">
+                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
+                        <FaHospitalUser className='w-full h-[70px] ' style={{color:"#3fbbc0"}} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col  justify-center items-center">
+                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
+                        <RiHotelBedFill className='w-full h-[90px] ' style={{color:"#3fbbc0"}} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col  justify-center items-center">
+                        <div className="h-[150px] w-[150px] pt-6 rounded-full shadow-xl  justify-center items-center">
+                        <FaWheelchair className='w-full h-[80px] ' style={{color:"#3fbbc0"}} />
+                        </div>
+                    </div>
+                    <div className="flex flex-col  justify-center items-center">
+                        <div className="h-[150px] w-[150px] pt-8 rounded-full shadow-xl  justify-center items-center">
+                        <BsClipboardPlus className='w-full h-[70px] ' style={{color:"#3fbbc0"}} />
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="w-full">
                 <Footer />    
             </div>

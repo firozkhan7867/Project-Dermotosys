@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink as Link } from 'react-router-dom';
 import {FaBars} from 'react-icons/fa';
-import {BsCheck2Circle } from "react-icons/bs";
+import {BsCheck2Circle , RiHeartPulseFill } from "react-icons/bs";
 
 
 export const Nav  = styled.nav`
