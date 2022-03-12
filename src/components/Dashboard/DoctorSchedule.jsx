@@ -13,6 +13,7 @@ import { RiLogoutBoxRLine, RiCalendarCheckFill } from "react-icons/ri";
 
 const Schedule = () => {
     const [details,setDetails] = useState(slots[`day1`]);
+    const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
 
     const toggleTab = (index) => {
@@ -170,7 +171,7 @@ const Schedule = () => {
                             <div className="flex justify-between">
                                 <div className="text-xl text-gray-700 font-semibold">Time Slots</div>
                                 { details.length > 0 ?
-                                 <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer">
+                                 <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer" onClick={() => setShowModal(true)}  > 
                                      <FiEdit className="mr-1 mt-1" />Edit</div> :
                                  <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer">
                                      <AiOutlineFileAdd className="mr-1 mt-1" />Add Slot</div>
@@ -196,8 +197,133 @@ const Schedule = () => {
 
             </div>
       </div>
+
+
+      // Modal Code -----------------------------
+
+    {showModal ? (
+      <>
+        <div
+          className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+        >
+          <div className="relative w-auto my-6 mx-auto max-w-3xl">
+            {/*content*/}
+            <div className="border-0 rounded-xl shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+              {/*header*/}
+              <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                <h3 className="text-3xl font-semibold">
+                  Edit Time Slots
+                </h3>
+                <button
+                  className="p-1 ml-auto border-0 text-black float-right text-3xl leading-none font-semibold "
+                  onClick={() => setShowModal(false)}
+                >
+                  <span className=" text-red-600 font-bold float-right rounded-full  h-6 w-6 text-3xl">
+                    ×
+                  </span>
+                </button>
+              </div>
+              {/*body*/}
+              <div className="relative p-6 flex-auto w-[500px]">
+                <div className="flex justify-between w-full">
+                  <div className="w-full">
+                    <h1 className='p-3'>Start Time</h1>
+                    <select name="s1" id="s1" className='px-4 py-2 rounded-md text-md w-10/12 border-2 '>
+                      <option value="" className='px-2 py-2'>1.30pm</option>
+                      <option value="" className='px-2 py-2'>2.30pm</option>
+                      <option value="" className='px-2 py-2'>3.30pm</option>
+                      <option value="" className='px-2 py-2'>4.30pm</option>
+                      <option value="" className='px-2 py-2'>5.30pm</option>
+                    </select>
+                  </div>
+                  <div className="w-full">
+                    <h1 className='p-3'>End Time</h1>
+                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
+                      <option value="" className='px-2 py-2'>1.30pm</option>
+                      <option value="" className='px-2 py-2'>2.30pm</option>
+                      <option value="" className='px-2 py-2'>3.30pm</option>
+                      <option value="" className='px-2 py-2'>4.30pm</option>
+                      <option value="" className='px-2 py-2'>5.30pm</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="flex justify-between w-full">
+                  <div className="w-full">
+                    <h1 className='p-3'>Start Time</h1>
+                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
+                      <option value="" className='px-2 py-2'>1.30pm</option>
+                      <option value="" className='px-2 py-2'>2.30pm</option>
+                      <option value="" className='px-2 py-2'>3.30pm</option>
+                      <option value="" className='px-2 py-2'>4.30pm</option>
+                      <option value="" className='px-2 py-2'>5.30pm</option>
+                    </select>
+                  </div>
+                  <div className="w-full">
+                    <h1 className='p-3'>End Time</h1>
+                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
+                      <option value="" className='px-2 py-2'>1.30pm</option>
+                      <option value="" className='px-2 py-2'>2.30pm</option>
+                      <option value="" className='px-2 py-2'>3.30pm</option>
+                      <option value="" className='px-2 py-2'>4.30pm</option>
+                      <option value="" className='px-2 py-2'>5.30pm</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="flex justify-between w-full">
+                  <div className="w-full">
+                    <h1  className='p-3'>Start Time</h1>
+                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
+                      <option value="" className='px-2 py-2'>1.30pm</option>
+                      <option value="" className='px-2 py-2'>2.30pm</option>
+                      <option value="" className='px-2 py-2'>3.30pm</option>
+                      <option value="" className='px-2 py-2'>4.30pm</option>
+                      <option value="" className='px-2 py-2'>5.30pm</option>
+                    </select>
+                  </div>
+                  <div className="w-full">
+                    <h1 className='p-3'>End Time</h1>
+                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
+                      <option value="" className='px-2 py-2'>1.30pm</option>
+                      <option value="" className='px-2 py-2'>2.30pm</option>
+                      <option value="" className='px-2 py-2'>3.30pm</option>
+                      <option value="" className='px-2 py-2'>4.30pm</option>
+                      <option value="" className='px-2 py-2'>5.30pm</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+              {/*footer*/}
+              <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                <button
+                  className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                >
+                  Close
+                </button>
+                <button
+                  className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                  type="button"
+                  onClick={() => setShowModal(false)}
+                >
+                  Save Changes
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+      </>
+    ) : null}
+
+
+
       </div>
-      
+
+
+
+
+          
   )
 }
 
