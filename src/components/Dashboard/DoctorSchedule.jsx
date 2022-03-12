@@ -30,7 +30,7 @@ const Schedule = () => {
     };
 
   return (
-    <div className="">
+    <div className="tt">
           <div className="container-fluid h-24" style={{backgroundColor: "#15558d"}}>
           <div className="flex justify-content-start pt-4">
               <div className="pl-4 text-sm text-white">
