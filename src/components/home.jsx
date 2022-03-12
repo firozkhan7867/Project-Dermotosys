@@ -21,19 +21,17 @@ const HomePage = () => {
             <img src={banner} height="100%" width="100%" alt="" />
         </div>
         <div className="">
-            <div className="">
-            </div>
-            <div className="lg:mx-12 my-4 ">
+            <div className="lg:mx-12 my-2">
                 <div className="mb-10 p-10">
                     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-16 gap-8 ">
-                        <div className="flex flex-col items-center justify-center shadow-md h-60 border-2 border-gray w-full  rounded-3xl bg-white">
+                        <div className="flex flex-col transition-all ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full  rounded-3xl bg-white">
                                 hi
                         </div>
-                        <div className="flex flex-col items-center justify-center shadow-md h-60 border-2 border-gray w-full rounded-3xl bg-white">
+                        <div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full rounded-3xl bg-white">
                                 hi
-                        </div><div className="flex flex-col items-center justify-center h-60 border-2 border-gray w-full shadow-md rounded-3xl bg-white">
+                        </div><div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60 border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
                                 hi
-                        </div><div className="flex flex-col items-center justify-center h-60  border-2 border-gray w-full shadow-md rounded-3xl bg-white">
+                        </div><div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60  border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
                                 hi
                         </div>
                     </div>

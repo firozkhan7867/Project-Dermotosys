@@ -1,9 +1,12 @@
 import React, { useState } from 'react'
 import "./NavbarCss.css";
 import { Nav,NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements';
+import {connect} from 'react-redux';
+import {logout} from '../../actions/auth';
 
 
-const Navbar = () => {
+
+const Navbar = ({ logout, isAuthenticated }) => {
 
     const [showmedia, setshowmedia] = useState(false);
   return (
@@ -17,9 +20,12 @@ const Navbar = () => {
                  Home
              </NavLink>
              <NavLink to={""}>
+                 About
+             </NavLink>
+             <NavLink to={""}>
                  Services
              </NavLink>
-             <NavLink to={"/patientslist"}>
+             {/* <NavLink to={"/patientslist"}>
                  PatientList
              </NavLink>
              <NavLink to={"/doctordashboard"}>
@@ -30,25 +36,45 @@ const Navbar = () => {
              </NavLink>
              <NavLink to={"/doctorSchedule"}>
                     Doctor Schedule
-             </NavLink>
-             <NavLink to={"/chat"}>
+             </NavLink> */}
+             {/* <NavLink to={"/chat"}>
                     Chat
-             </NavLink>
+             </NavLink> */}
         </NavMenu>
         <NavBtn>
-            <NavLink to={"/login"}>
-                 Login
-             </NavLink>
-             /
-             <NavLink to={"signup"}>
-                Register
-             </NavLink>
-             <NavBtnLink to={""}>
-                Book your slot
-             </NavBtnLink>
+            {isAuthenticated 
+                ? 
+                <div>
+                    <NavBtnLink to={""}>
+                        Book your slot
+                    </NavBtnLink>
+                    <NavBtnLink to={""} onClick={logout}>
+                        Logout
+                    </NavBtnLink>
+                </div>
+
+                :
+                <div className="lg:flex">   
+                    <NavLink to={"/login"}>
+                        Login
+                    </NavLink>
+                    <NavLink to={""}>
+                        /
+                    </NavLink>
+                    <NavLink to={"signup"}>
+                        Register
+                    </NavLink>
+                </div>
+            }
         </NavBtn>
     </Nav>
   )
 }
 
-export default Navbar;
+
+
+const mapsStateToProps = state => ({
+    isAuthenticated: state.auth.isAuthenticated
+})
+
+export default connect(mapsStateToProps , { logout })(Navbar);

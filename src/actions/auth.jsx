@@ -65,3 +65,12 @@ export const signup = (name,email, password) => async dispatch => {
         return 0;
     }
 };
+
+
+
+
+export const logout = () => dispatch => {
+    dispatch({
+        type:  LOGOUT,
+    });
+}
