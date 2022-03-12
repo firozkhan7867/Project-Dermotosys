@@ -8,13 +8,17 @@ import { AiOutlineUserAdd,AiOutlineFileAdd } from "react-icons/ai";
 import { FiMessageSquare, FiCalendar,FiEdit } from "react-icons/fi";
 import { GrUserSettings, GrDocumentText } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
-import { RiLogoutBoxRLine, RiCalendarCheckFill } from "react-icons/ri";
+import { RiLogoutBoxRLine, RiCalendarCheckFill} from "react-icons/ri";
+import ScheduleItems from './schedule/ScheduleItems';
 
 
 const Schedule = () => {
     const [details,setDetails] = useState(slots[`day1`]);
     const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
+    const deleteItem = () => {
+      console.log("click");
+    }
 
     const toggleTab = (index) => {
         setDetails(slots[`day${index}`]);
@@ -182,7 +186,7 @@ const Schedule = () => {
                             { details.length > 0 ?
                                 details.map((detail) => (
                                     <div className=" px-3 py-2 bg-[#d9534f] rounded-md">
-                                        {detail}    
+                                        {detail.start} To {detail.end}     
                                     </div>
                                 )) :
                                 <p className=" px-3 py-2 text-black">
@@ -225,72 +229,14 @@ const Schedule = () => {
               </div>
               {/*body*/}
               <div className="relative p-6 flex-auto w-[500px]">
-                <div className="flex justify-between w-full">
-                  <div className="w-full">
-                    <h1 className='p-3'>Start Time</h1>
-                    <select name="s1" id="s1" className='px-4 py-2 rounded-md text-md w-10/12 border-2 '>
-                      <option value="" className='px-2 py-2'>1.30pm</option>
-                      <option value="" className='px-2 py-2'>2.30pm</option>
-                      <option value="" className='px-2 py-2'>3.30pm</option>
-                      <option value="" className='px-2 py-2'>4.30pm</option>
-                      <option value="" className='px-2 py-2'>5.30pm</option>
-                    </select>
-                  </div>
-                  <div className="w-full">
-                    <h1 className='p-3'>End Time</h1>
-                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
-                      <option value="" className='px-2 py-2'>1.30pm</option>
-                      <option value="" className='px-2 py-2'>2.30pm</option>
-                      <option value="" className='px-2 py-2'>3.30pm</option>
-                      <option value="" className='px-2 py-2'>4.30pm</option>
-                      <option value="" className='px-2 py-2'>5.30pm</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="flex justify-between w-full">
-                  <div className="w-full">
-                    <h1 className='p-3'>Start Time</h1>
-                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
-                      <option value="" className='px-2 py-2'>1.30pm</option>
-                      <option value="" className='px-2 py-2'>2.30pm</option>
-                      <option value="" className='px-2 py-2'>3.30pm</option>
-                      <option value="" className='px-2 py-2'>4.30pm</option>
-                      <option value="" className='px-2 py-2'>5.30pm</option>
-                    </select>
-                  </div>
-                  <div className="w-full">
-                    <h1 className='p-3'>End Time</h1>
-                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
-                      <option value="" className='px-2 py-2'>1.30pm</option>
-                      <option value="" className='px-2 py-2'>2.30pm</option>
-                      <option value="" className='px-2 py-2'>3.30pm</option>
-                      <option value="" className='px-2 py-2'>4.30pm</option>
-                      <option value="" className='px-2 py-2'>5.30pm</option>
-                    </select>
-                  </div>
-                </div>
-                <div className="flex justify-between w-full">
-                  <div className="w-full">
-                    <h1  className='p-3'>Start Time</h1>
-                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
-                      <option value="" className='px-2 py-2'>1.30pm</option>
-                      <option value="" className='px-2 py-2'>2.30pm</option>
-                      <option value="" className='px-2 py-2'>3.30pm</option>
-                      <option value="" className='px-2 py-2'>4.30pm</option>
-                      <option value="" className='px-2 py-2'>5.30pm</option>
-                    </select>
-                  </div>
-                  <div className="w-full">
-                    <h1 className='p-3'>End Time</h1>
-                    <select name="s1" id="s1" className=' px-4 py-2 rounded-md text-md w-10/12 border-2 '>
-                      <option value="" className='px-2 py-2'>1.30pm</option>
-                      <option value="" className='px-2 py-2'>2.30pm</option>
-                      <option value="" className='px-2 py-2'>3.30pm</option>
-                      <option value="" className='px-2 py-2'>4.30pm</option>
-                      <option value="" className='px-2 py-2'>5.30pm</option>
-                    </select>
-                  </div>
-                </div>
+              { details.length > 0 ?
+                  details.map((detail) => (
+                          <ScheduleItems start={detail.start} end={detail.end} details={details} onSelect={deleteItem}/>    
+                  )) :
+                  <p className=" px-3 py-2 text-black">
+                          Not Available   
+                  </p>
+              }
               </div>
               {/*footer*/}
               <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
