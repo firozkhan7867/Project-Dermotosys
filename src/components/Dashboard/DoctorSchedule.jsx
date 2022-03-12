@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import doctor from '../img/doctor-thumb-02.jpg';
 import "./Schedule.css";
+import { Link } from "react-router-dom";
 import slots from "./slots.json";
 import { MdOutlineSpaceDashboard, MdPassword, MdStar } from "react-icons/md";
-import { AiOutlineUserAdd } from "react-icons/ai";
-import { FiMessageSquare, FiCalendar } from "react-icons/fi";
+import { AiOutlineUserAdd,AiOutlineFileAdd } from "react-icons/ai";
+import { FiMessageSquare, FiCalendar,FiEdit } from "react-icons/fi";
 import { GrUserSettings, GrDocumentText } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
 import { RiLogoutBoxRLine, RiCalendarCheckFill } from "react-icons/ri";
@@ -51,16 +52,18 @@ const Schedule = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/doctordashboard">
               <MdOutlineSpaceDashboard className="mr-2" />
               Dashboard
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/patientslist">
               <RiCalendarCheckFill className="mr-2" />
               Appointments
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
@@ -87,7 +90,8 @@ const Schedule = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/chat">
               <FiMessageSquare className="mr-2" />
               Messages
             </p>
@@ -133,48 +137,50 @@ const Schedule = () => {
                     </select>
                     <div className="mt-8 mx-3">
                         <div className="border rounded gray-700 p-3 sm:flex sm:flex-col flex-col flex lg:grid lg:grid-cols-7 gap-4 ">
-                            <div className={toggleState === 1 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
+                            <div className={toggleState === 1 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border gray-500 text-center"}
                                 onClick={() => toggleTab(1)}
                             > SUNDAY</div>
-                            <div className={toggleState === 2 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
+                            <div className={toggleState === 2 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border cursor-pointer gray-500 text-center"}
                                 onClick={() => toggleTab(2)}
                             > MONDAY</div>
-                            <div className={toggleState === 3 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
+                            <div className={toggleState === 3 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border cursor-pointer gray-500 text-center"}
                                 onClick={() => toggleTab(3)}
                             > TUESDAY</div>
-                            <div className={toggleState === 4 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
+                            <div className={toggleState === 4 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border cursor-pointer gray-500 text-center"}
                                 onClick={() => toggleTab(4)}
                             > WEDNESDAY</div>
-                            <div className={toggleState === 5 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
+                            <div className={toggleState === 5 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border cursor-pointer gray-500 text-center"}
                                 onClick={() => toggleTab(5)}
                             > THURSDAY</div>
-                            <div className={toggleState === 6 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
+                            <div className={toggleState === 6 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border cursor-pointer gray-500 text-center"}
                                 onClick={() => toggleTab(6)}
                             > FRIDAY</div>
-                            <div className={toggleState === 7 ? " px-5 py-2 border gray-500 cursor-pointer text-center active-tabs" 
+                            <div className={toggleState === 7 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#ff4877] cursor-pointer text-center active-day" 
                             : "px-5 py-2 border cursor-pointer gray-500 text-center"}
                                 onClick={() => toggleTab(7)}
                             > SATURDAY</div>
                         </div>
                         <div className="border rounded p-3 gray-700">
-                            <div className="flex justify-between text-xl text-gray-700 font-semibold">
-                                <div className="">Time Slots</div>
+                            <div className="flex justify-between">
+                                <div className="text-xl text-gray-700 font-semibold">Time Slots</div>
                                 { details.length > 0 ?
-                                 <div className="">Add Slot</div> :
-                                 <div className="">Edit Slot</div>
+                                 <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer">
+                                     <FiEdit className="mr-1 mt-1" />Edit</div> :
+                                 <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer">
+                                     <AiOutlineFileAdd className="mr-1 mt-1" />Add Slot</div>
                                 }
                             </div>
-                            <div className= "disp mt-5 ml-3 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-6 gap-4" >
+                            <div className= "disp mt-5 ml-2 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-5 gap-4" >
                             {/* : " no mt-5 ml-3 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-6 gap-4"}>  */}
                             { details.length > 0 ?
                                 details.map((detail) => (
-                                    <div className=" px-3 py-2 bg-red-400">
+                                    <div className=" px-3 py-2 bg-[#d9534f] rounded-md">
                                         {detail}    
                                     </div>
                                 )) :

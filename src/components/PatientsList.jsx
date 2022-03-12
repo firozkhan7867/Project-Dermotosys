@@ -1,6 +1,7 @@
 import React from 'react'
 import patient from './img/patient.jpg';
 import doctor from './img/doctor-thumb-02.jpg';
+import { Link } from "react-router-dom";
 import { MdOutlineSpaceDashboard, MdPassword, MdStar } from "react-icons/md";
 import { AiOutlineUserAdd } from "react-icons/ai";
 import { FiMessageSquare, FiCalendar } from "react-icons/fi";
@@ -40,17 +41,19 @@ const PatientsList = () => {
               Newyork, United States
             </p>
           </div>
-          <div className="container-fluid border-1 border-slate-100 py-4 ">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600 	hover:text-blue-400">
+          <div className="container-fluid border-1 border-slate-100 py-4">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/doctordashboard">
               <MdOutlineSpaceDashboard className="mr-2" />
               Dashboard
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/patientslist">
               <RiCalendarCheckFill className="mr-2" />
               Appointments
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
@@ -59,10 +62,11 @@ const PatientsList = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/doctorSchedule">
               <FiCalendar className="mr-2" />
               Schedule Timings
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
@@ -77,10 +81,11 @@ const PatientsList = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/chat">
               <FiMessageSquare className="mr-2" />
               Messages
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
