@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import { Navigate } from "react-router-dom";
-import { connect } from "react-redux";
-import { login } from "../actions/auth";
+import React,{useState} from 'react'
+import {Navigate} from 'react-router-dom'
+import {connect} from "react-redux";
+import { login } from '../actions/auth';
 import main from "./img/c1.png";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
@@ -15,7 +15,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   if (isAuthenticated) {
-    // console.log("sssjnjnjkn");
+    console.log("sssjnjnjkn");
     return <Navigate to="/patientdashboard" />;
   }
   const initialValues = {
@@ -33,25 +33,17 @@ const LoginPage = ({ login, isAuthenticated }) => {
   return (
     <div className=" flex justify-center md:my-12 lg:my-12">
       <div className="flex w-full xl:w-8/12 lg:w-8/12 bg-teal-200  mt-10 h-[586px] shadow-lg">
-        <img
-          src={main}
-          alt=""
-          width="35%"
-          height="35%"
-          className="absolute z-5 lg:right-[50px] lg:left-[400px] lg:top-[250px] lg:bottom-[40px]"
-        />
-        <div className="hidden lg:block lg:w-2/6 "></div>
+        <img src={main} alt="" width="35%" height="35%"  className='absolute z-5 lg:right-[50px] lg:left-[460px] lg:top-[230px] lg:bottom-[40px]'/>
+        <div className="hidden lg:block lg:w-2/6 ">
+        </div>
         <div className="w-full lg:w-4/6 bg-gray-100  lg:rounded-tl-[50px] lg:rounded-bl-[50px] border-2	">
-          <div className="text-right text-zinc-500	mr-4 mt-3">English (UK)</div>
+          <div className="text-right text-zinc-500	mr-4 mt-3">
+            English (UK)
+          </div>
           <div className=" lg:ml-36 lg:w-8/12">
-            <h3 className="ml-2 mt-4 text-1xl md:text-3xl font-semibold md:text-left text-center">
-              Login Form
-            </h3>
-            <div className="lg:flex justify-center">
-              <button
-                role="button"
-                className="border border-gray-300 w-3/4 lg:w-full lg:ml-2 mt-6 rounded-[15px]"
-              >
+          <h3 className="ml-2 mt-4 text-1xl md:text-3xl font-semibold md:text-left text-center">Login Form</h3>
+          <div className="lg:flex justify-center">
+              <button role="button" className="border border-gray-300 w-3/4 lg:w-full mt-6 rounded-[15px]">
                 <div className="flex mx-2 my-2 justify-center">
                   <img
                     className=" h-5 cursor-pointer "
@@ -63,6 +55,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
                   </p>
                 </div>
               </button>
+
               <button
                 role="button"
                 className="border border-gray-300 w-3/4 lg:w-full lg:ml-2 mt-6 rounded-[15px]"
@@ -95,7 +88,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
                       value={email}
                       onChange={(e) => onChange(e)}
                       required
-                      className="border-b-2 peer rounded bg-gray-100 text-sm py-3 px-2 w-full placeholder-transparent  outline-none"
+                      className="border-b-2 peer rounded text-sm py-3 px-2 w-full placeholder-transparent  outline-none"
                     />
                     <label className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                       Email Address
@@ -109,7 +102,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
                       value={password}
                       onChange={(e) => onChange(e)}
                       required
-                      className="border-b-2 peer rounded bg-gray-100 text-sm py-3 px-2 w-full placeholder-transparent outline-none"
+                      className="border-b-2 peer rounded text-sm py-3 px-2 w-full placeholder-transparent outline-none"
                     />
                     <label className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                       Password
