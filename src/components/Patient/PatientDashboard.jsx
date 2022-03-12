@@ -1,5 +1,6 @@
 import React from "react";
 import patient from "../img/patient.jpg";
+import { Link } from "react-router-dom";
 import {
   MdOutlineSpaceDashboard,
   MdOutlineFavorite,
@@ -53,7 +54,7 @@ const PatientDashboard = () => {
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
               <div className="flex text-left	px-4 text-md capitalize text-gray-600 place-items-center hover:text-sky-400">
                 <MdOutlineSpaceDashboard className="mr-2" />
-                <a className="ml-2">Dashboard</a>
+                <Link to="/patientdashboard" className="ml-2">Dashboard</Link>
               </div>
             </li>
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">

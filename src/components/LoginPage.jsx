@@ -1,10 +1,9 @@
-import React,{useState} from 'react'
-import {Navigate} from 'react-router-dom'
-import {connect} from "react-redux";
-import { login } from '../actions/auth';
-import main from "./img/c1.png";
+import React, { useState } from "react";
+import { Navigate,Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { login } from "../actions/auth";
+import bot from "./img/c1.png";
 import { Formik, Form } from "formik";
-import * as Yup from "yup";
 
 const LoginPage = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({ email: "", password: "" });
@@ -15,42 +14,45 @@ const LoginPage = ({ login, isAuthenticated }) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   if (isAuthenticated) {
-    console.log("sssjnjnjkn");
     return <Navigate to="/patientdashboard" />;
   }
   const initialValues = {
     email: "",
     password: "",
   };
-  const validationSchema = Yup.object().shape({
-    email: Yup.string().email("Please enter valid email").required("Required"),
-    password: Yup.string().required("Required"),
-  });
   const onSubmit = (e) => {
     login(email, password);
   };
 
   return (
-    <div className=" flex justify-center md:my-12 lg:my-12">
-      <div className="flex w-full xl:w-8/12 lg:w-8/12 bg-teal-200  mt-10 h-[586px] shadow-lg">
-        <img src={main} alt="" width="35%" height="35%"  className='absolute z-5 lg:right-[50px] lg:left-[460px] lg:top-[230px] lg:bottom-[40px]'/>
-        <div className="hidden lg:block lg:w-2/6 ">
-        </div>
-        <div className="w-full lg:w-4/6 bg-gray-100  lg:rounded-tl-[50px] lg:rounded-bl-[50px] border-2	">
-          <div className="text-right text-zinc-500	mr-4 mt-3">
-            English (UK)
-          </div>
-          <div className=" lg:ml-36 lg:w-8/12">
-          <h3 className="ml-2 mt-4 text-1xl md:text-3xl font-semibold md:text-left text-center">Login Form</h3>
-          <div className="lg:flex justify-center">
-              <button role="button" className="border border-gray-300 w-3/4 lg:w-full mt-6 rounded-[15px]">
+    <div className=" flex justify-center my-12 mx-2 md:my-6 lg:my-6">
+      <div className="flex w-full xl:w-8/12 lg:w-8/12 bg-teal-200 h-[576px] shadow-lg">
+        <img
+          src={bot}
+          alt=""
+          width="35%"
+          height="35%"
+          className="lg:absolute lg:z-5 lg:right-[50px] lg:left-[400px] lg:top-[190px] lg:bottom-[600px]"
+        />
+        <div className="hidden lg:block lg:w-2/6 "></div>
+        <div className="w-full lg:w-4/6 bg-white  lg:rounded-tl-[50px] lg:rounded-bl-[50px] border-2	">
+          <div className="text-right text-zinc-500	mr-4 mt-3">English (UK)</div>
+          <div className=" mx-6 lg:mx-32">
+            <h3 className="ml-2 mt-4 text-1xl md:text-3xl font-semibold md:text-left text-center">
+              Login Form
+            </h3>
+            <div className="lg:flex">
+              <button
+                role="button"
+                className="border border-gray-300 w-3/4 lg:w-full mt-6 rounded-[15px] hover:bg-gray-100"
+              >
                 <div className="flex mx-2 my-2 justify-center">
                   <img
                     className=" h-5 cursor-pointer "
                     src="https://i.imgur.com/arC60SB.png"
                     alt=""
                   />
-                  <p className="text-md px-2 text-gray-600">
+                  <p className="text-sm px-2 text-gray-600">
                     Continue with Google
                   </p>
                 </div>
@@ -58,7 +60,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
 
               <button
                 role="button"
-                className="border border-gray-300 w-3/4 lg:w-full lg:ml-2 mt-6 rounded-[15px]"
+                className="border border-gray-300 w-3/4 lg:w-full lg:ml-2 mt-6 rounded-[15px] hover:bg-gray-100"
               >
                 <div className="flex mx-2 my-2 justify-center">
                   <img
@@ -66,7 +68,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
                     src="https://i.imgur.com/p0LvxkX.png"
                     alt=""
                   />
-                  <p className="text-md px-2 text-gray-600">
+                  <p className="text-sm px-2 text-gray-600">
                     Continue with Facebook
                   </p>
                 </div>
@@ -88,9 +90,9 @@ const LoginPage = ({ login, isAuthenticated }) => {
                       value={email}
                       onChange={(e) => onChange(e)}
                       required
-                      className="border-b-2 peer rounded text-sm py-3 px-2 w-full placeholder-transparent  outline-none"
+                      className="border-b-2 peer rounded-2 text-sm py-3 px-2 w-full placeholder-transparent  outline-none"
                     />
-                    <label className="absolute left-2 -top-3.5 text-gray-600 text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
+                    <label className="absolute left-2 -top-3.5 text-gray-800  text-sm transition-all peer-placeholder-shown:sm peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-3 peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm">
                       Email Address
                     </label>
                   </div>
@@ -116,16 +118,16 @@ const LoginPage = ({ login, isAuthenticated }) => {
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="bg-teal-400 py-2 px-2 w-2/4 lg:w-full mt-2 rounded-[20px] hover:bg-teal-300 shadow-sm"
+                      className="bg-teal-400 py-2 px-2 w-2/4 lg:w-full mt-2 cursor:pointer rounded-[20px] hover:bg-teal-300 shadow-sm"
                     >
                       <p className="font-bold	 text-lg text-white">Login</p>
                     </button>
                   </div>
                   <div className="flex text-right pr-3 ml-12 mt-4 text-gray-500">
                     <p>Don't have an Account?</p>
-                    <a href="#" className="ml-2 text-teal-400">
+                    <Link to="/signup" className="ml-2 text-teal-400">
                       Sign Up
-                    </a>
+                    </Link>
                   </div>
                 </Form>
               )}
