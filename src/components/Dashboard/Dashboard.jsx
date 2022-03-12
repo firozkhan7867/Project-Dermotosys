@@ -45,16 +45,18 @@ const Dashboard = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
-              <RiCalendarCheckFill className="mr-2" />
-              Appointments
-            </p>
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/doctordashboard">
+              <MdOutlineSpaceDashboard className="mr-2" />
+              Dashboard
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/patientslist">
               <RiCalendarCheckFill className="mr-2" />
               Appointments
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
@@ -63,10 +65,11 @@ const Dashboard = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/doctorSchedule">
               <FiCalendar className="mr-2" />
               Schedule Timings
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
@@ -81,10 +84,11 @@ const Dashboard = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            to="/chat">
               <FiMessageSquare className="mr-2" />
               Messages
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
