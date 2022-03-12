@@ -28,9 +28,9 @@ const ScheduleItems = ({start,end, details,onSelect}) => {
                   <option className='px-2 py-2'>12:00 AM</option>
               </select>
             </div>
-            <div className="w-4/12 text-center flex flex-col justify-center place-items-center">
-                <div className=" bg-red-200 rounded-lg hover:cursor-pointer px-4 py-2 text-red-600" onClick={onSelect}>
-                <RiDeleteBin6Fill  className='w-full h-[30px] '/>
+            <div className="w-4/12 text-center flex flex-col justify-center place-items-center pt-8">
+                <div className=" bg-red-200 rounded-md hover:cursor-pointer px-2 py-1 text-red-600" onClick={onSelect}>
+                <RiDeleteBin6Fill  className='w-full h-[20px] '/>
                 </div>
             </div>
         </div>
