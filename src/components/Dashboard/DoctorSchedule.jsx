@@ -8,9 +8,8 @@ import { AiOutlineUserAdd,AiOutlineFileAdd } from "react-icons/ai";
 import { FiMessageSquare, FiCalendar,FiEdit } from "react-icons/fi";
 import { GrUserSettings, GrDocumentText } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
-import { RiLogoutBoxRLine, RiCalendarCheckFill} from "react-icons/ri";
+import { RiLogoutBoxRLine, RiCalendarCheckFill, RiAddCircleFill} from "react-icons/ri";
 import ScheduleItems from './schedule/ScheduleItems';
-
 
 const Schedule = () => {
     const [details,setDetails] = useState(slots[`day1`]);
@@ -22,6 +21,15 @@ const Schedule = () => {
           return index !== id;
         });
       });
+    }
+
+    const addMore = () => {
+      var data = {"start":"-", "end":"-"}
+
+      setDetails((item) => {
+        return [...item, data]
+      })
+      
     }
 
     const toggleTab = (index) => {
@@ -241,6 +249,9 @@ const Schedule = () => {
                           Not Available   
                   </p>
               }
+              <div className=" mt-5 flex items-center text-lg justify-left text-blue-500 hover:cursor-pointer " onClick={addMore}>
+                <RiAddCircleFill  className='text-blue-500' /> Add More
+              </div>
               </div>
               {/*footer*/}
               <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">

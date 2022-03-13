@@ -13,6 +13,11 @@ import Schedule from "./components/Dashboard/DoctorSchedule";
 import ChatBody from "./components/Chat/components/chatBody/ChatBody";
 import { Provider } from 'react-redux';
 import store from './store';
+<<<<<<< HEAD
+=======
+import axios from 'axios';
+import VideoChat from "./components/Chat/video/videochat";
+>>>>>>> 660e42468b0c83c18a0d5efdbcb6bcb76f3a833a
 
 
 function App() {
@@ -30,7 +35,11 @@ function App() {
           <Route path="/patientdashboard" element={<PatientDashboard />} />
           <Route path="/doctorSchedule" element={<Schedule />} />
           <Route path="/chat" element={<ChatBody />} />
+<<<<<<< HEAD
           <Route path="/makeappointment" element={<MakeAppointment />} />
+=======
+          <Route path="/vchat" element={<VideoChat />} />
+>>>>>>> 660e42468b0c83c18a0d5efdbcb6bcb76f3a833a
         </Routes>
       </BrowserRouter>
       </Provider>
