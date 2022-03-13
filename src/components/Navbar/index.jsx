@@ -3,16 +3,15 @@ import "./NavbarCss.css";
 import { Nav,NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements';
 import {connect} from 'react-redux';
 import {logout} from '../../actions/auth';
-
-
+import logo from '../img/logo.png';
 
 const Navbar = ({ logout, isAuthenticated }) => {
 
     const [showmedia, setshowmedia] = useState(false);
   return (
     <Nav className='shadow-lg lg:pl-10 lg:pr-5'>
-        <NavLink to="/" className={"ml-5"}>
-            <h1>Logo</h1>
+        <NavLink to="/" className={"ml-5 mt-8"}>
+            <img src={logo} alt="" height="200px" width="200px"/>
         </NavLink>
         <Bars onClick={() => setshowmedia(!showmedia)} />
         <NavMenu className={showmedia ? "nav-links-mobile" : "nav-links" }>

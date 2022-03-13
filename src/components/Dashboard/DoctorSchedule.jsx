@@ -61,7 +61,7 @@ const Schedule = () => {
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+            <Link className="flex place-items-center cursor-pointer text-left border-t-2 pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
             to="/doctordashboard">
               <MdOutlineSpaceDashboard className="mr-2" />
               Dashboard
