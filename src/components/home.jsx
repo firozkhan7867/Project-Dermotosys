@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import banner from './img/banner.jpg';
+import banner from './img/banner.png';
 import choose from './img/choose.jpg';
 import connect from './img/connect.jpg';
 import prepare from './img/prepare.jpg';
