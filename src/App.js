@@ -32,8 +32,8 @@ function App() {
           <Route path="/patientdashboard" element={<PatientDashboard />} />
           <Route path="/doctorSchedule" element={<Schedule />} />
           <Route path="/chat" element={<ChatBody />} />
-          <Route path="/makeappointment" element={<MakeAppointment />} />
           <Route path="/vchat" element={<VideoChat />} />
+          <Route path="/makeappointment" element={<MakeAppointment />} />
         </Routes>
       </BrowserRouter>
       </Provider>
