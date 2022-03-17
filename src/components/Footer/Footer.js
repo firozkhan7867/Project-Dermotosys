@@ -6,21 +6,21 @@ import { MdFingerprint } from 'react-icons/md';
 
 function Footer() {
   return (
-    <div className='footer-container'>
+    <div className='footer-container '>
       <section className='footer-subscription'>
         <p className='footer-subscription-heading'>
         Get in touch today
         </p>
-        <div className='input-areas'>
+        <div className='flex flex-row'>
           <form>
             <input
               className='footer-input'
-              name='email'
-              type='email'
+              name='text'
+              type='text'
               placeholder='Your Email'
             />
-            <Button buttonStyle='btn--outline'>Subscribe</Button>
           </form>
+            <Button>Subscribe</Button>
         </div>
       </section>
       <div className='footer-links'>
@@ -30,11 +30,11 @@ function Footer() {
         <div className='footer-link-items'>
             <h2>CloudMd</h2>
             <div className="footer-text">
-            CloudMD Software and Services offers SAAS based health technology 
+            Medicare Software and Services offers SAAS based health technology 
             solutions to medical clinics across Canada. The Company has 
             developed proprietary technology to deliver quality healthcare 
             through the combination of connected primary 
-            care clinics, telemedicine, and artificial intelligence (AI).
+            care clinics, telemedicine.
             </div>
           </div>
         <div className='footer-link-items'>
@@ -68,7 +68,7 @@ function Footer() {
           <div className='footer-logo'>
             <Link to='/' className='social-logo'>
               <MdFingerprint className='navbar-icon' />
-              CloudMD
+              MediCare
             </Link>
           </div>
           

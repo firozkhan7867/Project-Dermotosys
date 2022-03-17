@@ -61,7 +61,7 @@ const MakeAppointment = () => {
             />
         </div>
         <div className="justify-center">
-        <button type="submit" className="text-2xl text-white hover:text-gray-500 ml-4 mt-4 mb-4 text-center rounded-lg px-3 py-2 font-bold bg-green-400 hover:bg-green-200">
+        <button type="submit" className="text-2xl flex justify-center text-white hover:text-gray-500 ml-4 mt-4 mb-4 text-center rounded-lg px-3 py-2 font-bold bg-green-400 hover:bg-green-200">
           Submit Application</button>
         </div>
         </form>

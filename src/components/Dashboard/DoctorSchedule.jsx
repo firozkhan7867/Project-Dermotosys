@@ -4,7 +4,7 @@ import "./Schedule.css";
 import { Link } from "react-router-dom";
 import slots from "./slots.json";
 import { MdOutlineSpaceDashboard, MdPassword, MdStar } from "react-icons/md";
-import { AiOutlineUserAdd,AiOutlineFileAdd } from "react-icons/ai";
+import { AiOutlineUserAdd,AiOutlineFileAdd } from "react-icons/ai"; 
 import { FiMessageSquare, FiCalendar,FiEdit } from "react-icons/fi";
 import { GrUserSettings, GrDocumentText } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
@@ -25,11 +25,9 @@ const Schedule = () => {
 
     const addMore = () => {
       var data = {"start":"-", "end":"-"}
-
       setDetails((item) => {
         return [...item, data]
-      })
-      
+      }) 
     }
 
     const toggleTab = (index) => {
