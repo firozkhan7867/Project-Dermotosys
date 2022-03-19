@@ -108,13 +108,42 @@ class Controller extends BaseController
             $data=DB::select(DB::raw('
             select * from schedules where weekday="'.$weekday.'" and doc_id='.$doc_id.'
         '));
-            $data=$data?["sucess"=>$data]:["Message"=> "No Data Found"];
+        $res=[];
+        foreach($data as $d)
+        {
+            if(array_key_exists($d->weekday,$res))
+            {
+                //res[$d->weekday]=
+                array_push($res[$d->weekday],["start"=> $d->start,"end"=>$d->end]);
+            }
+            else{
+                $res[$d->weekday]=[["start"=> $d->start,"end"=>$d->end]];
+            }
+
+        }
+
+        $data=$res?["sucess"=>$res]:["Message"=> "No Data Found"];
         }
         else if($doc_id){
             $data=DB::select(DB::raw('
             select * from schedules where doc_id='.$doc_id.'
         '));
-        $data=$data?["sucess"=>$data]:["Message"=> "No Data Found"];
+
+        $res=[];
+        foreach($data as $d)
+        {
+            if(array_key_exists($d->weekday,$res))
+            {
+                //res[$d->weekday]=
+                array_push($res[$d->weekday],["start"=> $d->start,"end"=>$d->end]);
+            }
+            else{
+                $res[$d->weekday]=[["start"=> $d->start,"end"=>$d->end]];
+            }
+
+        }
+
+        $data=$res?["sucess"=>$res]:["Message"=> "No Data Found"];
         }
         else{
             $data=["Error"=> "Invalid inputs"];
