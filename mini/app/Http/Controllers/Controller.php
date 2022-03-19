@@ -108,7 +108,7 @@ class Controller extends BaseController
             $data=DB::select(DB::raw('
             select * from schedules where weekday="'.$weekday.'" and doc_id='.$doc_id.'
         '));
-        $res=[];
+        $res=["Monday"=>[],"Tuesday"=>[],"Wednesday"=>[],"Thursday"=>[],"Friday"=>[],"Saturday"=>[],"Sunday"=>[]];
         foreach($data as $d)
         {
             if(array_key_exists($d->weekday,$res))
@@ -129,7 +129,8 @@ class Controller extends BaseController
             select * from schedules where doc_id='.$doc_id.'
         '));
 
-        $res=[];
+        //["Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]]
+        $res=["Monday"=>[],"Tuesday"=>[],"Wednesday"=>[],"Thursday"=>[],"Friday"=>[],"Saturday"=>[],"Sunday"=>[]];
         foreach($data as $d)
         {
             if(array_key_exists($d->weekday,$res))
