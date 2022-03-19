@@ -48,7 +48,7 @@ class Controller extends BaseController
             }
 
         }
-        
+
 
 
         if(in_array(false,$res))
@@ -114,10 +114,10 @@ class Controller extends BaseController
             if(array_key_exists($d->weekday,$res))
             {
                 //res[$d->weekday]=
-                array_push($res[$d->weekday],["start"=> $d->start,"end"=>$d->end]);
+                array_push($res[$d->weekday],["start"=> $d->start,"end"=>$d->end, "id"=>$d->id]);
             }
             else{
-                $res[$d->weekday]=[["start"=> $d->start,"end"=>$d->end]];
+                $res[$d->weekday]=[["start"=> $d->start,"end"=>$d->end, "id"=>$d->id]];
             }
 
         }
@@ -136,10 +136,10 @@ class Controller extends BaseController
             if(array_key_exists($d->weekday,$res))
             {
                 //res[$d->weekday]=
-                array_push($res[$d->weekday],["start"=> $d->start,"end"=>$d->end]);
+                array_push($res[$d->weekday],["start"=> $d->start,"end"=>$d->end, "id"=>$d->id]);
             }
             else{
-                $res[$d->weekday]=[["start"=> $d->start,"end"=>$d->end]];
+                $res[$d->weekday]=[["start"=> $d->start,"end"=>$d->end, "id"=>$d->id]];
             }
 
         }
