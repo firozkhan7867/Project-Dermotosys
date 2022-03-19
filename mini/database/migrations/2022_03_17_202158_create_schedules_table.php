@@ -19,8 +19,8 @@ class CreateSchedulesTable extends Migration
             $table->string("weekday");
             $table->time("start");
             $table->time("end");
-            $table->string("status");
-            $table->boolean("isOpen");
+            $table->string("status")->default("ok");
+            $table->boolean("isOpen")->default(1);
             $table->timestamps();
         });
     }
