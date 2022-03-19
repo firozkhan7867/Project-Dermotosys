@@ -8,6 +8,8 @@ import {
     AUTHENTICATED_SUCCESS,
     AUTHENTICATED_FAIL,
     LOGOUT,
+    SCHEDULE_DATA_SUCCESS,
+    SCHEDULE_DATA_FAIL
 } from "./types";
 import axios from "axios";
 
@@ -66,6 +68,22 @@ export const signup = (name,email, password) => async dispatch => {
     }
 };
 
+
+export const get_schedule_data =  (doc_id) => async dispatch => {
+    
+    try {
+        const res = await axios.get('http://127.0.0.1:8000/api/getSloats', { params: { id: doc_id } });
+        dispatch({
+            type:     SCHEDULE_DATA_SUCCESS,
+            payload: res.data
+        });
+        
+    } catch (err) {
+        dispatch({
+            type: SCHEDULE_DATA_FAIL,
+        })
+    }
+};
 
 
 
