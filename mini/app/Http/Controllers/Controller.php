@@ -70,7 +70,9 @@ class Controller extends BaseController
         $weekday=$req->weekday;
         $doc_id=$req->id;
 
-        if($this->IsValidSloat($start,$end,$weekday,$doc_id))
+        if($start && $end && $weekday && $doc_id)
+        {
+            if($this->IsValidSloat($start,$end,$weekday,$doc_id))
         {
             $schedule = schedule::Create([
                 'doc_id' => $doc_id,
@@ -84,6 +86,12 @@ class Controller extends BaseController
             return response(["Error"=> "Invalid sloat"]) ;
 
         }
+        }
+        else{
+            return response(["Error"=> "Invalid Parameters [start,end,weekday,id] "]) ;
+        }
+
+
 
 
 
