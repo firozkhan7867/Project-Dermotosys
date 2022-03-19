@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import doctor from '../img/doctor-thumb-02.jpg';
 import "./Schedule.css";
 import { Link } from "react-router-dom";
@@ -10,8 +10,14 @@ import { GrUserSettings, GrDocumentText } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
 import { RiLogoutBoxRLine, RiCalendarCheckFill, RiAddCircleFill} from "react-icons/ri";
 import ScheduleItems from './schedule/ScheduleItems';
+import { connect } from 'react-redux';
+import {get_schedule_data} from "../../actions/auth.jsx"
 
-const Schedule = () => {
+const Schedule = ({get_schedule_data,schedule_data}) => {
+  useEffect(() => {
+    get_schedule_data(1);
+  }, []);
+
     const [details,setDetails] = useState(slots[`day1`]);
     const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
@@ -33,6 +39,7 @@ const Schedule = () => {
     const toggleTab = (index) => {
         setDetails(slots[`day${index}`]);
         setToggleState(index);
+        console.log(localStorage.getItem('schedule'));
     };
 
   return (
@@ -287,4 +294,9 @@ const Schedule = () => {
 }
 
 
-export default Schedule;
+
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.schedule_data,
+});
+
+export default connect(mapStateToProps, { get_schedule_data })(Schedule);

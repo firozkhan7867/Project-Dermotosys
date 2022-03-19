@@ -7,14 +7,18 @@ import {
     USER_LOADED_FAIL,
     AUTHENTICATED_SUCCESS,
     AUTHENTICATED_FAIL,
-    LOGOUT
+    LOGOUT,
+    SCHEDULE_DATA_FAIL,
+    SCHEDULE_DATA_SUCCESS
 } from '../actions/types';
 
 const initialState = {
     // access: localStorage.getItem('access'),
     // refresh: localStorage.getItem('refresh'),
     isAuthenticated: null,
-    user: null
+    user: null,
+    schedule_data: false,
+    // schedule_data:{"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
 };
 
 export default function(state = initialState, action) {
@@ -40,6 +44,18 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: payload
+            }
+        case SCHEDULE_DATA_SUCCESS:
+            localStorage.setItem("schedule", payload.sucess);
+            return {
+                ...state,
+                schedule_data: true,
+            }
+        case SCHEDULE_DATA_FAIL:
+            localStorage.setItem("schedule", {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]});
+            return {
+                ...state,
+                schedule_data: false,
             }
         case AUTHENTICATED_FAIL:
             return {
