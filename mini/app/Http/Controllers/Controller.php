@@ -26,7 +26,6 @@ class Controller extends BaseController
             select start,end from schedules where weekday="'.$weekday.'" and doc_id='.$doc_id.'
         '));
 
-
         $res=array();
 
         foreach ($data as $d)
@@ -40,7 +39,8 @@ class Controller extends BaseController
                  ($start >= $existing_start && $end<= $existing_end)  ||
                  ($start <= $existing_start && $end >= $existing_end) ||
                  ($start >= $existing_start && $start<= $existing_end)||
-                 ($end >= $existing_start && $end<= $existing_end)
+                 ($end >= $existing_start && $end<= $existing_end)    ||
+                 ($start <= $existing_start && $end<= $existing_start)
                  ) {
                 array_push($res,false);
             } else {
@@ -48,10 +48,10 @@ class Controller extends BaseController
             }
 
         }
+        
 
-        // dd($start,$end,$data,$res);
 
-        if(array_search(false,$res))
+        if(in_array(false,$res))
         {
             return false;
         }
