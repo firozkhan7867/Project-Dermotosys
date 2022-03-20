@@ -82,8 +82,8 @@ export const appointmentSubmit = (name,email,contact,age,gender,doctor,message,s
     const body = JSON.stringify({ name,email,contact,age,gender,doctor,message,slot_id });
     // console.log(body);
     try {
-        const res = await axios.post('http://127.0.0.1:8000/api/register/', body, config);
-        // console.log(res);
+        const res = await axios.post('http://127.0.0.1:8000/api/CreateAppoinment/', body, config);
+        console.log(res);
         dispatch({
             type:     APPOINT_SUCCESS,
         });
