@@ -14,7 +14,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
         isAuthenticated = false;
     }
   return (
-    <Nav className='shadow-lg lg:pl-10 lg:pr-5'>
+    <Nav className='shadow-md lg:pl-10 lg:pr-5 z-20  w-full'>
         <NavLink to="/" className={"ml-5 mt-8"}>
             <img src={logo} alt="" height="200px" width="200px"/>
         </NavLink>
