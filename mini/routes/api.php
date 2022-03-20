@@ -32,7 +32,7 @@ Route::get('test',function (Request $request) {
 Route::get('sloat',[Controller::class,'CreateSloat']);
 
 Route::get('getSloats',[Controller::class,'getSloats']);
-
+Route::get('getDocs',[Controller::class,'getDocs']);
 Route::post('register',[AuthController::class,'register']);
 
 Route::post('/appoint',[AuthController::class,'appointment']);
