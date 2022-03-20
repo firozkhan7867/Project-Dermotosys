@@ -18,9 +18,10 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
     get_schedule_data(1);
   }, []);
 
-    const [details,setDetails] = useState(slots[`day1`]);
+    const [details,setDetails] = useState(schedule_data["Sunday"]);
     const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
+    
     const deleteItem = (id) => {
       setDetails((old) =>{
         return old.filter((arr,index) => {
@@ -37,9 +38,9 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
     }
 
     const toggleTab = (index) => {
-        setDetails(slots[`day${index}`]);
+      const cnv =  {1: "Sunday",2: "Monday",3:"Tuesday",4:"Wednesday",5:"Thursday",6:"Friday",7:"Saturday",}
+        setDetails(schedule_data[cnv[index]]);
         setToggleState(index);
-        console.log(localStorage.getItem('schedule'));
     };
 
   return (
@@ -296,7 +297,7 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
 
 
 const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.schedule_data,
+  schedule_data: state.auth.schedule_data,
 });
 
 export default connect(mapStateToProps, { get_schedule_data })(Schedule);

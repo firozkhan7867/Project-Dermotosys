@@ -17,7 +17,7 @@ const initialState = {
     // refresh: localStorage.getItem('refresh'),
     isAuthenticated: null,
     user: null,
-    schedule_data: false,
+    schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
     // schedule_data:{"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
 };
 
@@ -46,16 +46,15 @@ export default function(state = initialState, action) {
                 user: payload
             }
         case SCHEDULE_DATA_SUCCESS:
-            localStorage.setItem("schedule", payload.sucess);
+            console.log(payload.sucess)
             return {
                 ...state,
-                schedule_data: true,
+                schedule_data: payload.sucess,
             }
         case SCHEDULE_DATA_FAIL:
-            localStorage.setItem("schedule", {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]});
             return {
                 ...state,
-                schedule_data: false,
+                schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
             }
         case AUTHENTICATED_FAIL:
             return {
