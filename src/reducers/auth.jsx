@@ -9,7 +9,9 @@ import {
     AUTHENTICATED_FAIL,
     LOGOUT,
     SCHEDULE_DATA_FAIL,
-    SCHEDULE_DATA_SUCCESS
+    SCHEDULE_DATA_SUCCESS,
+    APPOINT_FAIL,
+    APPOINT_SUCCESS
 } from '../actions/types';
 
 const initialState = {
@@ -17,6 +19,7 @@ const initialState = {
     // refresh: localStorage.getItem('refresh'),
     isAuthenticated: null,
     user: null,
+    userData:{"id":null,"name":"","email":""},
     schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
     // schedule_data:{"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
 };
@@ -32,11 +35,12 @@ export default function(state = initialState, action) {
             }
         
         case LOGIN_SUCCESS:
-            // localStorage.setItem('access', payload.access);
-            // localStorage.setItem('refresh', payload.refresh);
+            localStorage.setItem('account', payload.account);
+            localStorage.setItem('token', payload.token);
             return {
                 ...state,
                 isAuthenticated: true,
+                userData: payload.account,
                 // access: payload.access,
                 // refresh: payload.refresh
             }
@@ -46,7 +50,6 @@ export default function(state = initialState, action) {
                 user: payload
             }
         case SCHEDULE_DATA_SUCCESS:
-            console.log(payload.sucess)
             return {
                 ...state,
                 schedule_data: payload.sucess,
@@ -85,7 +88,13 @@ export default function(state = initialState, action) {
                 // access: null,
                 // refresh: null,
                 isAuthenticated: false,
-                user: null
+                user: null,
+                userData:{"id":null,"name":"","email":""},
+            }
+        case APPOINT_SUCCESS:
+        case APPOINT_FAIL:
+            return {
+                
             }
         // case PASSWORD_RESET_SUCCESS:
         // case PASSWORD_RESET_FAIL:
