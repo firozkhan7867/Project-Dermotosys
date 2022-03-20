@@ -72,15 +72,15 @@ export const signup = (name,email, password) => async dispatch => {
 
 
 
-export const appointmentSubmit = (name,email,contact,age,gender,doctor,message,slot_id) => async dispatch => {
+export const appointmentSubmit = (name,email,contact,age,gender,doctor,message,slot_id,user_id) => async dispatch => {
     const config = {
         headers: {
             'Content-Type': 'application/json'
         }
     };
 
-    const body = JSON.stringify({ name,email,contact,age,gender,doctor,message,slot_id });
-    // console.log(body);
+    const body = JSON.stringify({ name,email,contact,age,gender,doctor,message,slot_id,user_id });
+    console.log(body);
     try {
         const res = await axios.post('http://127.0.0.1:8000/api/CreateAppoinment/', body, config);
         console.log(res);
