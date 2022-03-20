@@ -1,17 +1,16 @@
 import React, {useState,useEffect} from 'react';
 import { connect } from 'react-redux';
-import {get_schedule_data} from "../actions/auth.jsx";
-import { FiEdit } from "react-icons/fi";
-import { AiOutlineFileAdd } from "react-icons/ai"; 
+import {get_schedule_data,appointmentSubmit} from "../actions/auth.jsx";
+import { RiAddCircleFill} from "react-icons/ri";
 
+export const ScheduleTab = ({details,kk,day,fun}) =>{
 
-
-
-export const ScheduleTab = ({details,fun}) =>{
+  
 
   return (
-    <div className=" px-3 py-2 bg-[#f33f39] rounded-md z-30" onClick={ () => {
-      fun(details.id)
+    <div className={kk.id === details.id ? " px-3 py-2 bg-[#26ae2b] rounded-md" 
+    : "px-3 py-2 bg-[#f33f39] rounded-md "} onClick={ () => {
+      fun(details,day)
     }}>
         {details.start} To {details.end}    
     </div>
@@ -20,23 +19,67 @@ export const ScheduleTab = ({details,fun}) =>{
 
 
 
-const MakeAppointment = ({get_schedule_data,schedule_data}) => {
+const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,userData}) => {
 
 
   useEffect(() => {
     get_schedule_data(1);
   }, []);
   
-  const [check, setChecked] = useState();
+  const [check, setChecked] = useState({"start":"","end":"","day":"","id":""});
+  // const [showModal, setShowModal] = useState(false);
+  const [day, setDay] = useState();
 
     const [details,setDetails] = useState(schedule_data["Sunday"]);
     const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
 
-    const cc = (id) => {
-      console.log(id);
+    const cc = (detail,day) => {
+      const data = {"start":detail.start,"end":detail.end,"day":day,"id":detail.id}
+      setChecked(data);
     }
+
+    const model = (value) => {
+      setShowModal(value);
+    };
+
+    const subt = (value) =>{
+      appointmentSubmit(name,email,contact,age,gender,doctor,message,check.id);
+      setShowModal(value);
+      setFormData({
+        name:'',
+        email:'',
+        contact:'',
+        age:'',
+        gender:'',
+        doctor:'',
+        message:''
+      });
+      name= "";
+      email= "";
+      contact= "";
+      age= "";
+      gender= "";
+      doctor= "";
+      message= "";
+      setChecked({"start":"","end":"","day":"","id":""});
+    }
+
+    const [formData, setFormData] = useState({
+      name:'',
+      email:'',
+      contact:'',
+      age:'',
+      gender:'',
+      doctor:'',
+      message:''
+    });
     
+
+    const {name,email, contact,age, gender, doctor,message} = formData;
+    
+    const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value});
+
     
 
     
@@ -44,6 +87,7 @@ const MakeAppointment = ({get_schedule_data,schedule_data}) => {
       const cnv =  {1: "Sunday",2: "Monday",3:"Tuesday",4:"Wednesday",5:"Thursday",6:"Friday",7:"Saturday",}
         setDetails(schedule_data[cnv[index]]);
         setToggleState(index);
+        setDay(cnv[index]);
     };
 
   return (
@@ -57,47 +101,66 @@ const MakeAppointment = ({get_schedule_data,schedule_data}) => {
             <form >
             <div className="lg:grid lg:grid-cols-3 lg:justify-between flex-col mt-8">
               <input
-                name="email"
+                name="name"
                 type="text"
-                placeholder="Your Name"
+                placeholder="Full Name"
+                onChange={(e) => onChange(e)}
+                value={name}
                 required
                 className="border-b-2 w-auto bg-white rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4  text-black outline-none"
                 />
                 <input
                 name="email"
                 type="text"
-                placeholder="Your Email"
+                placeholder="user@gmail.com"
+                onChange={(e) => onChange(e)}
+                value={email}
                 required
                 className="border-b-2 bg-white rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4 text-black outline-none"
                 />
                 <input
-                name="email"
+                name="contact"
                 type="text"
-                placeholder="Your PhoneNumber"
+                placeholder="Contact"
+                onChange={(e) => onChange(e)}
+                value={contact}
                 required
                 className="border-b-2 bg-white rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4 text-black outline-none"
                 />
               <input
-                name="email"
+                name="age"
                 type="text"
                 placeholder="Age"
+                onChange={(e) => onChange(e)}
+                value={age}
                 required
                 className="border-b-2 bg-white rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4  text-black outline-none"
                 />
-              <select name="Doctor" className='border-b-2 bg-white hover:cursor-pointer rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4 text-black outline-none'>
+              <select name="doctor"
+              
+              onChange={(e) => onChange(e)}
+              value={doctor}
+               className='border-b-2 bg-white hover:cursor-pointer rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4 text-black outline-none'>
                     <option className='px-2 py-2'>-- Select Doctor --</option>
-                    <option className='px-2 py-2'>Dr. A Prudhvi Srinivas</option>
+                    <option className='px-2 py-2' value={1}>Dr. A Prudhvi Srinivas</option>
                 </select>
-                <select name="gender" className='border-b-2 bg-white hover:cursor-pointer rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4 text-black outline-none'>
-                    <option className='px-2 py-2'>Male</option>
-                    <option className='px-2 py-2'>Female</option>
-                    <option className='px-2 py-2'>Other</option>
+                <select name="gender"
+                
+                onChange={(e) => onChange(e)}
+                value={gender}
+                className='border-b-2 bg-white hover:cursor-pointer rounded-2 text-sm py-3 px-2 my-2 rounded-1xl mx-4 text-black outline-none'>
+                    <option className='px-2 py-2' value="Male">Male</option>
+                    <option className='px-2 py-2' value="Female">Female</option>
+                    <option className='px-2 py-2' value="Other">Other</option>
                 </select>
             </div>
-            <div className="mr-8 mt-8">
-              <textarea name="message" id="" cols="20" rows="5" placeholder='Enter Problem Description' className='border-2  w-full bg-white text-start rounded-2 px-4 py-2 text-md  rounded-md mx-4 text-black outline-none'></textarea>
+            <div className=" mt-8">
+            <h1 className='mx-4 mb-4 text-2xl font-semibold'>Enter Description</h1>
+              <textarea name="message" id="" 
+                onChange={(e) => onChange(e)}
+                value={message} cols="20" rows="5" placeholder='Enter Problem Description' className='border-2  w-full bg-white text-start rounded-2 px-4 py-2 text-md  rounded-md mx-4 text-black outline-none'></textarea>
             </div>
-            <div className="mx-4 my-4 py-4 w-full flex flex-col justify-center items-center">
+            <div className="mx-4 my-4 py-4 w-full border-2 rounded-lg flex flex-col justify-center items-center">
               <h1 className='text-2xl font-semibold'>Book Your Slot</h1>
               <div className="mt-4">
                 <div className="mt-8">
@@ -138,26 +201,117 @@ const MakeAppointment = ({get_schedule_data,schedule_data}) => {
                     <div className= "disp mt-5 ml-2 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-5 gap-4" >
                     { details.length > 0 ?
                         details.map((detail,index) => (
-                            <ScheduleTab details={detail}  fun={cc}/>
+                            <ScheduleTab details={detail} kk={check} day={day} fun={cc}/>
                         )) :
                         <p className=" px-3 py-2 text-black">
-                                Not Slots Available   
+                                Not Slots Available
                         </p>
                       }
                       {/* lindsay lohan */}
                     </div> 
                   </div>
                 </div>
+                <div className="flex justify-end">
+                    <div className="flex items-center">
+                      Book Slot : 
+                      <div className="bg-blue-400 px-4 mx-2 py-2 rounded-lg text-white">
+                      from {check.start} To {check.end} on {check.day}
+                      </div>
+                    </div>
+                </div>
               </div>
             </div>
-            <div className="justify-center">
-              <button type="submit" className="text-2xl flex justify-center text-white hover:text-gray-500 ml-4 mt-4 mb-4 text-center rounded-lg px-3 py-2 font-bold bg-green-400 hover:bg-green-200">
+            <div className="flex flex-col items-center justify-center">
+              <button type="button" onClick={() => model(true)}   className="text-2xl flex justify-center text-white hover:text-gray-500 ml-4 mt-4 mb-4 text-center rounded-lg px-3 py-2 font-bold bg-green-400 hover:bg-green-200">
                 Submit Application
               </button>
             </div>
             </form> 
           </div>
         </div>
+
+
+
+
+        {/* Model */}
+
+        {showModal ? (
+          <>
+            <div
+              className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            >
+              <div className="relative w-auto my-6 mx-auto max-w-3xl">
+                {/*content*/}
+                <div className="border-0 rounded-xl shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  {/*header*/}
+                  <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
+                    <h3 className="text-3xl font-semibold">
+                      Confirm Appointment Book
+                    </h3>
+                    <button
+                      className="p-1 ml-auto border-0 text-black float-right text-3xl leading-none font-semibold "
+                      onClick={() => setShowModal(false)}
+                    >
+                      <span className=" text-red-600 font-bold float-right rounded-full  h-6 w-6 text-3xl">
+                        ×
+                      </span>
+                    </button>
+                  </div>
+                  {/*body*/}
+                  <div className="relative p-6 flex-auto w-[500px]">
+                  
+                    <div className="">
+                        <h2>Name :  {name}</h2>
+                    </div>
+                    <div className="">
+                        <h2>Email :  {email}</h2>
+                    </div>
+                    <div className="">
+                        <h2>Contact :  {contact}</h2>
+                    </div>
+                    <div className="">
+                        <h2>age :  {age}</h2>
+                    </div>
+                    <div className="">
+                        <h2>gender :  {gender}</h2>
+                    </div>
+                    <div className="">
+                        <h2>doctor :  {doctor}</h2>
+                    </div>
+                    <div className="">
+                        <h2>Message : </h2>
+                        <div className="">
+                          {message}
+                        </div>
+                    </div>
+                    <div className="">
+                        <h2>slot :  {check.start} to {check.end} on {check.day}</h2>
+                    </div>
+                  </div>
+                  {/*footer*/}
+                  <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                    <button
+                      className="text-red-500 background-transparent font-bold uppercase px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Close
+                    </button>
+                    <button
+                      className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => subt(false)}
+                    >
+                      Confirm
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          </>
+        ) : null}
+
       </div>
     </div>
   )
@@ -168,6 +322,7 @@ const MakeAppointment = ({get_schedule_data,schedule_data}) => {
 
 const mapStateToProps = (state) => ({
   schedule_data: state.auth.schedule_data,
+  userData: state.auth.userData
 });
 
-export default connect(mapStateToProps, { get_schedule_data })(MakeAppointment);
+export default connect(mapStateToProps, { get_schedule_data,appointmentSubmit })(MakeAppointment);
