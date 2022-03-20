@@ -44,7 +44,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
     };
 
     const subt = (value) =>{
-      appointmentSubmit(name,email,contact,age,gender,doctor,message,check.id);
+      appointmentSubmit(name,email,contact,age,gender,doctor,message,check.id,userData.id);
       setShowModal(value);
       setFormData({
         name:'',
