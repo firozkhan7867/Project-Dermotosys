@@ -135,6 +135,7 @@ export const addSlot = (start,end,weekday) => async dispatch => {
     try {
         const res = await axios.post('http://127.0.0.1:8000/api/Addslot/', body, config);
         console.log(res);
+        // get_schedule_data(1);
         // dispatch({
         //     type:     APPOINT_SUCCESS,
         // });
