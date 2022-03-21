@@ -11,12 +11,15 @@ import { GiShare } from "react-icons/gi";
 import { RiLogoutBoxRLine, RiCalendarCheckFill, RiAddCircleFill} from "react-icons/ri";
 import ScheduleItems from './schedule/ScheduleItems';
 import { connect } from 'react-redux';
-import {get_schedule_data} from "../../actions/auth.jsx"
+import {get_schedule_data,addSlot} from "../../actions/auth.jsx"
 
-const Schedule = ({get_schedule_data,schedule_data}) => {
+const Schedule = ({get_schedule_data,schedule_data,addSlot}) => {
   useEffect(() => {
     get_schedule_data(1);
   }, []);
+  const [day, setDay] = useState();
+  const [startval ,setStartVal] = useState("10:00");
+  const [endval ,setEndVal] = useState("20:00");
 
     const [details,setDetails] = useState(schedule_data["Sunday"]);
     const [showModal, setShowModal] = useState(false);
@@ -28,6 +31,14 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
           return index !== id;
         });
       });
+    }
+    
+    const saveSlot = (value) =>{
+        console.log(startval);
+        console.log(endval);
+        console.log(day);
+        addSlot(startval,endval,day);
+        setShowModal(value);
     }
 
     const addMore = () => {
@@ -41,6 +52,7 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
       const cnv =  {1: "Sunday",2: "Monday",3:"Tuesday",4:"Wednesday",5:"Thursday",6:"Friday",7:"Saturday",}
         setDetails(schedule_data[cnv[index]]);
         setToggleState(index);
+        setDay(cnv[index]);
     };
 
   return (
@@ -192,12 +204,14 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
                         <div className="border rounded p-3 gray-700">
                             <div className="flex justify-between">
                                 <div className="text-xl text-gray-700 font-semibold">Time Slots</div>
-                                { details.length > 0 ?
+                                {/* { details.length > 0 ?
                                  <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer" onClick={() => setShowModal(true)}  > 
                                      <FiEdit className="mr-1 mt-1" />Edit</div> :
                                  <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer">
                                      <AiOutlineFileAdd className="mr-1 mt-1" />Add Slot</div>
-                                }
+                                } */}
+                                <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer" onClick={() => setShowModal(true)}>
+                                     <AiOutlineFileAdd className="mr-1 mt-1" />Add Slot</div>
                             </div>
                             <div className= "disp mt-5 ml-2 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-5 gap-4" >
                             {/* : " no mt-5 ml-3 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-6 gap-4"}>  */}
@@ -231,7 +245,7 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
               {/*header*/}
               <div className="flex items-start justify-between p-5 border-b border-solid border-blueGray-200 rounded-t">
                 <h3 className="text-3xl font-semibold">
-                  Edit Time Slots
+                  Add Time Slots
                 </h3>
                 <button
                   className="p-1 ml-auto border-0 text-black float-right text-3xl leading-none font-semibold "
@@ -244,17 +258,19 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
               </div>
               {/*body*/}
               <div className="relative p-6 flex-auto w-[500px]">
-              { details.length > 0 ?
+              {/* { details.length > 0 ?
                   details.map((detail, index) => (
                           <ScheduleItems start={detail.start} end={detail.end} id={index} onSelect={deleteItem}/>    
                   )) :
                   <p className=" px-3 py-2 text-black">
                           Not Available   
                   </p>
-              }
-              <div className=" mt-5 flex items-center text-lg justify-left text-blue-500 hover:cursor-pointer " onClick={addMore}>
+              } */}
+              <ScheduleItems day={day} setStartVal={setStartVal} start={startval} end={endval} setEndVal={setEndVal} />
+
+              {/* <div className=" mt-5 flex items-center text-lg justify-left text-blue-500 hover:cursor-pointer " onClick={addMore}>
                 <RiAddCircleFill  className='text-blue-500' /> Add More
-              </div>
+              </div> */}
               </div>
               {/*footer*/}
               <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
@@ -268,7 +284,7 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
                 <button
                   className="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   type="button"
-                  onClick={() => setShowModal(false)}
+                  onClick={() => saveSlot(false) }
                 >
                   Save Changes
                 </button>
@@ -297,4 +313,4 @@ const mapStateToProps = (state) => ({
   schedule_data: state.auth.schedule_data,
 });
 
-export default connect(mapStateToProps, { get_schedule_data })(Schedule);
+export default connect(mapStateToProps, { get_schedule_data,addSlot })(Schedule);
