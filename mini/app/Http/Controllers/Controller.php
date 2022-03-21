@@ -155,19 +155,50 @@ class Controller extends BaseController
     {
         if($req->id)
         {
-            $AppoinmentData=Appoinment::where('user_id', $req->id)->get();
+            // $AppoinmentData=Appoinment::where('user_id', $req->id)->get();
 
-            // $data = DB::select(DB::raw('
-            // select * from schedules where doc_id=' . $doc_id . ';
-            // '));
+            $data = DB::select(DB::raw('
+                SELECT
+                    appoinments.id AS appoinmentID,
+                    schedules.id AS slotID,
+                    schedules.weekday AS AppoinmentsDay,
+                    schedules.start AS AppoinmentsStart,
+                    schedules.end AS AppoinmentsEnd,
+                    schedules.status AS AppoinmentsStatus,
+                    schedules.isOpen AS AppoinmentsOpenStatus,
+                    patients.id AS PatientsID,
+                    patients.name AS PatientsName,
+                    patients.email AS PatientsEmail,
+                    patients.phno AS PatientsPhone,
+                    patients.age AS PatientsAge,
+                    patients.gender AS PatientsGender,
+                    patients.message AS PatientsMessage,
+                    doctors.id AS DoctorsID,
+                    doctors.name AS DoctorsName,
+                    users.id AS UserID,
+                    users.name AS UserName,
+                    users.email AS UserEmail
+                FROM
+                    appoinments,
+                    schedules,
+                    patients,
+                    doctors,
+                    users
+                WHERE
+                appoinments.doc_id=doctors.id AND
+                appoinments.user_id=users.id AND
+                appoinments.patient_id=patients.id AND
+                appoinments.slot_id=schedules.id AND
+                users.id='.$req->id.'
+            '));
 
-            dd($AppoinmentData->toArray());
+           // dd($data);
         }
         else{
             $data = ["Error" => "Invalid inputs"];
 
         }
-        return $data;
+        return response($data);
     }
 
 
