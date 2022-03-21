@@ -103,9 +103,9 @@ class Controller extends BaseController
             foreach ($data as $d) {
                 if (array_key_exists($d->weekday, $res)) {
                     //res[$d->weekday]=
-                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id]);
+                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]);
                 } else {
-                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id]];
+                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]];
                 }
             }
 
@@ -120,9 +120,9 @@ class Controller extends BaseController
             foreach ($data as $d) {
                 if (array_key_exists($d->weekday, $res)) {
                     //res[$d->weekday]=
-                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id]);
+                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]);
                 } else {
-                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id]];
+                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]];
                 }
             }
 
@@ -155,14 +155,50 @@ class Controller extends BaseController
     {
         if($req->id)
         {
-            $AppoinmentData=Appoinment::where('user_id', $req->id)->get();
-            dd($AppoinmentData->toArray());
+            // $AppoinmentData=Appoinment::where('user_id', $req->id)->get();
+
+            $data = DB::select(DB::raw('
+                SELECT
+                    appoinments.id AS appoinmentID,
+                    schedules.id AS slotID,
+                    schedules.weekday AS AppoinmentsDay,
+                    schedules.start AS AppoinmentsStart,
+                    schedules.end AS AppoinmentsEnd,
+                    schedules.status AS AppoinmentsStatus,
+                    schedules.isOpen AS AppoinmentsOpenStatus,
+                    patients.id AS PatientsID,
+                    patients.name AS PatientsName,
+                    patients.email AS PatientsEmail,
+                    patients.phno AS PatientsPhone,
+                    patients.age AS PatientsAge,
+                    patients.gender AS PatientsGender,
+                    patients.message AS PatientsMessage,
+                    doctors.id AS DoctorsID,
+                    doctors.name AS DoctorsName,
+                    users.id AS UserID,
+                    users.name AS UserName,
+                    users.email AS UserEmail
+                FROM
+                    appoinments,
+                    schedules,
+                    patients,
+                    doctors,
+                    users
+                WHERE
+                appoinments.doc_id=doctors.id AND
+                appoinments.user_id=users.id AND
+                appoinments.patient_id=patients.id AND
+                appoinments.slot_id=schedules.id AND
+                users.id='.$req->id.'
+            '));
+
+           // dd($data);
         }
         else{
             $data = ["Error" => "Invalid inputs"];
 
         }
-        return $data;
+        return response($data);
     }
 
 
@@ -184,15 +220,15 @@ class Controller extends BaseController
         try {
             $name = $req->name;
             $email = $req->email;
-            $phno = intval($req->contact);
-            $age = intval($req->age);
+            $phno = $req->contact;
+            $age = $req->age;
 
             $message = $req->message;
             $gender = $req->gender;
 
-            $slot_id = intval($req->slot_id);
-            $doc_id = intval($req->doctor);
-            $user_id = intval($req->user_id);
+            $slot_id = $req->slot_id;
+            $doc_id = $req->doctor;
+            $user_id = $req->user_id;
 
 
             $PatientData = Patient::Create([
