@@ -64,28 +64,39 @@ class Controller extends BaseController
 
     public function CreateSloat(Request $req)
     {
-        $start = $req->start;
-        $end = $req->end;
-        $start = date('H:i:s', strtotime($start));
-        $end = date('H:i:s', strtotime($end));
-        $weekday = $req->weekday;
-        $doc_id = $req->id;
+        try{
 
-        if ($start && $end && $weekday && $doc_id) {
-            if ($this->IsValidSloat($start, $end, $weekday, $doc_id)) {
-                $schedule = Schedule::Create([
-                    'doc_id' => $doc_id,
-                    'start' => $start,
-                    'end' => $end,
-                    'weekday' => $weekday,
-                ]);
-                return $schedule;
+            $start = $req->start;
+            $end = $req->end;
+            $start = date('H:i:s', strtotime($start));
+            $end = date('H:i:s', strtotime($end));
+            $weekday = $req->weekday;
+            $doc_id = $req->id;
+
+            if ($start && $end && $weekday && $doc_id) {
+                if ($this->IsValidSloat($start, $end, $weekday, $doc_id)) {
+                    $schedule = Schedule::Create([
+                        'doc_id' => $doc_id,
+                        'start' => $start,
+                        'end' => $end,
+                        'weekday' => $weekday,
+                    ]);
+                    // return $schedule;
+                    return response(["Sucess" => $schedule]);
+                } else {
+                    return response(["Error" => "Invalid sloat","Request"=>$req->all()]);
+                }
             } else {
-                return response(["Error" => "Invalid sloat"]);
+                return response(["Error" => "Invalid Parameters [start,end,weekday,id] ","Request"=>$req->all()]);
             }
-        } else {
-            return response(["Error" => "Invalid Parameters [start,end,weekday,id] "]);
+
         }
+        catch (\Exception $e) {
+            $data = ["Error" => $e->getMessage(),"Request"=>$req->all()];
+            return response($data);
+        }
+
+
     }
 
 
@@ -128,7 +139,7 @@ class Controller extends BaseController
 
             $data = $res ? ["sucess" => $res] : ["Message" => "No Data Found"];
         } else {
-            $data = ["Error" => "Invalid inputs"];
+            $data = ["Error" => "Invalid inputs","Request"=>$req->all()];
         }
 
         return response($data);
@@ -195,7 +206,7 @@ class Controller extends BaseController
            // dd($data);
         }
         else{
-            $data = ["Error" => "Invalid inputs"];
+            $data = ["Error" => "Invalid inputs","Request"=>$req->all()];
 
         }
         return response($data);
@@ -273,7 +284,7 @@ class Controller extends BaseController
         }
         catch (\Exception $e) {
 
-            $data = ["Error" => $e->getMessage()];
+            $data = ["Error" => $e->getMessage(),"Request"=>$req->all()];
         }
 
 
