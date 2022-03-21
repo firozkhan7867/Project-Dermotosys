@@ -11,11 +11,6 @@ const SignupPage = ({signup, isAuthenticated}) => {
     email: "",
     password: "",
   };
-  const [registerInput, setRegister] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
   const [accountCreated, setAccountCreated] = useState(false);
     const [formData, setFormData] = useState({
         name:'',
@@ -30,7 +25,8 @@ const SignupPage = ({signup, isAuthenticated}) => {
 
     const onSubmit = (e) => {
           // e.preventDefault();
-            const v = signup( name,email, password);
+            // const v = signup( name,email, password);
+            signup( name,email, password);
               setAccountCreated(true);
             
     }
@@ -61,7 +57,6 @@ const SignupPage = ({signup, isAuthenticated}) => {
             </h3>
             <div className="lg:flex">
               <button
-                role="button"
                 className="border border-gray-300 w-3/4 lg:w-full mt-6 rounded-[15px] hover:bg-gray-100"
               >
                 <div className="flex mx-2 my-2 justify-center">
@@ -75,9 +70,7 @@ const SignupPage = ({signup, isAuthenticated}) => {
                   </p>
                 </div>
               </button>
-
               <button
-                role="button"
                 className="border border-gray-300 w-3/4 lg:w-full lg:ml-2 mt-6 rounded-[15px] hover:bg-gray-100"
               >
                 <div className="flex mx-2 my-2 justify-center">
@@ -174,7 +167,6 @@ const SignupPage = ({signup, isAuthenticated}) => {
 const mapStateToProps = state => ({
   isAuthenticated: state.auth.isAuthenticated
 });
-
 
 
 export default connect(mapStateToProps, {signup})(SignupPage);

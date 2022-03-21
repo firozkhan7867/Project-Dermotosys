@@ -36,14 +36,12 @@ const HomePage = () => {
                         </div>
                     </div>
                 </div>
-                
             </div>
-
             <div className="flex flex-col lg:pb-20 xl:pb-20 md:pb-20 pb-14 justify-center text-white items-center" style={{background:'#10a1ad'}}>
                     <h2 className='lg:text-3xl text-xl mt-20 font-bold'> In an Emergency ?  Need Help Now?</h2>
                     <p className='text-center lg:w-8/12 w-10/12 lg:mt-10 md:mt-5 mt-4 lg:text-lg md:text-md sm:text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo et beatae, odit nihil ducimus, 
                         natus quos itaque hic porro obcaecati explicabo laudantium impedit soluta eius officia sunt tenetur placeat quia.</p>
-                    <Link to={""} className="border text-center hover:bg-white hover:text-gray-800 hover:border-gray-700 rounded-full border-white mt-10 lg:text-2xl md:text-xl text-lg font-bold md:px-3 lg:px-5 md:py-2 lg:py-3 px-3 py-2 lg:w-4/12">
+                    <Link to={"/makeappointment"} className="border text-center hover:bg-white hover:text-gray-800 hover:border-gray-700 rounded-full border-white mt-10 lg:text-2xl md:text-xl text-lg font-bold md:px-3 lg:px-5 md:py-2 lg:py-3 px-3 py-2 lg:w-4/12">
                         Make Appointment
                     </Link>
             </div>  

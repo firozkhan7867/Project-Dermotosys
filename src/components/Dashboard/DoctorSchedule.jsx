@@ -212,9 +212,6 @@ const Schedule = () => {
             </div>
       </div>
 
-
-      // Modal Code -----------------------------
-
     {showModal ? (
       <>
         <div
