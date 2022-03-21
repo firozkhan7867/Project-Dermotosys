@@ -10,7 +10,7 @@ const LoginPage = ({ login, isAuthenticated }) => {
 
   const { email, password } = formData;
 
-  const onChange = (e) =>
+  const onChange = (e) => 
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   if (isAuthenticated) {

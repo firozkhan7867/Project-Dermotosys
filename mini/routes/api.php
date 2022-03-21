@@ -29,7 +29,7 @@ Route::get('test',function (Request $request) {
         return ["sucess"=>$data];
     });
 
-Route::get('sloat',[Controller::class,'CreateSloat']);
+Route::post('Addslot',[Controller::class,'CreateSloat']);
 
 Route::get('getSloats',[Controller::class,'getSloats']);
 Route::get('getDocs',[Controller::class,'getDocs']);
