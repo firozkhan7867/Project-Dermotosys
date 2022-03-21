@@ -103,9 +103,9 @@ class Controller extends BaseController
             foreach ($data as $d) {
                 if (array_key_exists($d->weekday, $res)) {
                     //res[$d->weekday]=
-                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id]);
+                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]);
                 } else {
-                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id]];
+                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]];
                 }
             }
 
@@ -120,9 +120,9 @@ class Controller extends BaseController
             foreach ($data as $d) {
                 if (array_key_exists($d->weekday, $res)) {
                     //res[$d->weekday]=
-                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id]);
+                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]);
                 } else {
-                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id]];
+                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]];
                 }
             }
 
@@ -156,6 +156,11 @@ class Controller extends BaseController
         if($req->id)
         {
             $AppoinmentData=Appoinment::where('user_id', $req->id)->get();
+
+            // $data = DB::select(DB::raw('
+            // select * from schedules where doc_id=' . $doc_id . ';
+            // '));
+
             dd($AppoinmentData->toArray());
         }
         else{
@@ -184,15 +189,15 @@ class Controller extends BaseController
         try {
             $name = $req->name;
             $email = $req->email;
-            $phno = intval($req->contact);
-            $age = intval($req->age);
+            $phno = $req->contact;
+            $age = $req->age;
 
             $message = $req->message;
             $gender = $req->gender;
 
-            $slot_id = intval($req->slot_id);
-            $doc_id = intval($req->doctor);
-            $user_id = intval($req->user_id);
+            $slot_id = $req->slot_id;
+            $doc_id = $req->doctor;
+            $user_id = $req->user_id;
 
 
             $PatientData = Patient::Create([
