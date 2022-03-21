@@ -2,6 +2,7 @@ import React, {useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import {get_schedule_data,appointmentSubmit} from "../actions/auth.jsx";
 import { RiAddCircleFill} from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 export const ScheduleTab = ({details,kk,day,fun}) =>{
 
@@ -17,8 +18,8 @@ export const ScheduleTab = ({details,kk,day,fun}) =>{
 
 
 
-const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,userData}) => {
-
+const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,userData,isAuthenticated}) => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     get_schedule_data(1);
@@ -41,6 +42,10 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
       setShowModal(value);
     };
 
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+
     const subt = (value) =>{
       appointmentSubmit(name,email,contact,age,gender,doctor,message,check.id,userData.id);
       setShowModal(value);
@@ -61,6 +66,8 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
       doctor= "";
       message= "";
       setChecked({"start":"","end":"","day":"","id":""});
+      navigate("/patientdashboard");
+
     }
 
     const [formData, setFormData] = useState({
@@ -319,7 +326,8 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
 
 const mapStateToProps = (state) => ({
   schedule_data: state.auth.schedule_data,
-  userData: state.auth.userData
+  userData: state.auth.userData,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { get_schedule_data,appointmentSubmit })(MakeAppointment);
