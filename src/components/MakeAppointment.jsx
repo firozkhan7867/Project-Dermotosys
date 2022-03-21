@@ -2,10 +2,9 @@ import React, {useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import {get_schedule_data,appointmentSubmit} from "../actions/auth.jsx";
 import { RiAddCircleFill} from "react-icons/ri";
+import { useNavigate } from "react-router-dom";
 
 export const ScheduleTab = ({details,kk,day,fun}) =>{
-
-  
 
   return (
     <div className={kk.id === details.id ? " px-3 py-2 bg-[#26ae2b] rounded-md" 
@@ -19,8 +18,8 @@ export const ScheduleTab = ({details,kk,day,fun}) =>{
 
 
 
-const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,userData}) => {
-
+const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,userData,isAuthenticated}) => {
+  const navigate = useNavigate();
 
   useEffect(() => {
     get_schedule_data(1);
@@ -43,6 +42,10 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
       setShowModal(value);
     };
 
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
+
     const subt = (value) =>{
       appointmentSubmit(name,email,contact,age,gender,doctor,message,check.id,userData.id);
       setShowModal(value);
@@ -63,6 +66,8 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
       doctor= "";
       message= "";
       setChecked({"start":"","end":"","day":"","id":""});
+      navigate("/patientdashboard");
+
     }
 
     const [formData, setFormData] = useState({
@@ -92,7 +97,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
 
   return (
     <div className="">
-      <div className="container-fluid flex h-screen h-full pb-20 justify-center bg-[#f9f9f9]">
+      <div className="container-fluid flex h-full pb-20 justify-center bg-[#f9f9f9]">
         <div className="w-10/12 rounded-lg pb-20 shadow-lg mt-8 bg-white">
           <div className="px-12  py-12">
             <h2 className="text-2xl text-center font-bold">MAKE AN APPOINTMENT</h2>
@@ -311,7 +316,6 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
             <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
           </>
         ) : null}
-
       </div>
     </div>
   )
@@ -322,7 +326,8 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
 
 const mapStateToProps = (state) => ({
   schedule_data: state.auth.schedule_data,
-  userData: state.auth.userData
+  userData: state.auth.userData,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { get_schedule_data,appointmentSubmit })(MakeAppointment);

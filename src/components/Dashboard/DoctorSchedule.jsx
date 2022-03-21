@@ -220,9 +220,6 @@ const Schedule = ({get_schedule_data,schedule_data}) => {
             </div>
       </div>
 
-
-      // Modal Code -----------------------------
-
     {showModal ? (
       <>
         <div
