@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import doctor from '../img/doctor-thumb-02.jpg';
 import "./Schedule.css";
 import { Link } from "react-router-dom";
@@ -10,11 +10,18 @@ import { GrUserSettings, GrDocumentText } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
 import { RiLogoutBoxRLine, RiCalendarCheckFill, RiAddCircleFill} from "react-icons/ri";
 import ScheduleItems from './schedule/ScheduleItems';
+import { connect } from 'react-redux';
+import {get_schedule_data} from "../../actions/auth.jsx"
 
-const Schedule = () => {
-    const [details,setDetails] = useState(slots[`day1`]);
+const Schedule = ({get_schedule_data,schedule_data}) => {
+  useEffect(() => {
+    get_schedule_data(1);
+  }, []);
+
+    const [details,setDetails] = useState(schedule_data["Sunday"]);
     const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
+    
     const deleteItem = (id) => {
       setDetails((old) =>{
         return old.filter((arr,index) => {
@@ -31,7 +38,8 @@ const Schedule = () => {
     }
 
     const toggleTab = (index) => {
-        setDetails(slots[`day${index}`]);
+      const cnv =  {1: "Sunday",2: "Monday",3:"Tuesday",4:"Wednesday",5:"Thursday",6:"Friday",7:"Saturday",}
+        setDetails(schedule_data[cnv[index]]);
         setToggleState(index);
     };
 
@@ -284,4 +292,9 @@ const Schedule = () => {
 }
 
 
-export default Schedule;
+
+const mapStateToProps = (state) => ({
+  schedule_data: state.auth.schedule_data,
+});
+
+export default connect(mapStateToProps, { get_schedule_data })(Schedule);

@@ -4,6 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Controller;
+use App\Models\schedule;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,10 +24,23 @@ use App\Http\Controllers\AuthController;
 
 Route::post('login',[LoginController::class,'login']);
 
+Route::get('test',function (Request $request) {
+    $data=schedule::all();
+        return ["sucess"=>$data];
+    });
+
+Route::get('sloat',[Controller::class,'CreateSloat']);
+
+Route::get('getSloats',[Controller::class,'getSloats']);
+Route::get('getDocs',[Controller::class,'getDocs']);
+//getUserAppointements
+Route::post('CreateAppoinment',[Controller::class,'CreateAppoinment']);
+Route::get('getUserAppointements',[Controller::class,'getUserAppointements']);
+
 Route::post('register',[AuthController::class,'register']);
 
 Route::post('/appoint',[AuthController::class,'appointment']);
 
 // Route::middleware('auth:sanctum')->get('/user', function () {
-    
+
 // });

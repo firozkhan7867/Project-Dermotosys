@@ -7,14 +7,21 @@ import {
     USER_LOADED_FAIL,
     AUTHENTICATED_SUCCESS,
     AUTHENTICATED_FAIL,
-    LOGOUT
+    LOGOUT,
+    SCHEDULE_DATA_FAIL,
+    SCHEDULE_DATA_SUCCESS,
+    APPOINT_FAIL,
+    APPOINT_SUCCESS
 } from '../actions/types';
 
 const initialState = {
     // access: localStorage.getItem('access'),
     // refresh: localStorage.getItem('refresh'),
     isAuthenticated: null,
-    user: null
+    user: null,
+    userData:{"id":null,"name":"","email":""},
+    schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
+    // schedule_data:{"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
 };
 
 export default function(state = initialState, action) {
@@ -28,11 +35,12 @@ export default function(state = initialState, action) {
             }
         
         case LOGIN_SUCCESS:
-            // localStorage.setItem('access', payload.access);
-            // localStorage.setItem('refresh', payload.refresh);
+            localStorage.setItem('account', payload.account);
+            localStorage.setItem('token', payload.token);
             return {
                 ...state,
                 isAuthenticated: true,
+                userData: payload.account,
                 // access: payload.access,
                 // refresh: payload.refresh
             }
@@ -40,6 +48,16 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 user: payload
+            }
+        case SCHEDULE_DATA_SUCCESS:
+            return {
+                ...state,
+                schedule_data: payload.sucess,
+            }
+        case SCHEDULE_DATA_FAIL:
+            return {
+                ...state,
+                schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
             }
         case AUTHENTICATED_FAIL:
             return {
@@ -70,7 +88,13 @@ export default function(state = initialState, action) {
                 // access: null,
                 // refresh: null,
                 isAuthenticated: false,
-                user: null
+                user: null,
+                userData:{"id":null,"name":"","email":""},
+            }
+        case APPOINT_SUCCESS:
+        case APPOINT_FAIL:
+            return {
+                
             }
         // case PASSWORD_RESET_SUCCESS:
         // case PASSWORD_RESET_FAIL:
