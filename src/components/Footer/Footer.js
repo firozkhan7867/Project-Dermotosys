@@ -55,11 +55,11 @@ const Footer = () => {
                 Copyright <strong><span>Company</span></strong>. All rights reserved.
             </div>
             <div className="text-center text-xl text-white mb-2"> 
-              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialGooglePlusCircular className="h-8 ml-2 "/></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialFacebook className="h-8 ml-2 "/></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialLinkedin className="h-8 ml-2 "/></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialSkypeOutline className="h-8 ml-2 "/></a>
-              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialTwitter className="h-8 ml-2  "/></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialGooglePlusCircular className=" mt-1 ml-[8px] " size={25}/></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialFacebook className=" mt-1 ml-[8px] " size={25}/></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialLinkedin className=" mt-1 ml-[8px] " size={25}/></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialSkypeOutline className=" mt-1 ml-[8px] " size={25}/></a>
+              <a href="#" className="w-10 h-10 rounded-full bg-yellow-500 hover:bg-yellow-600 mx-1 inline-block pt-1"><TiSocialTwitter className= " mt-1 ml-[8px] " size={25}/></a>
             </div>
           </div>
         </div>
