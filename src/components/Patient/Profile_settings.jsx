@@ -13,9 +13,9 @@ import { RiLogoutBoxRLine, RiUserLocationFill } from "react-icons/ri";
 import { Navigate } from "react-router-dom";
 
 const Profile_settings = ({isAuthenticated}) => {
-    if (!isAuthenticated) {
-        return <Navigate to="/login" />;
-      }
+    // if (!isAuthenticated) {
+    //     return <Navigate to="/login" />;
+    //   }
   return (
     <div className="">
       <div className="h-24" style={{ backgroundColor: "#15558d" }}>
@@ -30,7 +30,7 @@ const Profile_settings = ({isAuthenticated}) => {
           </div>
         </div>
       </div>
-      <div className="bg-gray-50 p-6 grid grid-cols-1 md:grid-cols-1 lg:flex  gap-2 w-full items-start">
+      <div className="bg-gray-50 p-6 grid grid-cols-1 md:grid-cols-1 lg:flex  gap-8 w-full items-start">
         <div className="bg-grey-100 shadow-md bg-white sm:w-5/12 md:w-full lg:w-4/12 w-full">
           <div className="w-full flex  justify-center p-2">
             <img
@@ -99,9 +99,9 @@ const Profile_settings = ({isAuthenticated}) => {
             </li>
           </ul>
         </div>
-        <div className="w-full px-6 py-4 bg-white h-auto ">
+        <div className="w-full px-8 py-4 bg-white h-auto ">
             <div className=" flex lg:flex-row flex-col ml-6">
-                <img src={patient} className="w-32"/>
+                <img src={patient} className="w-28"/>
                 <div className="flex flex-col mt-8 ml-6">
                     <label class="flex w-44 px-4 py-2 rounded-full text-white font-bold bg-[#03a9f4] hover:bg-[#2ca5dd] cursor-pointer hover:text-white">
                     <FaCloudUploadAlt className="mr-2 text-xl" />Upload Photo
@@ -113,33 +113,33 @@ const Profile_settings = ({isAuthenticated}) => {
             <form action="" className="mt-4">
                 <div className="flex lg:flex-row flex-col">
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
-                    <label class="text-lg text-gray-600">First Name</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <label class="text-md font-semibold text-gray-600">First Name</label>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">Last Name</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                 </div>
                 <div className="flex lg:flex-row flex-col">
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">Email</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">Phone Number</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                 </div>
                 <div className="flex lg:flex-row flex-col">
                     <div className="datepicker lg:w-1/2 md:w-1/2 w-f flex flex-col mx-2 lg:mx-4" >
                     <label class="text-lg text-gray-600">Date of Birth</label>
-                    <input type='text' className="border border-gray-500 w-fullo text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-fullo text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">Blood Group</label>
                     <select name="gender"
-                    className='border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded12x text-black outline-none'>
+                    className='border border-gray-500 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none'>
                         <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Male">A+</option>
                         <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Female">A-</option>
                         <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Male">B+</option>
@@ -153,26 +153,26 @@ const Profile_settings = ({isAuthenticated}) => {
                 </div>
                 <div className="datepicker flex flex-col mx-2 lg:mx-4" >
                 <label class="text-lg text-gray-600">Address</label>
-                <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                 </div>
                 <div className="flex lg:flex-row flex-col">
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">City</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">State</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                 </div>
                 <div className="flex lg:flex-row flex-col">
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">Country</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                     <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
                     <label class="text-lg text-gray-600">Zip Code</label>
-                    <input type='text' className="border border-gray-500 w-full text-sm py-3 px-2 my-2 rounded-1xl text-black outline-none"/>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                 </div>
                 <button class="bg-[#09e5ab] hover:bg-[#7edec8] text-white text-lg font-bold py-2 px-4 ml-8 mt-4 borde rounded">
