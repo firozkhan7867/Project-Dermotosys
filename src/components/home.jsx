@@ -10,7 +10,7 @@ import "./home.css";
 import {RiHeartPulseFill } from "react-icons/ri";
 import {AiOutlineCheckSquare } from "react-icons/ai";
 import {FaHospitalUser ,FaWheelchair} from "react-icons/fa";
-import {GiMedicines, GiConfirmed } from "react-icons/gi";
+import {GiMedicines} from "react-icons/gi";
 import {RiHotelBedFill } from "react-icons/ri";
 import {BsClipboardPlus,BsCalendar2Check,BsDoorOpen,BsCamera } from "react-icons/bs";
 

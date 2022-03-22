@@ -9,6 +9,7 @@ import Signup from "./components/SignupPage";
 import Navbar from "./components/Navbar/index";
 import PatientsList from "./components/PatientsList";
 import PatientDashboard from "./components/Patient/PatientDashboard";
+import Profile_settings from "./components/Patient/Profile_settings";
 import Schedule from "./components/Dashboard/DoctorSchedule";
 import ChatBody from "./components/Chat/components/chatBody/ChatBody";
 import { Provider } from 'react-redux';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/patientslist" element={<PatientsList />} />
           <Route path="/doctordashboard" element={<Dashboard />} />
           <Route path="/patientdashboard" element={<PatientDashboard />} />
+          <Route path="/patientprofilesettings" element={<Profile_settings />} />
           <Route path="/doctorSchedule" element={<Schedule />} />
           <Route path="/chat" element={<ChatBody />} />
           <Route path="/vchat" element={<VideoChat />} />

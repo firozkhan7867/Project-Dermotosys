@@ -81,10 +81,11 @@ const PatientDashboard = ({isAuthenticated}) => {
               </div>
             </li>
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
-              <div className="flex text-left	px-4 text-md capitalize text-gray-600 place-items-center hover:text-sky-400">
+              <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
+              to="/patientprofilesettings">
                 <GrUserSettings className="mr-2" />
-                <a className="ml-2">User Settings</a>
-              </div>
+                User Settings
+              </Link>
             </li>
 
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
