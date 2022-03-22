@@ -8,10 +8,11 @@ import { CheckIcon } from './Navbar/NavbarElements';
 import Footer from  "./Footer/Footer"  ;
 import "./home.css";
 import {RiHeartPulseFill } from "react-icons/ri";
+import {AiOutlineCheckSquare } from "react-icons/ai";
 import {FaHospitalUser ,FaWheelchair} from "react-icons/fa";
-import {GiMedicines } from "react-icons/gi";
+import {GiMedicines, GiConfirmed } from "react-icons/gi";
 import {RiHotelBedFill } from "react-icons/ri";
-import {BsClipboardPlus } from "react-icons/bs";
+import {BsClipboardPlus,BsCalendar2Check,BsDoorOpen,BsCamera } from "react-icons/bs";
 
 
 const HomePage = () => {
@@ -25,14 +26,34 @@ const HomePage = () => {
                 <div className="mb-10 p-10">
                     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-16 gap-8 ">
                         <div className="flex flex-col transition-all ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full  rounded-3xl bg-white">
-                                hi
+                            <div className="">
+                                <BsCalendar2Check className="text-5xl" />
+                            </div>
+                            <div className="mt-6">
+                                <p className="text-3xl font-bold text-[#3fbbc0]"> Self Schedule</p>
+                            </div>
                         </div>
                         <div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full rounded-3xl bg-white">
-                                hi
+                            <div className="">
+                                <BsDoorOpen className="text-5xl" />
+                            </div>
+                            <div className="mt-6">
+                                <p className="text-3xl font-bold text-[#3fbbc0]"> Check In</p>
+                            </div>
                         </div><div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60 border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
-                                hi
+                            <div className="">
+                                <BsCamera    className="text-5xl" />
+                            </div>
+                            <div className="mt-6 flex items-center justify-center">
+                                <p className="text-3xl font-bold text-[#3fbbc0] w-8/12 text-center"> Video Consultation</p>
+                            </div>
                         </div><div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60  border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
-                                hi
+                            <div className="">
+                                <AiOutlineCheckSquare className="text-5xl" />
+                            </div>
+                            <div className="mt-6 flex items-center justify-center">
+                                <p className="text-3xl font-bold text-[#3fbbc0] w-8/12 text-center"> Personalized Treatment</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,28 +102,26 @@ const HomePage = () => {
             </div> 
             <div className="py-10 flex flex-col text-center justify-center items-center border-b lg:border-none xl:border-none  ">  
                 <h1 className='text-gray-600 font-bold text-3xl mb-4'>About Us</h1>
-                <p className='w-10/12 mt-4 text-gray-500'> Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque magni eum perferendis odit mollitia amet iste aspernatur vero dolores natus,
-                     provident consectetur quis perspiciatis pr aesentium dolore similique adipisci soluta aliquid.</p>       
+                <p className='w-10/12 mt-4 text-gray-500'> Our Consultation provides convenient access to accredited Dermatology Specialist using telehealth technology to help people suffering,
+                from acne Heal and Regain their Confidence. We believe that clear skin starts within. We combine holistic approach with medical treatments to provide dermatology care</p>       
             </div> 
             <div className="lg:mx-12  mx-2 mb-10">
                 <div className="py-4 lg:px-16 xl:px-16 md:px-14 px-2 grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 justify-items-center">
-                    <div className="w-full  flex flex-col m-3 bg-gray-300 justify-center place-items-center">
-                        
+                    <div className="w-full  flex flex-col m-3  justify-center place-items-center">
+                        <img src="https://cdn-boecg.nitrocdn.com/ZhAvjyePCUHDEgbgiXJIZayFfXGQnUpg/assets/static/optimized/wp-content/uploads/sites/299/2021/03/d5bdb9c80a77c1ee93d05d7afd406d28.shutterstock_1674146218-800x533.jpg" alt="" />
                     </div>
                     <div className="w-full   flex flex-col m-3 bg-white justify-center place-items-center">
-                        <h2 className='text-left font-bold text-lg p-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia tenetur enim, hic at ad minus</h2>
+                        <h2 className='text-left font-bold text-lg p-3'>When you schedule your intial appointment, your Consultation will include</h2>
                         <h3 className='text-sm text-left text-gray-800 p-3'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque ea ipsum repudiandae debitis consequuntur. Inventore, recusandae </h3>
                         <div className="">
-                        <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-gray-500 font-bold text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam</p> </p>
-                        <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-gray-500 font-bold text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam</p> </p>
-                        <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-left text-gray-500 w-11/12 font-bold text-sm'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam 
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quod porro ullam
+                        <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-gray-500 font-bold text-sm'>A Comphrehensive Consultation with an accredited Dermatology Specialist</p> </p>
+                        <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-gray-500 font-bold text-sm'>Telehealth Video appointment from the comfort of your own home</p> </p>
+                        <p className='flex items-center p-3'><CheckIcon  /> <p className='ml-6 text-left text-gray-500 w-11/12 font-bold text-sm'>Skin routine and product plant to heal your skin
+                                Dietary and lifestyle recommendations to reduce acne recurraence
                             </p> 
                         </p>
                         <p className='p-5 text-left text-md text-gray-500 font-bold'>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Odit quibusdam velit accusamus quidem expedita molestiae optio ipsam, earum aperiam possimus maxime, officiis placeat distinctio laborum hic assumenda ullam excepturi reprehenderit!
-                            officiis placeat distinctio laborum hic assumenda ullam excepturi reprehenderit!
+                            Topical or oral acne prescriptions will be sent to your local pharmacy when necessary
                         </p>
                         </div>
                     </div>
