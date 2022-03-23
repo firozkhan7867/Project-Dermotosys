@@ -96,9 +96,12 @@ const Tabs = () => {
                                             </p>
                                         </td>
                                         <td className="px-5 py-5 border-b border-gray-200 bg-white">
-                                            <div className="">View</div>
-                                            <div className="">View</div>
-                                            <div className="">Cancel</div>
+                                            <span
+                                                className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                <span aria-hidden
+                                                    className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+                                            <span className="relative">Active</span>
+                                            </span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -137,7 +140,7 @@ const Tabs = () => {
                                                 className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
                                                 <span aria-hidden
                                                     className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
-                                            <span className="relative">Activo</span>
+                                            <span className="relative">Active</span>
                                             </span>
                                         </td>
                                     </tr>

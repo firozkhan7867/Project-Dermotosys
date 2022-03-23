@@ -35,6 +35,7 @@ Route::get('getSloats',[Controller::class,'getSloats']);
 Route::get('getDocs',[Controller::class,'getDocs']);
 //getUserAppointements
 Route::post('CreateAppoinment',[Controller::class,'CreateAppoinment']);
+Route::post('UploadUserProfilePic',[Controller::class,'UploadUserProfilePic']);
 Route::get('getUserAppointements',[Controller::class,'getUserAppointements']);
 
 Route::post('register',[AuthController::class,'register']);

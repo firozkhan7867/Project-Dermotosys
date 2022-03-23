@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import "./NavbarCss.css";
 import { Nav,NavLink, Bars, NavMenu, NavBtn, NavBtnLink } from './NavbarElements';
-import { useLocation,Link } from 'react-router-dom';
+import { useLocation,Link,Navigate } from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logout} from '../../actions/auth';
 import logo from '../img/logo.png';
@@ -10,9 +10,14 @@ const Navbar = ({ logout, isAuthenticated }) => {
     console.log(window.location.pathname);
     const location = useLocation();
     const [showmedia, setshowmedia] = useState(false);
+    const [auth, setAuth] = useState(isAuthenticated);
     const handleLogout = () =>{
         isAuthenticated = false;
+        setAuth(isAuthenticated);
     }
+    useEffect(() => {
+        <Navigate to="/home" />
+      }, [auth,setAuth]);
   return (
     <Nav className='shadow-md lg:pl-10 lg:pr-5 z-20  w-full'>
         <NavLink to="/" className={"ml-5 mt-8"}>
@@ -32,28 +37,13 @@ const Navbar = ({ logout, isAuthenticated }) => {
             <a className="block mt-4 lg:inline-block lg:mt-0 text-blue-700 font-semibold text-xl hover:text-blue-400 mx-2">
                 Our Services
             </a></Link>
-             {/* <NavLink to={"/patientslist"}>
-                 PatientList
-             </NavLink>
-             <NavLink to={"/doctordashboard"}>
-                 Doctor Dashboard
-             </NavLink>
-             <NavLink to={"/patientdashboard"}>
-                 Patient Dashboard
-             </NavLink>
-             <NavLink to={"/doctorSchedule"}>
-                    Doctor Schedule
-             </NavLink> */}
-             {/* <NavLink to={"/chat"}>
-                    Chat
-             </NavLink> */}
         </NavMenu>
         <NavBtn>
-            {isAuthenticated 
+            {isAuthenticated
                 ? 
                 <div>
                     <Link to="/makeappointment">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                    <button class="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                         Book your Slot
                     </button></Link>
                     <Link to="/">
@@ -65,7 +55,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
                 <div>   
                     {(location.pathname === "/login")?
                     <Link to="/signup">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
+                    <button class="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
                     Register
                     </button></Link>:
                     <Link to="/login">
@@ -76,30 +66,6 @@ const Navbar = ({ logout, isAuthenticated }) => {
                 </div>
             }
         </NavBtn>
-        {/* <NavBtn>
-            {isAuthenticated 
-                ? 
-                <div>
-                    <NavBtnLink to={""}>
-                        Book your slot
-                    </NavBtnLink>
-                    <NavBtnLink to={""} onClick={logout}>
-                        Logout
-                    </NavBtnLink>
-                </div>
-                :
-                <div>   
-                    {(location.pathname === "/login")?
-                    <NavLink to={"/signup"}>
-                        Register
-                    </NavLink>:
-                    <NavLink to={"/login"}>
-                        Login
-                    </NavLink>
-                    }
-                </div>
-            }
-        </NavBtn> */}
     </Nav>
   )
 }
