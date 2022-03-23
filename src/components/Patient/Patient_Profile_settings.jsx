@@ -57,7 +57,7 @@ const Profile_settings = ({isAuthenticated}) => {
             <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
             to="/patientdashboard">
               <MdOutlineSpaceDashboard className="mr-2" />
-              Dashboard
+              <Link to="/patientdashboard" className="ml-2">Dashboard</Link>
             </Link>
             </li>
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
@@ -75,20 +75,20 @@ const Profile_settings = ({isAuthenticated}) => {
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
               <div className="flex text-left	px-4 text-md capitalize text-gray-600 place-items-center hover:text-sky-400">
                 <FiMessageSquare className="mr-2" />
-                <a className="ml-2">Messages</a>
+                <Link to="/chat" className="ml-2">Messages</Link>
               </div>
             </li>
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
               <div className="flex text-left	px-4 text-md capitalize text-gray-600 place-items-center hover:text-sky-400">
                 <GrUserSettings className="mr-2" />
-                <a className="ml-2">User Settings</a>
+                <Link to="/patientprofilesettings" className="ml-2">User Settings</Link>
               </div>
             </li>
 
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
               <div className="flex text-left	px-4 text-md capitalize text-gray-600 place-items-center hover:text-sky-400">
                 <MdPassword className="mr-2" />
-                <a className="ml-2">Change Password</a>
+                <Link to="/patientchangepassword" className="ml-2">Change Password</Link>
               </div>
             </li>
             <li className="container-fluid list-none border-1 cursor-pointer border-slate-100 py-4">
@@ -100,6 +100,9 @@ const Profile_settings = ({isAuthenticated}) => {
           </ul>
         </div>
         <div className="w-full px-8 py-4 bg-white h-auto ">
+          <div className="p-3 text-gray-700 text-xl font-bold">
+            Change Profile Settings
+          </div>   
             <div className=" flex lg:flex-row flex-col ml-6">
                 <img src={patient} className="w-28"/>
                 <div className="flex flex-col mt-8 ml-6">
@@ -175,7 +178,7 @@ const Profile_settings = ({isAuthenticated}) => {
                     <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
                     </div>
                 </div>
-                <button class="bg-[#09e5ab] hover:bg-[#7edec8] text-white text-lg font-bold py-2 px-4 ml-8 mt-4 borde rounded">
+                <button className="bg-[#09e5ab] hover:bg-[#7edec8] text-white text-lg font-bold py-2 px-4 ml-8 mt-4 borde rounded">
                 Save Changes
                 </button>
             </form>

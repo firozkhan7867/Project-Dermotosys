@@ -1,17 +1,18 @@
 import React from "react";
 import patient from "../img/patient.jpg";
 import { Link } from "react-router-dom";
-import {  MdOutlineSpaceDashboard,  MdOutlineFavorite,  MdPassword} from "react-icons/md";
+import {
+  MdOutlineSpaceDashboard,
+  MdOutlineFavorite,
+  MdPassword,
+} from "react-icons/md";
 import { FiMessageSquare } from "react-icons/fi";
-import { FaBirthdayCake } from "react-icons/fa";
+import { FaBirthdayCake,FaCloudUploadAlt } from "react-icons/fa";
 import { GrUserSettings } from "react-icons/gr";
 import { RiLogoutBoxRLine, RiUserLocationFill } from "react-icons/ri";
-import Tabs from "./Tabs/PatientTab";
-import { connect } from 'react-redux';
 import { Navigate } from "react-router-dom";
 
-
-const PatientDashboard = ({isAuthenticated}) => {
+const Change_Password = ({isAuthenticated}) => {
   // if (!isAuthenticated) {
   //   return <Navigate to="/login" />;
   // }
@@ -20,16 +21,16 @@ const PatientDashboard = ({isAuthenticated}) => {
       <div className="h-24" style={{ backgroundColor: "#15558d" }}>
         <div className="flex justify-content-start pt-4">
           <div className="pl-4 text-sm text-white">
-            <p>Home / Appointments</p>
+            <p>Home / Profile</p>
           </div>
         </div>
         <div className="flex justify-content-start">
           <div className="pl-4 text-xl font-bold text-white">
-            <p>Appointments</p>
+            <p>Profile Settings</p>
           </div>
         </div>
       </div>
-      <div className="bg-gray-50 p-6 grid grid-cols-1 md:grid-cols-1 lg:flex  gap-2 w-full items-start">
+      <div className="bg-gray-50 p-6 grid grid-cols-1 md:grid-cols-1 lg:flex  gap-8 w-full items-start">
       <div className="bg-grey-100 shadow-md bg-white sm:w-5/12 md:w-full lg:w-4/12 w-full">
           <div className="w-full flex  justify-center p-2">
             <img
@@ -98,20 +99,31 @@ const PatientDashboard = ({isAuthenticated}) => {
             </li>
           </ul>
         </div>
-        <div className="w-full px-3 py-2 bg-white h-screen ">
-          <Tabs name1={"Appointments"} name2={"Prescriptions"} />
+        <div className="w-full px-8 py-4 bg-white h-auto ">
+        <div className="p-3 pb-6 text-gray-700 text-2xl font-bold border-b-2">
+          Change Password
+        </div>   
+            <form action="" className="mt-4">
+                    <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
+                    <label class="text-lg text-gray-600">Current Password</label>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
+                    </div>
+                    <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
+                    <label class="text-lg text-gray-600">New Password</label>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
+                    </div>
+                    <div className="lg:w-1/2 md:w-1/2 w-full flex flex-col mx-2 lg:mx-4">
+                    <label class="text-lg text-gray-600">Confirm New Password</label>
+                    <input type='text' className="border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none"/>
+                    </div>
+                <button class="bg-[#09e5ab] hover:bg-[#7edec8] text-white text-lg font-bold py-2 px-4 ml-8 mt-4 borde rounded">
+                Save Changes
+                </button>
+            </form>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-
-const mapStateToProps = (state) => ({
-  isAuthenticated: state.auth.isAuthenticated,
-});
-
-export default connect(mapStateToProps)(PatientDashboard);
-
-
-
+export default Change_Password

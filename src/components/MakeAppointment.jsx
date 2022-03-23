@@ -1,11 +1,9 @@
 import React, {useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import {get_schedule_data,appointmentSubmit} from "../actions/auth.jsx";
-import { RiAddCircleFill} from "react-icons/ri";
-import { useNavigate } from "react-router-dom";
+import { Navigate,useNavigate } from "react-router-dom";
 
 export const ScheduleTab = ({details,kk,day,fun}) =>{
-
   return (
     <div className={kk.id === details.id ? " px-3 py-2 bg-[#26ae2b] rounded-md" 
     : "px-3 py-2 bg-[#f33f39] rounded-md "} onClick={ () => {
@@ -42,9 +40,9 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
       setShowModal(value);
     };
 
-    if (!isAuthenticated) {
-      navigate("/login");
-    }
+    // if (!isAuthenticated) {
+    //   navigate("/login");
+    // }
 
     const subt = (value) =>{
       appointmentSubmit(name,email,contact,age,gender,doctor,message,check.id,userData.id);
@@ -83,10 +81,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
 
     const {name,email, contact,age, gender, doctor,message} = formData;
     
-    const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value});
-
-    
-
+    const onChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value}); 
     
     const toggleTab = (index) => {
       const cnv =  {1: "Sunday",2: "Monday",3:"Tuesday",4:"Wednesday",5:"Thursday",6:"Friday",7:"Saturday",}
@@ -227,7 +222,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
               </div>
             </div>
             <div className="flex flex-col items-center justify-center">
-              <button type="button" onClick={() => model(true)}   className="text-2xl flex justify-center text-white hover:text-gray-500 ml-4 mt-4 mb-4 text-center rounded-lg px-3 py-2 font-bold bg-green-400 hover:bg-green-200">
+              <button type="button" onClick={() => model(true)} className="bg-[#09e5ab] hover:bg-[#7edec8] text-white text-lg font-bold py-2 px-4 ml-8 mt-4 borde rounded">
                 Submit Application
               </button>
             </div>
