@@ -45,14 +45,14 @@ const PatientDashboard = ({isAuthenticated}) => {
             />
           </div>
           <div className="text-center">
-            <p className="font-semibold text-lg">Richard Wilson</p>
+            <p className="font-semibold text-lg">Patient Name</p>
             <p className="flex font-normal text-gray-400 text-sm p-1 justify-center place-items-center">
               <FaBirthdayCake className="mr-2" />
               24 Jul 1983, 38 years
             </p>
             <p className="flex font-normal text-gray-400 text-sm p-1 justify-center place-items-center">
               <RiUserLocationFill className="mr-2" />
-              Newyork, USA
+              Visakhapatnam, India
             </p>
           </div>
           <ul>

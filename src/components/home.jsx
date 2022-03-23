@@ -25,34 +25,34 @@ const HomePage = () => {
             <div className="lg:mx-12 my-2">
                 <div className="mb-10 p-10">
                     <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 lg:gap-16 gap-8 ">
-                        <div className="flex flex-col transition-all ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full  rounded-3xl bg-white">
+                        <div className="flex flex-col  hover:text-white  text-[#3fbbc0]  transition-all ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full  rounded-3xl bg-white">
                             <div className="">
-                                <BsCalendar2Check className="text-5xl" />
+                                <BsCalendar2Check className="text-5xl text-black" />
                             </div>
                             <div className="mt-6">
-                                <p className="text-3xl font-bold text-[#3fbbc0]"> Self Schedule</p>
+                                <p className="text-3xl   hover:text-white font-bold "> Self Schedule</p>
                             </div>
                         </div>
-                        <div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full rounded-3xl bg-white">
+                        <div className="flex flex-col transition  text-[#3fbbc0]   hover:text-white ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center shadow-lg h-60 border-2 border-gray w-full rounded-3xl bg-white">
                             <div className="">
-                                <BsDoorOpen className="text-5xl" />
+                                <BsDoorOpen className="text-5xl text-black" />
                             </div>
                             <div className="mt-6">
-                                <p className="text-3xl font-bold text-[#3fbbc0]"> Check In</p>
+                                <p className="text-3xl  font-bold"> Check In</p>
                             </div>
-                        </div><div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60 border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
+                        </div><div className="flex flex-col transition  text-[#3fbbc0]  hover:text-white ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60 border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
                             <div className="">
-                                <BsCamera    className="text-5xl" />
+                                <BsCamera    className="text-5xl text-black" />
                             </div>
                             <div className="mt-6 flex items-center justify-center">
-                                <p className="text-3xl font-bold text-[#3fbbc0] w-8/12 text-center"> Video Consultation</p>
+                                <p className="text-3xl font-bold w-8/12 text-center"> Video Consultation</p>
                             </div>
-                        </div><div className="flex flex-col transition ease-in hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60  border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
+                        </div><div className="flex flex-col transition ease-in text-[#3fbbc0] hover:text-white  hover:bg-[#3fbbc0] duration-500 items-center justify-center h-60  border-2 border-gray w-full shadow-lg rounded-3xl bg-white">
                             <div className="">
-                                <AiOutlineCheckSquare className="text-5xl" />
+                                <AiOutlineCheckSquare className="text-5xl text-black" />
                             </div>
                             <div className="mt-6 flex items-center justify-center">
-                                <p className="text-3xl font-bold text-[#3fbbc0] w-8/12 text-center"> Personalized Treatment</p>
+                                <p className="text-3xl font-bold  w-8/12 text-center"> Personalized Treatment</p>
                             </div>
                         </div>
                     </div>

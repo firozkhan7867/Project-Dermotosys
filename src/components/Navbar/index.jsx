@@ -53,7 +53,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
                 ? 
                 <div>
                     <Link to="/makeappointment">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                    <button class="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                         Book your Slot
                     </button></Link>
                     <Link to="/">
@@ -65,7 +65,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
                 <div>   
                     {(location.pathname === "/login")?
                     <Link to="/signup">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
+                    <button class="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
                     Register
                     </button></Link>:
                     <Link to="/login">

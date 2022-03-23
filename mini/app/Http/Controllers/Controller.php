@@ -9,13 +9,16 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Patient;
 use App\Models\Schedule;
 use WeakMap;
+
+use Illuminate\Support\Facades\Validator;
+
 
 
 
@@ -64,7 +67,7 @@ class Controller extends BaseController
 
     public function CreateSloat(Request $req)
     {
-        try{
+        try {
 
             $start = $req->start;
             $end = $req->end;
@@ -84,19 +87,15 @@ class Controller extends BaseController
                     // return $schedule;
                     return response(["Sucess" => $schedule]);
                 } else {
-                    return response(["Error" => "Invalid sloat","Request"=>$req->all()]);
+                    return response(["Error" => "Invalid sloat", "Request" => $req->all()]);
                 }
             } else {
-                return response(["Error" => "Invalid Parameters [start,end,weekday,id] ","Request"=>$req->all()]);
+                return response(["Error" => "Invalid Parameters [start,end,weekday,id] ", "Request" => $req->all()]);
             }
-
-        }
-        catch (\Exception $e) {
-            $data = ["Error" => $e->getMessage(),"Request"=>$req->all()];
+        } catch (\Exception $e) {
+            $data = ["Error" => $e->getMessage(), "Request" => $req->all()];
             return response($data);
         }
-
-
     }
 
 
@@ -114,9 +113,9 @@ class Controller extends BaseController
             foreach ($data as $d) {
                 if (array_key_exists($d->weekday, $res)) {
                     //res[$d->weekday]=
-                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]);
+                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id, "status" => $d->isOpen]);
                 } else {
-                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]];
+                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id, "status" => $d->isOpen]];
                 }
             }
 
@@ -131,15 +130,15 @@ class Controller extends BaseController
             foreach ($data as $d) {
                 if (array_key_exists($d->weekday, $res)) {
                     //res[$d->weekday]=
-                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]);
+                    array_push($res[$d->weekday], ["start" => $d->start, "end" => $d->end, "id" => $d->id, "status" => $d->isOpen]);
                 } else {
-                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id,"status"=>$d->isOpen]];
+                    $res[$d->weekday] = [["start" => $d->start, "end" => $d->end, "id" => $d->id, "status" => $d->isOpen]];
                 }
             }
 
             $data = $res ? ["sucess" => $res] : ["Message" => "No Data Found"];
         } else {
-            $data = ["Error" => "Invalid inputs","Request"=>$req->all()];
+            $data = ["Error" => "Invalid inputs", "Request" => $req->all()];
         }
 
         return response($data);
@@ -164,8 +163,7 @@ class Controller extends BaseController
 
     public function getUserAppointements(Request $req)
     {
-        if($req->id)
-        {
+        if ($req->id) {
             // $AppoinmentData=Appoinment::where('user_id', $req->id)->get();
 
             $data = DB::select(DB::raw('
@@ -200,14 +198,12 @@ class Controller extends BaseController
                 appoinments.user_id=users.id AND
                 appoinments.patient_id=patients.id AND
                 appoinments.slot_id=schedules.id AND
-                users.id='.$req->id.'
+                users.id=' . $req->id . '
             '));
 
-           // dd($data);
-        }
-        else{
-            $data = ["Error" => "Invalid inputs","Request"=>$req->all()];
-
+            // dd($data);
+        } else {
+            $data = ["Error" => "Invalid inputs", "Request" => $req->all()];
         }
         return response($data);
     }
@@ -262,32 +258,71 @@ class Controller extends BaseController
 
             $AppointmentId = $AppointmentData->getAttributes()["id"];
 
-            $DoctorData=Doctor::find($doc_id);
-            $UserData=User::find($user_id);
-            $SlotData=Schedule::find($slot_id);
+            $DoctorData = Doctor::find($doc_id);
+            $UserData = User::find($user_id);
+            $SlotData = Schedule::find($slot_id);
 
             $SlotData->isOpen = 0;
 
             $SlotData->save();
 
 
-            $data=["sucess"=>[
-                "AppointmentId"=>$AppointmentId,
-                "DoctorId"=>$doc_id,
-                "AppointmentData"=>$AppointmentData->getAttributes(),
-                "DoctorData"=>$DoctorData->getAttributes(),
-                "UserData"=>$UserData,
-                "PatientData"=>$PatientData->getAttributes(),
-                "SlotData"=>$SlotData
+            $data = ["sucess" => [
+                "AppointmentId" => $AppointmentId,
+                "DoctorId" => $doc_id,
+                "AppointmentData" => $AppointmentData->getAttributes(),
+                "DoctorData" => $DoctorData->getAttributes(),
+                "UserData" => $UserData,
+                "PatientData" => $PatientData->getAttributes(),
+                "SlotData" => $SlotData
             ]];
+        } catch (\Exception $e) {
 
-        }
-        catch (\Exception $e) {
-
-            $data = ["Error" => $e->getMessage(),"Request"=>$req->all()];
+            $data = ["Error" => $e->getMessage(), "Request" => $req->all()];
         }
 
 
         return response($data);
+    }
+
+
+
+
+
+    public function UploadUserProfilePic(Request $request)
+    {
+
+        $validator = Validator::make(
+            $request->all(),
+            [
+                'id' => 'required',
+                'pic' => 'required|mimes:jpg',
+            ]
+        );
+
+        if ($validator->fails()) {
+            return response()->json(['error' => $validator->errors()], 401);
+        }
+
+
+        if ($files = $request->file('pic')) {
+
+            //store file into uimages folder
+
+            $file = $request->file('pic')->storeAs('uimages', Hash::make($request->id) . '.' . 'jpg');
+            // $file = $request->file('pic')->store('uimages');
+
+            //store your file into database
+            // $document = new Document();
+            // $document->title = $file;
+            // $document->user_id = $request->user_id;
+            // $document->save();
+
+            return response()->json([
+                "success" => true,
+                "message" => "File successfully uploaded",
+                "file" => $file
+            ]);
+        }
     }
 }
