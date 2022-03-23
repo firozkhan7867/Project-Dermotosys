@@ -3,10 +3,6 @@ import {
     LOGIN_FAIL,
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
-    USER_LOADED_SUCCESS,
-    USER_LOADED_FAIL,
-    AUTHENTICATED_SUCCESS,
-    AUTHENTICATED_FAIL,
     LOGOUT,
     SCHEDULE_DATA_FAIL,
     SCHEDULE_DATA_SUCCESS,
@@ -17,7 +13,7 @@ import {
 const initialState = {
     // access: localStorage.getItem('access'),
     // refresh: localStorage.getItem('refresh'),
-    isAuthenticated: null,
+    isAuthenticated: false,
     user: null,
     userData:{"id":null,"name":"","email":""},
     schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
@@ -28,12 +24,6 @@ export default function(state = initialState, action) {
     const { type, payload } = action;
 
     switch(type) {
-        case AUTHENTICATED_SUCCESS:
-            return {
-                ...state,
-                isAuthenticated: true,
-            }
-        
         case LOGIN_SUCCESS:
             localStorage.setItem('account', payload.account);
             localStorage.setItem('token', payload.token);
@@ -43,11 +33,6 @@ export default function(state = initialState, action) {
                 userData: payload.account,
                 // access: payload.access,
                 // refresh: payload.refresh
-            }
-        case USER_LOADED_SUCCESS:
-            return {
-                ...state,
-                user: payload
             }
         case SCHEDULE_DATA_SUCCESS:
             return {
@@ -59,17 +44,7 @@ export default function(state = initialState, action) {
                 ...state,
                 schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
             }
-        case AUTHENTICATED_FAIL:
-            return {
-                ...state,
-                isAuthenticated: false,
-            }
-        
-        case USER_LOADED_FAIL:
-            return {
-                ...state,
-                user: null
-            }
+       
         
         case SIGNUP_SUCCESS:
             localStorage.setItem("auth_token", payload.token);

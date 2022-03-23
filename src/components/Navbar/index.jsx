@@ -7,17 +7,27 @@ import {logout} from '../../actions/auth';
 import logo from '../img/logo.png';
 
 const Navbar = ({ logout, isAuthenticated }) => {
-    console.log(window.location.pathname);
+    // console.log(window.location.pathname);
     const location = useLocation();
     const [showmedia, setshowmedia] = useState(false);
-    const [auth, setAuth] = useState(isAuthenticated);
-    const handleLogout = () =>{
-        isAuthenticated = false;
-        setAuth(isAuthenticated);
+    // useEffect(() => {
+    //     checkAuthenticated();
+    // }, []);
+
+    if (isAuthenticated === false){
+         <Navigate to="/login" />
     }
-    useEffect(() => {
-        <Navigate to="/home" />
-      }, [auth,setAuth]);
+
+    // const [auth, setAuth] = useState(isAuthenticated);
+    // console.log(isAuthenticated)
+    // const handleLogout = () =>{
+    //     isAuthenticated = false;
+    //     setAuth(true);
+    // }
+    // console.log(auth)
+    // useEffect(() => {
+    //     <Navigate to="/home" />
+    //   }, [auth,setAuth]);
   return (
     <Nav className='shadow-md lg:pl-10 lg:pr-5 z-20  w-full'>
         <NavLink to="/" className={"ml-5 mt-8"}>
@@ -47,7 +57,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
                         Book your Slot
                     </button></Link>
                     <Link to="/">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={handleLogout}>
+                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={logout}>
                     Logout
                     </button></Link>
                 </div>
