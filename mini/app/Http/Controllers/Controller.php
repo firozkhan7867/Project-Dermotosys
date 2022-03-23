@@ -363,4 +363,18 @@ class Controller extends BaseController
             $data = ["Error" => $e->getMessage(), "Request" => $req->all()];
         }
     }
+
+
+
+    public function DelSlot(Request $req)
+    {
+        if ($schedule = Schedule::find($req->sid)) {
+            // Schedule
+            $schedule->delete();
+            return response(["sucess" => "Sucessfully Deleted"]);
+        } else {
+            return response(["Error" => "Invalid Slot Id", "Request" => $req->all()]);
+        }
+    }
+
 }

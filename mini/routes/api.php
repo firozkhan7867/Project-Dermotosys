@@ -37,7 +37,8 @@ Route::post('UpdateUser',[Controller::class,'UpdateUser']);
 
 
 Route::get('getDocs',[Controller::class,'getDocs']);
-//getUserAppointements
+//DelSlot
+Route::post('DelSlot',[Controller::class,'DelSlot']);
 Route::post('CreateAppoinment',[Controller::class,'CreateAppoinment']);
 Route::post('UploadUserProfilePic',[Controller::class,'UploadUserProfilePic']);
 Route::get('getUserAppointements',[Controller::class,'getUserAppointements']);
