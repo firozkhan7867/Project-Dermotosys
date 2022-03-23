@@ -59,10 +59,10 @@ const Dashboard = () => {
             </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
-            <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
+            <Link to="/patientslist" className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <AiOutlineUserAdd className="mr-2" />
               My Patients
-            </p>
+            </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
@@ -71,7 +71,7 @@ const Dashboard = () => {
               Schedule Timings
             </Link>
           </div>
-          <div className="container-fluid border-1 border-slate-100 py-4">
+          {/* <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <GrDocumentText className="mr-2" />
               Invoices
@@ -82,7 +82,7 @@ const Dashboard = () => {
               <MdStar className="mr-2" />
               Reviews
             </p>
-          </div>
+          </div> */}
           <div className="container-fluid border-1 border-slate-100 py-4">
             <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
             to="/chat">
@@ -96,7 +96,7 @@ const Dashboard = () => {
               Profile Settings
             </p>
           </div>
-          <div className="container-fluid border-1 border-slate-100 py-4">
+          {/* <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <GiShare className="mr-2" />
               Social Media
@@ -107,7 +107,7 @@ const Dashboard = () => {
               <MdPassword className="mr-2" />
               Change Password
             </p>
-          </div>
+          </div> */}
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <RiLogoutBoxRLine className="mr-2" />
