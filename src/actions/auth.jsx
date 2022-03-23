@@ -3,10 +3,6 @@ import {
     LOGIN_FAIL,
     SIGNUP_SUCCESS,
     SIGNUP_FAIL,
-    USER_LOADED_SUCCESS,
-    USER_LOADED_FAIL,
-    AUTHENTICATED_SUCCESS,
-    AUTHENTICATED_FAIL,
     LOGOUT,
     SCHEDULE_DATA_SUCCESS,
     SCHEDULE_DATA_FAIL,
@@ -14,6 +10,9 @@ import {
     APPOINT_SUCCESS,
 } from "./types";
 import axios from "axios";
+
+
+
 
 export const login = (email, password) => async dispatch => {
     const config = {
