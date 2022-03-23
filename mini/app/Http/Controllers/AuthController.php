@@ -17,6 +17,7 @@ class AuthController extends Controller
         //     'email'=>'required|string|unique:users,email',
         //     'password'=>'required|string',
         // ]);
+        // dd($request);
 
         $user = User::Create([
             'name' => $request->name,

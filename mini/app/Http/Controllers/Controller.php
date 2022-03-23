@@ -15,6 +15,8 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Patient;
 use App\Models\Schedule;
+use Illuminate\Support\Facades\Storage;
+
 use WeakMap;
 
 use Illuminate\Support\Facades\Validator;
@@ -182,11 +184,13 @@ class Controller extends BaseController
                     patients.age AS PatientsAge,
                     patients.gender AS PatientsGender,
                     patients.message AS PatientsMessage,
+                    patients.profilepic AS PatientsProfilePic,
                     doctors.id AS DoctorsID,
                     doctors.name AS DoctorsName,
                     users.id AS UserID,
                     users.name AS UserName,
-                    users.email AS UserEmail
+                    users.email AS UserEmail,
+                    users.profilepic AS UserProfilePic
                 FROM
                     appoinments,
                     schedules,
@@ -305,24 +309,58 @@ class Controller extends BaseController
         }
 
 
-        if ($files = $request->file('pic')) {
-
-            //store file into uimages folder
-
-            $file = $request->file('pic')->storeAs('uimages', Hash::make($request->id) . '.' . 'jpg');
-            // $file = $request->file('pic')->store('uimages');
-
-            //store your file into database
-            // $document = new Document();
-            // $document->title = $file;
-            // $document->user_id = $request->user_id;
-            // $document->save();
+        if ($user = User::find($request->id)) {
+            $fileName = md5($request->id) . "." . $request->file('pic')->extension();
+            $request->pic->move(public_path("user_images"), $fileName);
+            // $user=User::find($request->id);
+            $user->profilepic = $fileName;
+            $user->save();
 
             return response()->json([
                 "success" => true,
                 "message" => "File successfully uploaded",
-                "file" => $file
+                "file" => $fileName
             ]);
+        } else {
+            $data = ["Error" => "Invalid User Id", "Request" => $request->all()];
+            return response($data);
+        }
+    }
+
+
+
+
+    public function UpdateUser(Request $req)
+    {
+        try {
+
+            if ($user = User::find($req->id)) {
+                $user->firstname = $req->firstname;
+                $user->lastname = $req->lastname;
+                $user->phno = $req->phno;
+                $user->bloodgroup = $req->bloodgroup;
+                $user->address = $req->address;
+                $user->city = $req->city;
+                $user->state = $req->state;
+                $user->country = $req->country;
+                $user->zipcode = $req->zipcode;
+                $user->dob = $req->dob;
+                if ($req->pic) {
+                    $fileName = md5($req->id) . "." . $req->file('pic')->extension();
+                    $req->pic->move(public_path("user_images"), $fileName);
+                    $user->profilepic = $fileName;
+                }
+
+                $user->save();
+
+                return response(["sucess" => $user->getAttributes()]);
+            } else {
+
+                return response(["Error" => "Invalid User Id", "Request" => $req->all()]);
+            }
+        } catch (\Exception $e) {
+
+            $data = ["Error" => $e->getMessage(), "Request" => $req->all()];
         }
     }
 }
