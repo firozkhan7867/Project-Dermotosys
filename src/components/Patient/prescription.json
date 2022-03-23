@@ -15,7 +15,7 @@
             "fullName": "Sample",
             "id":"DT0017",
             "apptdate": "14 NOV 2019",
-            "bookingdate": "Prescription1",
+            "bookingdate": "Prescription2",
             "followup": "16 NOV 2019"
         },
         {
@@ -47,7 +47,7 @@
             "fullName": "Sample",
             "id":"DT0017",
             "apptdate": "14 NOV 2019",
-            "bookingdate": "12 NOV 2019",
+            "bookingdate": "Prescription6",
             "followup": "16 NOV 2019"
           }
       ]

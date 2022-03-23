@@ -118,7 +118,9 @@ const Dashboard = () => {
         <div className=" w-full md:w-full lg:w-full  px-3 h-screen ">
           <div className="bg-white shadow-sm mb-5 py-4 grid lg:grid-cols-3 xl:grid-col-3 md:grid-col-3 grid-col-1 p-3">
             <div className="flex justify-start text-left items-center">
-              <div className="h-20 w-6/12 bg-gray-500"></div>
+              <div className="h-15 w-6/12 ">
+                <img src={require("../img/p1.jpg")} />
+              </div>
               <div className="w-full ml-5">
                 <p className="text-lg text-gray-500 font-bold ">
                   Total Patient
@@ -128,7 +130,9 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="flex justify-start text-left items-center">
-              <div className="h-20 w-6/12 bg-gray-500"></div>
+              <div className="h-15 w-6/12">
+              <img src={require("../img/p2.jpg")} />
+              </div>
               <div className="w-full ml-5">
                 <p className="text-lg text-gray-500 font-bold ">
                   Total Patient
@@ -138,7 +142,9 @@ const Dashboard = () => {
               </div>
             </div>
             <div className="flex justify-start text-left items-center">
-              <div className="h-20 w-6/12 bg-gray-400"></div>
+              <div className="h-20 w-6/1">
+              <img src={require("../img/p3.jpg")} />
+              </div>
               <div className="w-full ml-5">
                 <p className="text-lg text-gray-500 font-bold ">
                   Total Patient
