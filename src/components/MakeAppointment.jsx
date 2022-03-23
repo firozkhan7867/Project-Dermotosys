@@ -2,17 +2,25 @@ import React, {useState,useEffect} from 'react';
 import { connect } from 'react-redux';
 import {get_schedule_data,appointmentSubmit} from "../actions/auth.jsx";
 import { Navigate,useNavigate } from "react-router-dom";
+import {BsPatchCheckFill} from "react-icons/bs";
+import {ImCancelCircle} from "react-icons/im";
+
 
 export const ScheduleTab = ({details,kk,day,fun}) =>{
-  return (
-    <div className={kk.id === details.id ? " px-3 py-2 bg-[#26ae2b] rounded-md" 
-    : "px-3 py-2 bg-[#f33f39] rounded-md "} onClick={ () => {
+  const clk = () =>{
+    if (details.status == 1){
       fun(details,day)
-    }}>
-        {details.start} To {details.end}    
+    }
+    // bg-[#f33f39]
+  }
+  return (
+    <div className={kk.id === details.id ? " px-3 py-2 flex items-center justify-center rounded-md bg-[#26ae2b]"
+    : "px-3 py-2  rounded-md "+ (details.status === 1 ? "bg-blue-500" : "bg-red-300 flex items-center justify-center hover:cursor-not-allowed ") + ""} onClick={ clk}>
+        {details.start} To {details.end}    {kk.id === details.id ? <div className="ml-2"><BsPatchCheckFill className='text-white text-xl' /></div> : '' }
+            {details.status !== 1 ? <div className="ml-2"><ImCancelCircle className='text-white text-xl' /></div> : ""}
     </div>
   )
-};
+};  
 
 
 
@@ -88,6 +96,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
         setDetails(schedule_data[cnv[index]]);
         setToggleState(index);
         setDay(cnv[index]);
+        console.log(schedule_data[cnv[index]]);
     };
 
   return (
@@ -198,7 +207,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
                     <div className="flex justify-start">
                         <div className="text-xl text-gray-700 font-semibold">Time Slots</div>
                     </div>
-                    <div className= "disp mt-5 ml-2 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-5 gap-4" >
+                    <div className= "disp mt-5 ml-2 xs:flex xs:flex-col text-white flex-col flex lg:grid xl:grid-cols-5 sm:grid sm:grid-cols-5 md:grid-cols-3 lg:grid-cols-3 l gap-4" >
                     { details.length > 0 ?
                         details.map((detail,index) => (
                             <ScheduleTab details={detail} kk={check} day={day} fun={cc}/>
@@ -214,7 +223,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
                 <div className="flex justify-end">
                     <div className="flex items-center">
                       Book Slot : 
-                      <div className="bg-blue-400 px-4 mx-2 py-2 rounded-lg text-white">
+                      <div className="bg-purple-400 px-4 mx-2 py-2 rounded-lg text-white">
                       from {check.start} To {check.end} on {check.day}
                       </div>
                     </div>

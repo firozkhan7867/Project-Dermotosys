@@ -95,6 +95,31 @@ export const appointmentSubmit = (name,email,contact,age,gender,doctor,message,s
 };
 
 
+
+export const updatePatientProfile = (firstname,lastname,phno,dob,bloodgroup,address,city,state,country,zip,pic,id) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const body = JSON.stringify({ firstname,lastname,phno,dob,bloodgroup,address,city,state,country,zip,pic,id });
+    console.log(body);
+    // try {
+    //     const res = await axios.post('http://127.0.0.1:8000/api/CreateAppoinment/', body, config);
+    //     console.log(res);
+    //     dispatch({
+    //         type:     APPOINT_SUCCESS,
+    //     });
+    //     // dispatch(load_user());
+    // } catch (err) {
+    //     dispatch({
+    //         type: APPOINT_FAIL,
+    //     })
+    // }
+};
+
+
 export const get_schedule_data =  (doc_id) => async dispatch => {
     
     try {
