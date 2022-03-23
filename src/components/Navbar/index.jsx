@@ -35,29 +35,26 @@ const Navbar = ({ logout, isAuthenticated }) => {
         </NavLink>
         <Bars onClick={() => setshowmedia(!showmedia)} />
         <NavMenu className={showmedia ? "nav-links-mobile" : "nav-links" }>
-            <Link to="/">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-blue-700 font-semibold text-xl hover:text-blue-400 mx-2">
+            <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 text-blue-700 font-semibold text-xl hover:text-blue-400 mx-2">
                 Home
-            </a></Link>
-            <Link to="/">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-blue-700 font-semibold text-xl hover:text-blue-400 mx-2">
+            </Link>
+            <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 text-blue-700 font-semibold text-xl hover:text-blue-400 mx-2">
                 About Us
-            </a></Link>
-            <Link to="/">
-            <a className="block mt-4 lg:inline-block lg:mt-0 text-blue-700 font-semibold text-xl hover:text-blue-400 mx-2">
+            </Link>
+            <Link to="/" className="block mt-4 lg:inline-block lg:mt-0 text-blue-700 font-semibold text-xl hover:text-blue-400 mx-2">
                 Our Services
-            </a></Link>
+            </Link>
         </NavMenu>
         <NavBtn>
             {isAuthenticated
                 ? 
                 <div>
                     <Link to="/makeappointment">
-                    <button class="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
+                    <button className="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded">
                         Book your Slot
                     </button></Link>
                     <Link to="/">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={logout}>
+                    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded" onClick={logout}>
                     Logout
                     </button></Link>
                 </div>
@@ -65,11 +62,11 @@ const Navbar = ({ logout, isAuthenticated }) => {
                 <div>   
                     {(location.pathname === "/login")?
                     <Link to="/signup">
-                    <button class="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
+                    <button className="bg-transparent mr-5 hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
                     Register
                     </button></Link>:
                     <Link to="/login">
-                    <button class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
+                    <button className="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mx-2">
                     Login
                     </button></Link>
                     }

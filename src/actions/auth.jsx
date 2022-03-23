@@ -8,6 +8,8 @@ import {
     SCHEDULE_DATA_FAIL,
     APPOINT_FAIL,
     APPOINT_SUCCESS,
+    PATIENT_UPDATE_SUCCESS,
+    PATIENT_UPDATE_FAIL,
 } from "./types";
 import axios from "axios";
 
@@ -90,6 +92,32 @@ export const appointmentSubmit = (name,email,contact,age,gender,doctor,message,s
     } catch (err) {
         dispatch({
             type: APPOINT_FAIL,
+        })
+    }
+};
+
+
+
+export const updatePatientProfile = (firstname,lastname,phno,dob,bloodgroup,address,city,state,country,zip,pic,id) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const body = JSON.stringify({ firstname,lastname,phno,dob,bloodgroup,address,city,state,country,zip,pic,id });
+    console.log(body);
+    try {
+        const res = await axios.post('http://127.0.0.1:8000/api/UpdateUser/', body, config);
+        console.log(res);
+        dispatch({
+            type:     PATIENT_UPDATE_SUCCESS,
+            payload: res.data
+        });
+        // dispatch(load_user());
+    } catch (err) {
+        dispatch({
+            type: PATIENT_UPDATE_FAIL,
         })
     }
 };
