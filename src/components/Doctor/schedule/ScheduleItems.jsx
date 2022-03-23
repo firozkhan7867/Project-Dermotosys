@@ -1,8 +1,4 @@
-import React, { useState } from 'react'
-import { RiDeleteBin6Fill} from "react-icons/ri";
-import { TimePickerComponent } from '@syncfusion/ej2-react-calendars';
-
-// const ScheduleItems = ({start,end, id,onSelect}) => {
+import React from 'react'
 
 const ScheduleItems = ({day,setStartVal,setEndVal,start,end}) => {
   return (
