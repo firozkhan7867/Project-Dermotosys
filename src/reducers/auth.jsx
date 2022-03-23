@@ -7,7 +7,9 @@ import {
     SCHEDULE_DATA_FAIL,
     SCHEDULE_DATA_SUCCESS,
     APPOINT_FAIL,
-    APPOINT_SUCCESS
+    APPOINT_SUCCESS,
+    PATIENT_UPDATE_SUCCESS,
+    PATIENT_UPDATE_FAIL
 } from '../actions/types';
 
 const initialState = {
@@ -34,6 +36,17 @@ export default function(state = initialState, action) {
                 // access: payload.access,
                 // refresh: payload.refresh
             }
+        case PATIENT_UPDATE_SUCCESS:
+            localStorage.setItem('account', payload.account);
+            // localStorage.setItem('token', payload.token);
+            return {
+                ...state,
+                isAuthenticated: true,
+                userData: payload.sucess,
+                // access: payload.access,
+                // refresh: payload.refresh
+            }
+            
         case SCHEDULE_DATA_SUCCESS:
             return {
                 ...state,
@@ -55,6 +68,7 @@ export default function(state = initialState, action) {
             }
         case SIGNUP_FAIL:
         case LOGIN_FAIL:
+        case PATIENT_UPDATE_FAIL:
         case LOGOUT:
             // localStorage.removeItem('access');
             // localStorage.removeItem('refresh');
