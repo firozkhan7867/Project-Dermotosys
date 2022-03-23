@@ -7,7 +7,7 @@ import { FiMessageSquare, FiCalendar } from "react-icons/fi";
 import { GrUserSettings, GrDocumentText } from "react-icons/gr";
 import { GiShare } from "react-icons/gi";
 import { RiLogoutBoxRLine, RiCalendarCheckFill } from "react-icons/ri";
-import Tabs from "../Tabs/Tab";
+import Tab from "./Tabs/Tab";
 
 const Dashboard = () => {
   return (
@@ -18,12 +18,12 @@ const Dashboard = () => {
       >
         <div className="flex justify-content-start pt-4">
           <div className="pl-4 text-sm text-white">
-            <p>Home / Appointments</p>
+            <p>Home / Doctor</p>
           </div>
         </div>
         <div className="flex justify-content-start">
           <div className="pl-4 text-xl font-bold text-white">
-            <p>Appointments</p>
+            <p>Dashboard</p>
           </div>
         </div>
       </div>
@@ -71,7 +71,7 @@ const Dashboard = () => {
               Schedule Timings
             </Link>
           </div>
-          {/* <div className="container-fluid border-1 border-slate-100 py-4">
+          <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <GrDocumentText className="mr-2" />
               Invoices
@@ -82,7 +82,7 @@ const Dashboard = () => {
               <MdStar className="mr-2" />
               Reviews
             </p>
-          </div> */}
+          </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
             to="/chat">
@@ -96,7 +96,7 @@ const Dashboard = () => {
               <Link to="/doctorprofilesettings" className="ml-2">Profile Settings</Link>
             </p>
           </div>
-          {/* <div className="container-fluid border-1 border-slate-100 py-4">
+          <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <GiShare className="mr-2" />
               Social Media
@@ -107,7 +107,7 @@ const Dashboard = () => {
               <MdPassword className="mr-2" />
               <Link to="/doctorchangepassword" className="ml-2">Change Password</Link>
             </p>
-          </div> */}
+          </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <RiLogoutBoxRLine className="mr-2" />
@@ -154,8 +154,8 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="bg-white shadow-sm mb-1 flex justify-between p-3">
-            <Tabs />
+          <div className="w-full px-3 py-2 bg-white h-screen pr-4">
+            <Tab />
           </div>
         </div>
       </div>

@@ -10,8 +10,8 @@ import Navbar from "./components/Navbar/index";
 import PatientsList from "./components/Doctor/PatientsList";
 import PatientDashboard from "./components/Patient/PatientDashboard";
 import Profile_settings from "./components/Patient/Patient_Profile_settings";
-import Doctor_Profile_Settings from "./components/Doctor/Doctor_Profile_Settings"
-import Doctor_Change_Password from "./components/Doctor/Doctor_Change_Password"
+import Doctor_Profile_Settings from "./components/Doctor/Doctor_Profile_Settings";
+import Doctor_Change_Password from "./components/Doctor/Doctor_Change_Password";
 import Change_Password from "./components/Patient/Patient_Change_Password";
 import Schedule from "./components/Doctor/DoctorSchedule";
 import ChatBody from "./components/Chat/components/chatBody/ChatBody";
