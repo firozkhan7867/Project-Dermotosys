@@ -16,6 +16,7 @@ import Change_Password from "./components/Patient/Patient_Change_Password";
 import Schedule from "./components/Doctor/DoctorSchedule";
 import ChatBody from "./components/Chat/components/chatBody/ChatBody";
 import { Provider } from 'react-redux';
+import Prescription from "./components/Prescription"
 import store from './store';
 import VideoChat from "./components/Chat/video/videochat";
 import AddPrescription from "./components/Patient/MakePrescription"
@@ -40,6 +41,7 @@ function App() {
           <Route path="/doctorprofilesettings" element={<Doctor_Profile_Settings />} />
           <Route path="/doctorSchedule" element={<Schedule />} />
           <Route path="/chat" element={<ChatBody />} />
+          <Route path="/prescription" element={<Prescription />} />
           <Route path="/vchat" element={<VideoChat />} />
           <Route path="/makeprescription" element={<AddPrescription />} />
           <Route path="/makeappointment" element={<MakeAppointment />} />

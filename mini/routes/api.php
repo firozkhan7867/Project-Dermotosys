@@ -32,6 +32,10 @@ Route::get('test',function (Request $request) {
 Route::post('Addslot',[Controller::class,'CreateSloat']);
 
 Route::get('getSloats',[Controller::class,'getSloats']);
+
+Route::post('UpdateUser',[Controller::class,'UpdateUser']);
+
+
 Route::get('getDocs',[Controller::class,'getDocs']);
 //getUserAppointements
 Route::post('CreateAppoinment',[Controller::class,'CreateAppoinment']);
