@@ -21,12 +21,12 @@ const Change_Password = ({isAuthenticated}) => {
       <div className="h-24" style={{ backgroundColor: "#15558d" }}>
         <div className="flex justify-content-start pt-4">
           <div className="pl-4 text-sm text-white">
-            <p>Home / Profile</p>
+            <p>Home / Patient</p>
           </div>
         </div>
         <div className="flex justify-content-start">
           <div className="pl-4 text-xl font-bold text-white">
-            <p>Profile Settings</p>
+            <p>Change Password</p>
           </div>
         </div>
       </div>

@@ -20,12 +20,12 @@ const PatientDashboard = ({isAuthenticated}) => {
       <div className="h-24" style={{ backgroundColor: "#15558d" }}>
         <div className="flex justify-content-start pt-4">
           <div className="pl-4 text-sm text-white">
-            <p>Home / Appointments</p>
+            <p>Home / Patient</p>
           </div>
         </div>
         <div className="flex justify-content-start">
           <div className="pl-4 text-xl font-bold text-white">
-            <p>Appointments</p>
+            <p>Dashboard</p>
           </div>
         </div>
       </div>

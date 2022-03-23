@@ -1,6 +1,6 @@
 import React from 'react'
-import patient from './img/patient.jpg';
-import doctor from './img/doctor-thumb-02.jpg';
+import patient from '../img/patient.jpg';
+import doctor from '../img/doctor-thumb-02.jpg';
 import { Link } from "react-router-dom";
 import { MdOutlineSpaceDashboard, MdPassword, MdStar } from "react-icons/md";
 import { AiOutlineUserAdd } from "react-icons/ai";
@@ -15,12 +15,12 @@ const PatientsList = () => {
           <div className="container-fluid h-24" style={{backgroundColor: "#15558d"}}>
           <div className="flex justify-content-start pt-4">
               <div className="pl-4 text-sm text-white">
-                  <p>Home / Appointments</p>
+                  <p>Home / Doctor</p>
               </div>
           </div>
           <div className="flex justify-content-start">
               <div className="pl-4 text-xl font-bold text-white">
-                  <p>Appointments</p>
+                  <p>Patient List</p>
               </div>
           </div>
       </div>
@@ -83,14 +83,13 @@ const PatientsList = () => {
           <div className="container-fluid border-1 border-slate-100 py-4">
             <Link className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400"
             to="/chat">
-              <FiMessageSquare className="mr-2" />
-              Messages
+              <FiMessageSquare className="mr-2" />Messages
             </Link>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <GrUserSettings className="mr-2" />
-              Profile Settings
+              <Link to="/doctorprofilesettings" className="ml-2">Profile Settings</Link>
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">
@@ -102,7 +101,7 @@ const PatientsList = () => {
           <div className="container-fluid border-1 border-slate-100 py-4">
             <p className="flex place-items-center cursor-pointer text-left	pl-4 pr-3 text-md capitalize text-gray-600	hover:text-sky-400">
               <MdPassword className="mr-2" />
-              Change Password
+              <Link to="/doctorchangepassword" className="ml-2">Change Password</Link>
             </p>
           </div>
           <div className="container-fluid border-1 border-slate-100 py-4">

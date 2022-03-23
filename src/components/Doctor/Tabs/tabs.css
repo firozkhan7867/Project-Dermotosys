@@ -1,5 +1,3 @@
-
-  
 .tabs  {
 margin-right: 0px;
 padding: 10px 20px;
@@ -7,7 +5,6 @@ border-radius: 50px;
 font-weight: bold;
 border-bottom: 1px solid transparent;
 }
-
 
   .bloc-tabs {
     display: flex;
@@ -19,7 +16,7 @@ border-bottom: 1px solid transparent;
   
   .active-tabs  {
     background: #20c0f3;
-    padding: 10px 10px;
+    padding: 10px 30px;
     border-radius: 50px;
     color: white;
     font-weight: bold;
