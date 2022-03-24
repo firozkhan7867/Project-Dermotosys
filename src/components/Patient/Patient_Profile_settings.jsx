@@ -10,18 +10,16 @@ import { updatePatientProfile } from "../../actions/auth";
 
 
 const Profile_settings = ({isAuthenticated,updatePatientProfile,userData}) => {
-  const [formData, setFormData] = useState({ first_name:"",last_name:"",profile:"",phone:"",dob:"",blood:"",address:"",city:"",state:"",country:"",zip:"",email: "" });
+  const [formData, setFormData] = useState({ first_name:"",last_name:"",phone:"",dob:"",blood:"",address:"",city:"",state:"",country:"",zip:"",email: "" });
 
-  const { first_name,last_name,phone,dob,blood,address,city,state,country,zip,email,profile } = formData;
+  const { first_name,last_name,phone,dob,blood,address,city,state,country,zip,email } = formData;
 
-  console.log(userData.id);
+  const [img,setImg] =useState(null);
+  const filename=null;
 
-  console.log(userData);
 
   const onChange = (e) => 
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    const onChange2 = (e) => 
-    setFormData({ ...formData, [e.target.name]: e.target.file[0]});
 
 //     var data = new FormData();
 // var imagedata = document.querySelector('input[type="file"]').files[0];
@@ -48,7 +46,7 @@ const Profile_settings = ({isAuthenticated,updatePatientProfile,userData}) => {
 
   const update = () => {
     // console.log(first_name,last_name,phone,dob,blood,address,city,state,country,zip,email,profile);
-    updatePatientProfile(first_name,last_name,phone,dob,blood,address,city,state,country,zip,profile,userData.id);
+    updatePatientProfile(first_name,last_name,phone,dob,blood,address,city,state,country,zip,img,userData.id);
   }
     // if (!isAuthenticated) {
     //     return <Navigate to="/login" />;
@@ -78,11 +76,12 @@ const Profile_settings = ({isAuthenticated,updatePatientProfile,userData}) => {
                 <div className=" flex lg:flex-row flex-col ml-6">
                     <img src={patient} className="w-28" />
                     <div className="flex flex-col mt-8 ml-6">
-                          <label className="flex w-44 px-4 py-2 rounded-full text-white font-bold bg-[#03a9f4] hover:bg-[#2ca5dd] cursor-pointer hover:text-white">
-                          <FaCloudUploadAlt className="mr-2 text-xl" />Upload Photo
-                          <input type='file' class="hidden" 
-                      onChange={(e) => onChange(e)}
-                      required  name="profile" value={profile}/>
+                          <label className="flex  px-4 py-2 rounded-full text-white font-bold bg-[#03a9f4] hover:bg-[#2ca5dd] cursor-pointer hover:text-white">
+                          <FaCloudUploadAlt className="mr-2 text-xl" />{img ? img.name :"Upload Photo"}
+                          <input type='file' class="hidden"
+                          onChange={(event) => {
+                            setImg(event.target.files[0]);
+                          }} name="profile"/>
                           </label>
                           <p className="text-gray-400 text-xs mt-2">Allowed JPG, GIF or PNG.</p>
                     </div>
@@ -127,14 +126,14 @@ const Profile_settings = ({isAuthenticated,updatePatientProfile,userData}) => {
                     className='border border-gray-300 w-full text-sm py-2 px-2 my-2 rounded-lg text-black outline-none' 
                     onChange={(e) => onChange(e)}
                     required name="blood" value={blood}>
-                        <option className='px-2 py-2 hover:bg-[#03a9f4]'  value="Male">A+</option>
-                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Female">A-</option>
-                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Male">B+</option>
-                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Female">B-</option>
-                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Male">AB+</option>
-                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Female">AB-</option>
-                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="Male">O+</option>
-                        <option className='px-2 py-2 hover:Og-[#03a9f4]' value="Female">O-</option>
+                        <option className='px-2 py-2 hover:bg-[#03a9f4]'  value="A+">A+</option>
+                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="A-">A-</option>
+                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="B+">B+</option>
+                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="B-">B-</option>
+                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="AB+">AB+</option>
+                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="AB-">AB-</option>
+                        <option className='px-2 py-2 hover:bg-[#03a9f4]' value="O+">O+</option>
+                        <option className='px-2 py-2 hover:Og-[#03a9f4]' value="O-">O-</option>
                     </select>
                     </div>
                 </div>

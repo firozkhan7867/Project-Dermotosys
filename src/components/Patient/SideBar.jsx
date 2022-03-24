@@ -8,6 +8,22 @@ import { GrUserSettings } from "react-icons/gr";
 import { RiLogoutBoxRLine, RiUserLocationFill } from "react-icons/ri";
 import { BsCalendarCheck } from "react-icons/bs";
 
+
+// formData.append('firstname', firstname);  
+//     formData.append('lastname', lastname); 
+//     formData.append('phno', phno); 
+//     formData.append('dob', dob); 
+//     formData.append('bloodgroup', bloodgroup); 
+//     formData.append('address', address); 
+//     formData.append('city', city); 
+//     formData.append('state', state); 
+//     formData.append('country', country); 
+//     formData.append('zipcode', zip); 
+//     formData.append('id', id);  //append the values with key, value pair
+//     formData.append('age', 20);
+//     formData.append("profilepic", file);
+
+
 const SideBar = () => {
   return (<div className=" shadow-md py-4 px-2 bg-white sm:w-5/12 md:w-full lg:w-4/12 w-full">
     <div className="w-full flex  justify-center p-2">

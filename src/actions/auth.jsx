@@ -29,7 +29,7 @@ export const login = (email, password) => async dispatch => {
     // const body = {email:'sample@miniproject.com',password:'Sample@1234'};
 
     try {
-        console.log(body);
+        // console.log(body);
         const res = await axios.post('http://127.0.0.1:8000/api/login/', body, config);
         dispatch({
             type: LOGIN_SUCCESS,
@@ -81,10 +81,10 @@ export const appointmentSubmit = (name,email,contact,age,gender,doctor,message,s
     };
 
     const body = JSON.stringify({ name,email,contact,age,gender,doctor,message,slot_id,user_id });
-    console.log(body);
+    // console.log(body);
     try {
         const res = await axios.post('http://127.0.0.1:8000/api/CreateAppoinment/', body, config);
-        console.log(res);
+        // console.log(res);
         dispatch({
             type:     APPOINT_SUCCESS,
         });
@@ -101,15 +101,31 @@ export const appointmentSubmit = (name,email,contact,age,gender,doctor,message,s
 export const updatePatientProfile = (firstname,lastname,phno,dob,bloodgroup,address,city,state,country,zip,pic,id) => async dispatch => {
     const config = {
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'multipart/form-data'
         }
     };
+    let formData = new FormData(); 
+    console.log(pic);  //formdata object
 
-    const body = JSON.stringify({ firstname,lastname,phno,dob,bloodgroup,address,city,state,country,zip,pic,id });
-    console.log(body);
+    formData.append('firstname', firstname);  
+    formData.append('lastname', lastname); 
+    formData.append('phno', phno); 
+    formData.append('dob', dob); 
+    formData.append('bloodgroup', bloodgroup); 
+    formData.append('address', address); 
+    formData.append('city', city); 
+    formData.append('state', state); 
+    formData.append('country', country); 
+    formData.append('zipcode', zip); 
+    formData.append('id', id);  //append the values with key, value pair
+    formData.append('age', 20);
+    formData.append("pic", pic);
+
+    // const body = JSON.stringify({ firstname,lastname,phno,dob,bloodgroup,address,city,state,country,zip,pic,id });
+    // console.log(formData);
     try {
-        const res = await axios.post('http://127.0.0.1:8000/api/UpdateUser/', body, config);
-        console.log(res);
+        const res = await axios.post('http://127.0.0.1:8000/api/UpdateUser/', formData, config);
+        // console.log(res);
         dispatch({
             type:     PATIENT_UPDATE_SUCCESS,
             payload: res.data
@@ -173,6 +189,33 @@ export const addSlot = (start,end,weekday) => async dispatch => {
         // })
     }
 };
+
+
+export const delSlot = (id) => async dispatch => {
+    const config = {
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    };
+
+    const body = JSON.stringify({id });
+    console.log(body);
+    try {
+        const res = await axios.post('http://127.0.0.1:8000/api/DelSlot/', body, config);
+        console.log(res);
+        // get_schedule_data(1);
+        // dispatch({
+        //     type:     APPOINT_SUCCESS,
+        // });
+        // dispatch(load_user());
+    } catch (err) {
+        // dispatch({
+        //     type: APPOINT_FAIL,
+        // })
+    }
+};
+
+
 
 export const logout = () => dispatch => {
     dispatch({

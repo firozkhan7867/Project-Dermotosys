@@ -11,9 +11,10 @@ import { GiShare } from "react-icons/gi";
 import { RiLogoutBoxRLine, RiCalendarCheckFill, RiAddCircleFill} from "react-icons/ri";
 import ScheduleItems from './schedule/ScheduleItems';
 import { connect } from 'react-redux';
-import {get_schedule_data,addSlot} from "../../actions/auth.jsx"
+import {get_schedule_data,addSlot,delSlot} from "../../actions/auth.jsx"
+import {ImCancelCircle} from "react-icons/im";
 
-const Schedule = ({get_schedule_data,schedule_data,addSlot}) => {
+const Schedule = ({get_schedule_data,schedule_data,addSlot,delSlot}) => {
   useEffect(() => {
     get_schedule_data(1);
   }, []);
@@ -25,12 +26,14 @@ const Schedule = ({get_schedule_data,schedule_data,addSlot}) => {
     const [showModal, setShowModal] = useState(false);
     const [toggleState, setToggleState] = useState(1);
     
-    const deleteItem = (id) => {
+    const delSlots = (id) => {
       setDetails((old) =>{
-        return old.filter((arr,index) => {
-          return index !== id;
+        return old.filter((arr) => {
+          return arr.id !== id;
         });
       });
+      // console.log(id);
+      delSlot(id);
     }
     
     const saveSlot = (value) =>{
@@ -162,13 +165,13 @@ const Schedule = ({get_schedule_data,schedule_data,addSlot}) => {
                         Schedule Timings
                     </div>   
                     <p className='px-3 py-2'>Timing Slot Duration</p>    
-                    <select name="duration" id="" className='ml-4 px-4 py-2 rounded-md text-md w-2/12 border-2 '> 
+                    {/* <select name="duration" id="" className='ml-4 px-4 py-2 rounded-md text-md w-2/12 border-2 '> 
                         <option value="" className='px-2 py-2'>-</option>
                         <option value="" className='px-2 py-2'>15 min</option>
                         <option value="" className='px-2 py-2'>30 min</option>
                         <option value="" className='px-2 py-2'>45 min</option>
                         <option value="" className='px-2 py-2'>1 Hour</option>
-                    </select>
+                    </select> */}
                     <div className="mt-8 mx-3">
                         <div className="border rounded gray-700 p-3 sm:flex sm:flex-col flex-col flex lg:grid lg:grid-cols-7 gap-4 ">
                             <div className={toggleState === 1 ? " px-5 py-2 border-[#ff4877] rounded-md border text-white bg-[#f14772] cursor-pointer text-center active-day" 
@@ -212,12 +215,12 @@ const Schedule = ({get_schedule_data,schedule_data,addSlot}) => {
                                 <div className="flex text-lg ml-4 mr-4 font-medium text-[#20c0f3] hover:text-[#09e5ab] hover:cursor-pointer" onClick={() => setShowModal(true)}>
                                      <AiOutlineFileAdd className="mr-1 mt-1" />Add Slot</div>
                             </div>
-                            <div className= "disp mt-5 ml-2 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-5 gap-4" >
+                            <div className= "disp mt-5 ml-2 xs:flex xs:flex-col text-white flex-col flex lg:grid xl:grid-cols-4 sm:grid sm:grid-cols-5 md:grid-cols-3 lg:grid-cols-3 l gap-4" >
                             {/* : " no mt-5 ml-3 sm:flex sm:flex-col text-white flex-col flex lg:grid lg:grid-cols-6 gap-4"}>  */}
                             { details.length > 0 ?
                                 details.map((detail) => (
-                                    <div className=" px-3 py-2 bg-[#d9534f] rounded-md">
-                                        {detail.start} To {detail.end}     
+                                    <div className=" flex justify-between px-3 py-2 bg-[#d9534f] items-center justify-center rounded-md">
+                                        <div className="">{detail.start} To {detail.end} </div>  <div className="hover:cursor-pointer" onClick={() =>{delSlots(detail.id)}}> <ImCancelCircle className='text-md text-white ml-2' /></div>
                                     </div>
                                 )) :
                                 <p className=" px-3 py-2 text-black">
@@ -312,4 +315,4 @@ const mapStateToProps = (state) => ({
   schedule_data: state.auth.schedule_data,
 });
 
-export default connect(mapStateToProps, { get_schedule_data,addSlot })(Schedule);
+export default connect(mapStateToProps, { get_schedule_data,addSlot,delSlot })(Schedule);
