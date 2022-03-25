@@ -34,6 +34,7 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
   const [check, setChecked] = useState({"start":"","end":"","day":"","id":""});
   // const [showModal, setShowModal] = useState(false);
   const [day, setDay] = useState();
+  console.log(schedule_data);
 
     const [details,setDetails] = useState(schedule_data["Sunday"]);
     const [showModal, setShowModal] = useState(false);
@@ -48,9 +49,9 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
       setShowModal(value);
     };
 
-    // if (!isAuthenticated) {
-    //   navigate("/login");
-    // }
+    if (!isAuthenticated) {
+      navigate("/login");
+    }
 
     const subt = (value) =>{
       appointmentSubmit(name,email,contact,age,gender,doctor,message,check.id,userData.id);
@@ -64,13 +65,6 @@ const MakeAppointment = ({get_schedule_data,appointmentSubmit,schedule_data,user
         doctor:'',
         message:''
       });
-      name= "";
-      email= "";
-      contact= "";
-      age= "";
-      gender= "";
-      doctor= "";
-      message= "";
       setChecked({"start":"","end":"","day":"","id":""});
       navigate("/patientdashboard");
 

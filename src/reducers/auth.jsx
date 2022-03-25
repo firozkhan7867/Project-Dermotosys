@@ -9,7 +9,9 @@ import {
     APPOINT_FAIL,
     APPOINT_SUCCESS,
     PATIENT_UPDATE_SUCCESS,
-    PATIENT_UPDATE_FAIL
+    PATIENT_UPDATE_FAIL,
+    APPT_DATA_SUCCESS,
+    APPT_DATA_FAIL
 } from '../actions/types';
 
 const initialState = {
@@ -19,6 +21,7 @@ const initialState = {
     user: null,
     userData:{"id":null,"name":"","email":""},
     schedule_data: {"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
+    userApptData:[],
     // schedule_data:{"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
 };
 
@@ -51,6 +54,17 @@ export default function(state = initialState, action) {
             return {
                 ...state,
                 schedule_data: payload.sucess,
+            }
+        case APPT_DATA_SUCCESS:
+            localStorage.setItem('patientlist', payload);
+            return {
+                ...state,
+                userApptData: payload,
+            }
+        case APPT_DATA_FAIL:
+            return {
+                ...state,
+                userApptData: [],
             }
         case SCHEDULE_DATA_FAIL:
             return {

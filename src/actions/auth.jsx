@@ -10,6 +10,8 @@ import {
     APPOINT_SUCCESS,
     PATIENT_UPDATE_SUCCESS,
     PATIENT_UPDATE_FAIL,
+    APPT_DATA_SUCCESS,
+    APPT_DATA_FAIL
 } from "./types";
 import axios from "axios";
 
@@ -152,6 +154,28 @@ export const get_schedule_data =  (doc_id) => async dispatch => {
         dispatch({
             type: SCHEDULE_DATA_FAIL,
         })
+    }
+};
+
+
+
+
+export const get_appointment_data =  (id) => async dispatch => {
+    
+    try {
+        const res = await axios.get('http://127.0.0.1:8000/api/getUserAppointements', { params: { id: id } });
+        dispatch({
+            type:     APPT_DATA_SUCCESS,
+            payload: res.data
+        });
+        console.log(res.data);
+        return res.data;
+        
+    } catch (err) {
+        dispatch({
+            type: APPT_DATA_FAIL,
+        })
+        return "error";
     }
 };
 
