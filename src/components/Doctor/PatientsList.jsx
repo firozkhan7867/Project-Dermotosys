@@ -1,13 +1,4 @@
 import React,{useState,useEffect} from 'react'
-import patient from '../img/profile.png';
-// import doctor from '../img/doctor-thumb-02.jpg';
-// import { Link } from "react-router-dom";
-// import { MdOutlineSpaceDashboard, MdPassword, MdStar } from "react-icons/md";
-// import { AiOutlineUserAdd } from "react-icons/ai";
-// import { FiMessageSquare, FiCalendar } from "react-icons/fi";
-// import { GrUserSettings, GrDocumentText } from "react-icons/gr";
-// import { GiShare } from "react-icons/gi";
-// import { RiLogoutBoxRLine, RiCalendarCheckFill } from "react-icons/ri";
 import SideBar from './SideBar';
 import {get_appointment_data} from "../../actions/auth";
 import { connect } from 'react-redux';
@@ -48,7 +39,7 @@ const PatientsList = ({get_appointment_data}) => {
         <SideBar />
         <div className=" w-full md:w-full lg:w-full  px-3 h-screen overflow-x-auto ">
                 
-                  {data.map((app,index) => (
+                  {data.map((app) => (
                 //     <div className="bg-white shadow-sm mb-1 flex justify-between p-3">
                 //     <div className="p-1 flex">
                 //     <img src={patient} alt="" width="120" height="120"/>
