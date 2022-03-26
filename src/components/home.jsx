@@ -185,9 +185,7 @@ const HomePage = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full">
-                <Footer />    
-            </div>
+            
             
         </div>
     </div>

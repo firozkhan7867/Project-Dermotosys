@@ -20,6 +20,7 @@ import Prescription from "./components/Prescription"
 import store from './store';
 import VideoChat from "./components/Chat/video/videochat";
 import AddPrescription from "./components/Patient/MakePrescription"
+import Footer from "./components/Footer/Footer";
 
 
 function App() {
@@ -46,6 +47,9 @@ function App() {
           <Route path="/makeprescription" element={<AddPrescription />} />
           <Route path="/makeappointment" element={<MakeAppointment />} />
         </Routes>
+        <div className="w-full">
+            <Footer />    
+        </div>
       </BrowserRouter>
       </Provider>
       

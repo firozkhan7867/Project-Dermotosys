@@ -30,8 +30,9 @@ export default function(state = initialState, action) {
 
     switch(type) {
         case LOGIN_SUCCESS:
-            localStorage.setItem('account', payload.account);
-            localStorage.setItem('token', payload.token);
+            localStorage.setItem('account', JSON.stringify(payload.account));
+            localStorage.setItem('token', JSON.stringify(payload.token));
+            localStorage.setItem('isAuthenticated', true);
             return {
                 ...state,
                 isAuthenticated: true,
@@ -40,7 +41,7 @@ export default function(state = initialState, action) {
                 // refresh: payload.refresh
             }
         case PATIENT_UPDATE_SUCCESS:
-            localStorage.setItem('account', payload.account);
+            localStorage.setItem('account', JSON.stringify(payload.account));
             // localStorage.setItem('token', payload.token);
             return {
                 ...state,
@@ -56,7 +57,7 @@ export default function(state = initialState, action) {
                 schedule_data: payload.sucess,
             }
         case APPT_DATA_SUCCESS:
-            localStorage.setItem('patientlist', payload);
+            localStorage.setItem('patientlist', JSON.stringify(payload));
             return {
                 ...state,
                 userApptData: payload,
@@ -74,25 +75,30 @@ export default function(state = initialState, action) {
        
         
         case SIGNUP_SUCCESS:
-            localStorage.setItem("auth_token", payload.token);
-            localStorage.setItem("auth_name", payload.account);
+            localStorage.setItem("auth_token", JSON.stringify(payload.token));
+            localStorage.setItem("auth_name", JSON.stringify(payload.account));
             return{
                 ...state,
                 isAuthenticated: false
             }
+        
+        case PATIENT_UPDATE_FAIL:
+            return{
+
+            }
         case SIGNUP_FAIL:
         case LOGIN_FAIL:
-        case PATIENT_UPDATE_FAIL:
         case LOGOUT:
-            // localStorage.removeItem('access');
-            // localStorage.removeItem('refresh');
+            localStorage.removeItem('account');
+            localStorage.removeItem('token');
+            localStorage.removeItem('isAuthenticated');
             return {
                 ...state,
-                // access: null,
-                // refresh: null,
                 isAuthenticated: false,
                 user: null,
                 userData:{"id":null,"name":"","email":""},
+                userApptData:[],
+                schedule_data:{"Monday":[],"Tuesday":[],"Wednesday":[],"Thursday":[],"Friday":[],"Saturday":[],"Sunday":[]},
             }
         case APPOINT_SUCCESS:
         case APPOINT_FAIL:

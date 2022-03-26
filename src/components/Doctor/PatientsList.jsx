@@ -17,15 +17,18 @@ const PatientsList = ({get_appointment_data}) => {
   // const [appointmentdata, setAppointmentData] = useState([]);
   const [data, setData] = useState([]);
 
-  
   useEffect(() => {
     
-
-    const fetchData = async () => {
-      const data = await get_appointment_data(1);
+    const fetchData = async (id) => {
+      const data = await get_appointment_data(id);
       setData(data);
     }
-    fetchData()
+    // console.log(userData);
+    if(localStorage.getItem('account')){
+      const userData = JSON.parse(localStorage.getItem('account'));
+      // console.log(userData);
+      fetchData(userData.id)
+    }
   }, []);
   
 

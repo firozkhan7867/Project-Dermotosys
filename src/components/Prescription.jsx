@@ -7,7 +7,9 @@ const Prescription = () => {
         <div className="bg-white lg:w-2/3 shadow-lg  pb-32 mb-4">
             <div className="grid grid-cols-2 py-8 ">
                 <img src={require("./img/prescleft.png")} alt="" className="img-responsive h-32 " />
-                <img src={require("./img/prescright.jpg")} alt="" className="img-responsive h-40 flex flex-row-reverse" />
+                <div className="flex justify-end pr-10">
+                    <img src={require("./img/prescright.jpg")} alt="" className="img-responsive h-40" />
+                </div>
             </div>
             <div class="inline-block min-w-full px-8 overflow-hidden">
               <table class="min-w-full leading-normal text-center">

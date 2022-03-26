@@ -25,8 +25,8 @@ const LoginPage = ({ login, isAuthenticated }) => {
   };
 
   return (
-    <div className=" flex justify-center my-12 mx-2 md:my-6 lg:my-6">
-      <div className="flex w-full xl:w-8/12 lg:w-8/12 bg-teal-200 h-[576px] shadow-lg">
+    <div className=" flex h-screen justify-center my-12 mx-2 md:my-6 lg:my-6">
+      <div className="flex w-full xl:w-8/12 lg:w-8/12 bg-teal-200 h-[650px] shadow-lg">
         <img
           src={bot}
           alt=""

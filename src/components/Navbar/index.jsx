@@ -14,7 +14,8 @@ const Navbar = ({ logout, isAuthenticated }) => {
     //     checkAuthenticated();
     // }, []);
 
-    if (isAuthenticated === false){
+    if (!localStorage.getItem('isAuthenticated')){
+        isAuthenticated = false;
          <Navigate to="/login" />
     }
 
@@ -46,7 +47,7 @@ const Navbar = ({ logout, isAuthenticated }) => {
             </Link>
         </NavMenu>
         <NavBtn>
-            {isAuthenticated
+            {localStorage.getItem('isAuthenticated')
                 ? 
                 <div>
                     <Link to="/makeappointment">

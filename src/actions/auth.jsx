@@ -55,10 +55,10 @@ export const signup = (name,email, password) => async dispatch => {
     };
 
     const body = JSON.stringify({ name,email, password });
-    console.log(body);
+    // console.log(body);
     try {
         const res = await axios.post('http://127.0.0.1:8000/api/register/', body, config);
-        // console.log(res);
+        console.log(res);
         dispatch({
             type:     SIGNUP_SUCCESS,
             payload: res.data
@@ -168,7 +168,7 @@ export const get_appointment_data =  (id) => async dispatch => {
             type:     APPT_DATA_SUCCESS,
             payload: res.data
         });
-        console.log(res.data);
+        // console.log(res.data);
         return res.data;
         
     } catch (err) {
